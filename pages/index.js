@@ -12,13 +12,14 @@ export default function Home() {
     if (session) {
       router.push("/specialization");
     } else {
+      router.push("/auth/sign-in");
       console.log("session.jwt", session?.jwt);
     }
   }, [session]);
 
   return (
     <div className="flex flex-col h-screen justify-center items-center">
-      <Head>
+      {/* <Head>
         <title>Strapi - Next - NextAuth</title>
       </Head>
       <div className="flex flex-col justify-center items-center bg-slate-300 rounded-3xl p-24">
@@ -41,7 +42,7 @@ export default function Home() {
             </button>
           </Link>
         )}
-      </div>
+      </div> */}
     </div>
   );
 }
