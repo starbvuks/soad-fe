@@ -5,7 +5,7 @@ import React, { useState, useEffect } from "react";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import Navbar from "../../components/Navbar";
+import Navbar from "../../../components/Navbar";
 
 export default function SemesterPage() {
   const [specializations, setSpecializations] = useState([]);
@@ -13,7 +13,7 @@ export default function SemesterPage() {
   const [ay, setAy] = useState("");
 
   const router = useRouter();
-  const { specId, ayId, semId } = router.query; // Get initial params
+  const { specId, ayId, semId, courseId } = router.query; // Get initial params
 
   const { data: session } = useSession();
 
@@ -31,7 +31,7 @@ export default function SemesterPage() {
     const fetchData = async () => {
       const res = await axios
         .get(
-          `http://localhost:1338/api/courses?populate=*&filters[specializations][id][$eq]=${specId}&filters[academic_years][id][$eq]=${ayId}&filters[semesters][id][$eq]=${semId}`,
+          `http://localhost:1338/api/projects?populate=*&filters[specializations][id][$eq]=${specId}&filters[academic_years][id][$eq]=${ayId}&filters[semesters][id][$eq]=${semId}&filters[course][id][$eq]=${courseId}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -40,6 +40,7 @@ export default function SemesterPage() {
         )
         .then((res) => {
           setSpecializations(res.data.data);
+          console.log(specializations);
           setSem(
             res.data.data[0].attributes.semesters.data[0].attributes.semesterNum
           ); // Access data directly
@@ -70,7 +71,7 @@ export default function SemesterPage() {
           {specializations.map((spec, index) => (
             <Link
               href={{
-                pathname: `/courses/details`,
+                pathname: `/projects`,
                 query: {
                   specId: specId,
                   ayId: ayId,
@@ -81,10 +82,10 @@ export default function SemesterPage() {
             >
               <div className="bg-slate-500 flex flex-col items-start px-24 py-16 h-full rounded-3xl ">
                 <span className="text-white font-thin italic text-xl">
-                  {spec.attributes.courseCode}
+                  {spec.attributes.students}
                 </span>
                 <span className="text-white font-semibold">
-                  {spec.attributes.courseName}
+                  {spec.attributes.projectName}
                 </span>
               </div>
             </Link>
