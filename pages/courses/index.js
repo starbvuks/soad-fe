@@ -81,11 +81,11 @@ export default function SemesterPage() {
                 },
               }}
             >
-              <div className="bg-slate-500 flex flex-col items-start px-24 py-16 h-full rounded-3xl ">
-                <span className="text-white font-thin italic text-xl">
+              <div className="transition border-4 border-slate-500 text-slate-500 bg-slate-100 hover:bg-slate-500 hover:text-white hover:scale-105 flex flex-col items-start px-24 py-16 h-full rounded-3xl ">
+                <span className=" font-thin italic text-xl">
                   {spec.attributes.courseCode}
                 </span>
-                <span className="text-white font-semibold">
+                <span className=" font-semibold">
                   {spec.attributes.courseName}
                 </span>
               </div>

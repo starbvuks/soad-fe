@@ -81,10 +81,8 @@ export default function AcademicYearPage() {
                     query: { specId: specId, ayId: spec.id },
                   }}
                 >
-                  <div className="bg-slate-500 flex justify-center items-center px-12 py-32 h-full rounded-3xl">
-                    <span className="text-white font-semibold">
-                      {spec.attributes.ay}
-                    </span>
+                  <div className="transition border-4 border-slate-500 text-slate-500 bg-slate-100 hover:scale-105 hover:bg-slate-500 hover:text-white flex justify-center items-center px-12 py-32 h-full rounded-3xl">
+                    <span className=" font-semibold">{spec.attributes.ay}</span>
                   </div>
                 </Link>
               ))}

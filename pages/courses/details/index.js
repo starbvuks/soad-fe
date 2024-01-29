@@ -74,7 +74,7 @@ export default function SemesterPage() {
         <span className="text-xl font-normal mt-2 w-[60%]">
           {course.courseDetails}
         </span>
-        <div className="flex gap-10 xl:text-2xl xl:mt-24 xl:mb-44">
+        <div className="flex gap-10 xl:text-2xl xl:mt-24 xl:mb-36">
           {specializations.map((spec, index) => (
             <Link
               href={{
@@ -87,11 +87,11 @@ export default function SemesterPage() {
                 },
               }}
             >
-              <div className="bg-slate-500 flex flex-col items-start px-24 py-16 h-full rounded-3xl ">
-                <span className="text-white font-thin italic text-xl">
+              <div className="transition border-4 border-slate-500 text-slate-500 bg-slate-100 hover:scale-105 hover:bg-slate-500 hover:text-white flex flex-col items-start px-24 py-16 h-full rounded-3xl ">
+                <span className=" font-thin italic text-xl">
                   {spec.attributes.students}
                 </span>
-                <span className="text-white font-semibold">
+                <span className=" font-semibold">
                   {spec.attributes.projectName}
                 </span>
               </div>
