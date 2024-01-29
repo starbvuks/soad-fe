@@ -11,6 +11,7 @@ export default function SemesterPage() {
   const [specializations, setSpecializations] = useState([]);
   const [sem, setSem] = useState("");
   const [ay, setAy] = useState("");
+  const [course, setCourse] = useState("");
 
   const router = useRouter();
   const { specId, ayId, semId, courseId } = router.query; // Get initial params
@@ -40,13 +41,14 @@ export default function SemesterPage() {
         )
         .then((res) => {
           setSpecializations(res.data.data);
-          console.log(specializations);
+          console.log(
+            res.data.data[0].attributes.semesters.data.attributes.semesterNum
+          );
           setSem(
-            res.data.data[0].attributes.semesters.data[0].attributes.semesterNum
+            res.data.data[0].attributes.semesters.data.attributes.semesterNum
           ); // Access data directly
-          setAy(
-            res.data.data[0].attributes.academic_years.data[0].attributes.ay
-          ); // Access data directly
+          setAy(res.data.data[0].attributes.academic_years.data.attributes.ay); // Access data directly
+          setCourse(res.data.data[0].attributes.course.data.attributes); // Access data directly
         })
         .catch((error) => {
           console.log(error);
@@ -60,13 +62,16 @@ export default function SemesterPage() {
     <div>
       <Navbar />
       <div className="bg-white flex flex-col justify-center xl:py-12 xl:ml-24 font-Monstserrat">
-        <span className="text-5xl font-bold mt-24">Courses</span>
+        <span className="text-5xl font-bold mt-24">{course.courseName}</span>
         <span className="text-2xl font-light mt-2">
           for Sem {sem}, Academic Year - {ay}
         </span>
-        {/* <span className="text-center text-4xl font-medium">
-        Digital design archive
-      </span> */}
+        <span className="text-xl font-medium mt-12">
+          Keywords: {course.keywords}
+        </span>
+        <span className="text-xl font-normal mt-2 w-[60%]">
+          {course.courseDetails}
+        </span>
         <div className="flex gap-10 xl:text-2xl xl:mt-24">
           {specializations.map((spec, index) => (
             <Link

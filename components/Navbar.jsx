@@ -15,8 +15,11 @@ export default function NavBar() {
   return (
     <header className="fixed top-0 font-Monstserrat left-0 w-full h-16 bg-white border-b-2 border-gray-200 z-50 flex justify-between items-center">
       <div className="flex items-center">
-        <Link href="/" className="mx-4 text-2xl font-bold">
-          Logo
+        <Link
+          href="/"
+          className="mx-4 text-2xl font-light italic tracking-tight"
+        >
+          SoAD <span className="font-semibold not-italic">Archive</span>
         </Link>
       </div>
 
