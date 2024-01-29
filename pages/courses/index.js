@@ -5,7 +5,9 @@ import React, { useState, useEffect } from "react";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { useRouter } from "next/router";
+
 import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
 
 export default function SemesterPage() {
   const [specializations, setSpecializations] = useState([]);
@@ -91,6 +93,7 @@ export default function SemesterPage() {
           ))}
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

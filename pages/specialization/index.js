@@ -7,6 +7,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 
 import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
 
 export default function Page() {
   const [specializations, setSpecializations] = useState([]);
@@ -46,7 +47,7 @@ export default function Page() {
         <span className="text-center text-4xl font-medium font-Monstserrat">
           Digital Design Archive
         </span>
-        <div className="grid grid-cols-5 text-center gap-7 self-center xl:px-12 xl:text-2xl xl:mt-32">
+        <div className="grid grid-cols-5 text-center gap-7 self-center xl:px-12 xl:text-2xl xl:mt-28">
           {specializations.map((spec, index) => (
             <Link
               href={{
@@ -63,6 +64,7 @@ export default function Page() {
           ))}
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

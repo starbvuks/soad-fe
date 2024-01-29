@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import { FaCaretRight, FaCaretLeft } from "react-icons/fa";
 
 import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
 
 export default function AcademicYearPage() {
   const [specializations, setSpecializations] = useState([]);
@@ -59,7 +60,7 @@ export default function AcademicYearPage() {
       <Navbar />
       <div className="bg-white flex flex-col justify-center xl:py-12 font-Monstserrat">
         <span className="text-center text-5xl font-bold mt-24">
-          Design Program
+          Academic Year
         </span>
         <div className="flex items-center justify-center gap-10 xl:px-12 xl:text-2xl xl:mt-32">
           <button
@@ -96,6 +97,7 @@ export default function AcademicYearPage() {
           </button>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }
