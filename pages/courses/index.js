@@ -68,28 +68,30 @@ export default function SemesterPage() {
         {/* <span className="text-center text-4xl font-medium">
         Digital design archive
       </span> */}
-        <div className="flex gap-10 xl:text-2xl xl:mt-24">
+        <div className="flex flex-wrap gap-8 xl:text-2xl xl:mt-24">
           {specializations.map((spec, index) => (
-            <Link
-              href={{
-                pathname: `/courses/details`,
-                query: {
-                  specId: specId,
-                  ayId: ayId,
-                  semId: semId,
-                  courseId: spec.id,
-                },
-              }}
-            >
-              <div className="transition border-4 border-slate-500 text-slate-500 bg-slate-100 hover:bg-slate-500 hover:text-white hover:scale-105 flex flex-col items-start px-24 py-16 h-full rounded-3xl ">
-                <span className=" font-thin italic text-xl">
-                  {spec.attributes.courseCode}
-                </span>
-                <span className=" font-semibold">
-                  {spec.attributes.courseName}
-                </span>
-              </div>
-            </Link>
+            <div style={{}}>
+              <Link
+                href={{
+                  pathname: `/courses/details`,
+                  query: {
+                    specId: specId,
+                    ayId: ayId,
+                    semId: semId,
+                    courseId: spec.id,
+                  },
+                }}
+              >
+                <div className="transition border-4 border-slate-500 text-slate-500 bg-slate-100 hover:bg-slate-500 hover:text-white hover:scale-105 flex flex-col items-start px-20 py-16 h-full rounded-3xl ">
+                  <span className=" font-thin italic text-xl">
+                    {spec.attributes.courseCode}
+                  </span>
+                  <span className=" font-semibold">
+                    {spec.attributes.courseName}
+                  </span>
+                </div>
+              </Link>
+            </div>
           ))}
         </div>
       </div>

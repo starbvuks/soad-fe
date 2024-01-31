@@ -46,7 +46,7 @@ export default function NavBar() {
 
         <div
           id="dropdownMenu"
-          className={`fixed top-0 right-0 border-2 border-gray-200 h-screen w-64 bg-[#f9f9f9] transform transition-all duration-300 ease-out ${
+          className={`fixed top-0 right-0 border-2 border-gray-200 h-screen w-72 bg-[#f9f9f9] transform transition-all duration-300 ease-out ${
             isDropdownOpen ? "translate-x-0" : "translate-x-full"
           }`}
         >
@@ -56,22 +56,22 @@ export default function NavBar() {
           >
             <FaTimes className="w-6 h-6 text-black" />
           </button>
-          <nav className="px-4 py-2 flex flex-col space-y-2 text-black font-semibold gap-5">
+          <nav className="py-2 flex flex-col  text-black font-semibold">
             <Link
               href="/about"
-              className="mt-12 border-2 w-full border-black rounded-full p-2 text-center"
+              className="mt-12 w-full p-4 text-center border-y-2 transition hover:text-white hover:bg-slate-600"
             >
               About
             </Link>
             <Link
               href="/contact"
-              className=" border-2 w-full border-black rounded-full p-2 text-center"
+              className=" w-full p-4 text-center border-b-2 transition hover:text-white hover:bg-slate-600"
             >
               Contact
             </Link>
             {session && (
               <button
-                className="w-full p-2 rounded-full text-white bg-red-500 hover:bg-red-600"
+                className="w-full p-4 text-red-500 transition hover:text-white hover:bg-red-600 border-b-2"
                 onClick={() => signOut()}
               >
                 Sign Out
