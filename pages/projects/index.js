@@ -35,6 +35,7 @@ export default function SemesterPage() {
         )
         .then((res) => {
           setSpecializations(res.data.data[0].attributes);
+          console.log(specializations)
           setMedia(
             res.data.data[0].attributes.projMedia.data[0].attributes.url
           );
