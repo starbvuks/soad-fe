@@ -57,7 +57,7 @@ const SearchResultsPage = () => {
               href={{
                 pathname: "/projects",
                 query: {
-                  specId: spec.attributes.specializations.data.id,
+                  specId: spec.attributes.specialization.data.id,
                   ayId: spec.attributes.academic_years.data.id,
                   semId: spec.attributes.semesters.data.id,
                   courseId: spec.attributes.course.data.id,
