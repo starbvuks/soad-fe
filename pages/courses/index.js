@@ -25,11 +25,9 @@ export default function SemesterPage() {
     }
   }, [session]);
 
-  const token =
-  "103e6597ead2beeddb04a4de897834c5b4bcb5d67382c4f2a33991e47130f696758518235d00a278a6d6ac461b0c5ce2089950c7db3dbbdb474a4b55acad3746096bf05ac0a22fee525fd6eae1033245315bf021295f28c843bbf3177a3909eacce7eb19f0b6f7a7cc096fe19df7b40f472413520e64e4f5ceb1f75208e373d8";
-
   useEffect(() => {
-    // Fetch data on initial render and whenever params change
+    const token = process.env.NEXT_PUBLIC_TOKEN;
+
     const fetchData = async () => {
       const res = await axios
         .get(
