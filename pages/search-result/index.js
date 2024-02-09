@@ -37,6 +37,7 @@ const SearchResultsPage = () => {
 
     if (searchTerm) {
       fetchSearchResults();
+      console.log(searchResults)
     } else {
       setSearchResults([]);
     }
@@ -60,6 +61,7 @@ const SearchResultsPage = () => {
                   ayId: spec.attributes.academic_years.data.id,
                   semId: spec.attributes.semesters.data.id,
                   courseId: spec.attributes.course.data.id,
+                  projId: spec.id
                 },
               }}
             >

@@ -7,40 +7,38 @@ import { useRouter } from "next/router";
 
 export default function NavBar() {
   const [searchTerm, setSearchTerm] = useState("");
-  const [searchResults, setSearchResults] = useState([]);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const { data: session } = useSession();
   const router = useRouter();
 
-  useEffect(() => {
-    const token = process.env.NEXT_PUBLIC_TOKEN;
+  // useEffect(() => {
+  //   const token = process.env.NEXT_PUBLIC_TOKEN;
 
-    const fetchSearchResults = async () => {
-      const res = await axios
-        .get(
-          `http://localhost:1338/api/projects?filters[$or][0][students][$contains]=${searchTerm}&filters[$or][1][faculty][$contains]=${searchTerm}&filters[$or][2][keywords][$contains]=${searchTerm}&filters[$or][3][projectName][$contains]=${searchTerm}`,
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        )
-        .then((res) => {
-          setSearchResults(res.data.data);
-          console.log(searchResults);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    };
+  //   const fetchSearchResults = async () => {
+  //     const res = await axios
+  //       .get(
+  //         `http://localhost:1338/api/projects?populate=*&filters[$or][0][students][$contains]=${searchTerm}&filters[$or][1][faculty][$contains]=${searchTerm}&filters[$or][2][keywords][$contains]=${searchTerm}&filters[$or][3][projectName][$contains]=${searchTerm}`,
+  //         {
+  //           headers: {
+  //             Authorization: `Bearer ${token}`,
+  //           },
+  //         }
+  //       )
+  //       .then((res) => {
+  //         setSearchResults(res.data.data);
+  //       })
+  //       .catch((error) => {
+  //         console.log(error);
+  //       });
+  //   };
 
-    if (searchTerm) {
-      fetchSearchResults(searchTerm);
-    } else {
-      setSearchResults([]);
-    }
-  }, [searchTerm]);
+  //   if (searchTerm) {
+  //     fetchSearchResults(searchTerm);
+  //   } else {
+  //     setSearchResults([]);
+  //   }
+  // }, [searchTerm]);
 
   const handleSearchSubmit = (event) => {
     event.preventDefault();
@@ -75,8 +73,8 @@ export default function NavBar() {
               placeholder="Search..."
               aria-label="Search"
             />
-            <button type="submit" className="absolute right-0 top-0 mt-2 mr-3">
-              <FaSearch className="w-6 h-6 text-gray-400" />
+            <button type="submit" className="absolute right-0 top-0 bottom-0 px-3 border-l-2 rounded-r-md bg-gray-200 border-gray-300 text-gray-400 transition hover:text-gray-600 hover:border-gray-400 hover:bg-gray-400">
+              <FaSearch className="w-6 h-6" />
             </button>
           </form>
         </div>

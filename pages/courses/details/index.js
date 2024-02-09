@@ -81,7 +81,8 @@ export default function SemesterPage() {
                   specId: specId,
                   ayId: ayId,
                   semId: semId,
-                  courseId: spec.id,
+                  courseId: courseId,
+                  projId: spec.id,
                 },
               }}
             >

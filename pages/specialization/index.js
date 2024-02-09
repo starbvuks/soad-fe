@@ -22,19 +22,29 @@ export default function Page() {
 
   useEffect(() => {
     const token = process.env.NEXT_PUBLIC_TOKEN;
-
+  
     const fetchData = async () => {
       const res = await axios.get("http://localhost:1338/api/specializations", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       });
-
-      setSpecializations(res.data.data);
+  
+      // Define the order of specializations
+      const specializationOrder = ["Foundation", "Communication Design", "Fashion Design", "Industrial Design", "Interior Design"];
+  
+      // Sort the fetched specializations based on the defined order
+      const sortedSpecializations = res.data.data.sort((a, b) => {
+        return specializationOrder.indexOf(a.attributes.specializationName) - specializationOrder.indexOf(b.attributes.specializationName);
+      });
+  
+      // Update the state with the sorted specializations
+      setSpecializations(sortedSpecializations);
     };
-
+  
     fetchData();
   }, []); // Empty dependency array
+  
 
   return (
     <div>

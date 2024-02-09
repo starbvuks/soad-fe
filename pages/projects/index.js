@@ -16,7 +16,7 @@ export default function SemesterPage() {
   const [course, setCourse] = useState("");
 
   const router = useRouter();
-  const { specId, ayId, semId, courseId } = router.query;
+  const { specId, ayId, semId, courseId, projId } = router.query;
 
   useEffect(() => {
     const token = process.env.NEXT_PUBLIC_TOKEN;
@@ -24,7 +24,7 @@ export default function SemesterPage() {
     const fetchData = async () => {
       const res = await axios
         .get(
-          `http://localhost:1338/api/projects?populate=*&filters[specializations][id][$eq]=${specId}&filters[academic_years][id][$eq]=${ayId}&filters[semesters][id][$eq]=${semId}&filters[course][id][$eq]=${courseId}`,
+          `http://localhost:1338/api/projects?populate=*&filters[id][$eq]=${projId}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,

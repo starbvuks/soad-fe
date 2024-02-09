@@ -27,7 +27,7 @@ export default function AcademicYearPage() {
 
   useEffect(() => {
     const token = process.env.NEXT_PUBLIC_TOKEN;
-
+  
     const fetchData = async () => {
       const res = await axios.get(
         `http://localhost:1338/api/academic-years?populate=specialization&filters[specialization][id][$eq]=${specId}`,
@@ -37,12 +37,21 @@ export default function AcademicYearPage() {
           },
         }
       );
-
-      setSpecializations(res.data.data);
+  
+      // Sort the academic years by the year range
+      const sortedSpecializations = res.data.data.sort((a, b) => {
+        // Assuming 'ay' is a string like '2021-2022'
+        const yearA = parseInt(a.attributes.ay.split('-')[0],  10);
+        const yearB = parseInt(b.attributes.ay.split('-')[0],  10);
+        return yearA - yearB; // Ascending order
+      });
+  
+      setSpecializations(sortedSpecializations);
     };
-
+  
     fetchData();
   }, []); // Empty dependency array
+  
 
   const handlePrevious = () => {
     setCurrentIndex((prevIndex) => Math.max(prevIndex - 4, 0));

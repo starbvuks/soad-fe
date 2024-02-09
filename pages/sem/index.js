@@ -37,12 +37,21 @@ export default function SemesterPage() {
           },
         }
       );
-
-      setSpecializations(res.data.data);
-    };
+    
+      // Extract the numerical part of the semesterNum and sort by that
+      const sortedSpecializations = res.data.data.sort((a, b) => {
+        const semesterNumA = parseInt(a.attributes.semesterNum.replace('Sem ', ''),  10);
+        const semesterNumB = parseInt(b.attributes.semesterNum.replace('Sem ', ''),  10);
+        return semesterNumA - semesterNumB; // Ascending order
+      });
+    
+      setSpecializations(sortedSpecializations);
+    };    
 
     fetchData();
   }, []); // Empty dependency array
+
+  
 
   return (
     <div>
