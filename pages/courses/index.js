@@ -41,7 +41,7 @@ export default function SemesterPage() {
         .then((res) => {
           setSpecializations(res.data.data);
           setSem(
-            res.data.data[0].attributes.semesters.data[0].attributes.semesterNum
+            res.data.data[0].attributes.semester.data.attributes.semesterNum
           ); // Access data directly
           setAy(
             res.data.data[0].attributes.academic_years.data[0].attributes.ay
@@ -61,7 +61,7 @@ export default function SemesterPage() {
       <div className="bg-white flex flex-col justify-center xl:py-12 xl:ml-24 font-Monstserrat">
         <span className="text-5xl font-bold mt-24">Courses</span>
         <span className="text-2xl font-light mt-2">
-          for Sem {sem}, Academic Year - {ay}
+          for Sem {sem}, {ay}
         </span>
         {/* <span className="text-center text-4xl font-medium">
         Digital design archive

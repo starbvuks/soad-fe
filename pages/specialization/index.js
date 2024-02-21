@@ -1,5 +1,7 @@
 "use client";
 
+import { motion } from "framer-motion";
+
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useSession } from "next-auth/react";
@@ -8,6 +10,7 @@ import { useRouter } from "next/router";
 
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
+import Loading from "../loading";
 
 export default function Page() {
   const [specializations, setSpecializations] = useState([]);
@@ -56,18 +59,46 @@ export default function Page() {
       // After fetching data, wait for   1.5 seconds and then hide the loading screen
       setTimeout(() => {
         setIsLoading(false);
-      }, 1200);
+      }, 750);
     });
   }, []); // Empty dependency array
+
+  const pageVariants = {
+    hidden: { opacity: 0, scale: 0.9 },
+    visible: { opacity: 1, scale: 1 },
+    exit: { opacity: 0, scale: 0.9 },
+  };
+
+  const pageTransition = {
+    type: "spring",
+    mass: 0.5,
+    damping: 25,
+    stiffness: 90,
+  };
+
+  function getBackgroundColor(specializationName) {
+    const colors = {
+      "Foundation": "#EF767A",
+      "Communication Design": "#D68FD6",
+      "Fashion Design": "#FFE26A",
+      "Industrial Design": "#75C9B7",
+      "Interior Design": "#ABD699",
+    };
+    return colors[specializationName] || "defaultColor"; // Replace "defaultColor" with the default color if needed
+  }
 
   return (
     <div>
       {isLoading ? (
-        <div className="flex h-screen items-center align-center justify-center">
-          <div className="animate-spin rounded-full h-24 w-24 border-t-4 border-gray-500"></div>
-        </div>
+        <Loading />
       ) : (
-        <div>
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          exit="exit"
+          variants={pageVariants}
+          transition={pageTransition}
+        >
           <Navbar />
           <div className="bg-[#f6f6f6] h-screen flex flex-col justify-center xl:py-12">
             <span className="text-center text-5xl font-bold font-Monstserrat">
@@ -84,17 +115,27 @@ export default function Page() {
                     query: { specId: spec.id },
                   }}
                 >
-                  <div className="transition border-4 border-slate-500 text-slate-500 bg-slate-100 hover:scale-105 hover:bg-slate-500  hover:text-white flex justify-center items-center px-8 py-32 h-full rounded-3xl">
-                    <span className=" font-Monstserrat font-semibold">
+                  <motion.div
+                    className="border-4 group border-slate-500  bg-slate-100 hover:scale-105 flex justify-center items-center px-8 py-32 h-full rounded-3xl"
+                    whileHover={{
+                      scale: 1.05,
+                      backgroundColor: getBackgroundColor(
+                        spec.attributes.specializationName
+                      ),
+                      color: "white",
+                    }}
+                    transition={{ type: "linear", stiffness: 500 }}
+                  >
+                    <span className="font-Monstserrat font-semibold text-slate-500 group-hover:text-white">
                       {spec.attributes.specializationName}
                     </span>
-                  </div>
+                  </motion.div>
                 </Link>
               ))}
             </div>
           </div>
           <Footer />
-        </div>
+        </motion.div>
       )}
     </div>
   );

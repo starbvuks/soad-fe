@@ -64,7 +64,7 @@ export default function SemesterPage() {
       <div className="bg-white flex flex-col justify-center xl:py-12 xl:ml-24 font-Monstserrat">
         <span className="text-5xl font-bold mt-24">{course.courseName}</span>
         <span className="text-2xl font-light mt-2">
-          for Sem {sem}, Academic Year - {ay}
+          for Sem {sem}, {ay}
         </span>
         <span className="text-xl font-medium mt-12">
           Keywords: {course.keywords}

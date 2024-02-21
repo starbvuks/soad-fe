@@ -38,11 +38,11 @@ export default function AcademicYearPage() {
         }
       );
   
-      // Sort the academic years by the year range
+      // Extract the starting year from the batch string and sort by it
       const sortedSpecializations = res.data.data.sort((a, b) => {
-        // Assuming 'ay' is a string like '2021-2022'
-        const yearA = parseInt(a.attributes.ay.split('-')[0],  10);
-        const yearB = parseInt(b.attributes.ay.split('-')[0],  10);
+        const yearPattern = /Batch (\d{4})-\d{4}/;
+        const yearA = parseInt(a.attributes.ay.match(yearPattern)[1],  10);
+        const yearB = parseInt(b.attributes.ay.match(yearPattern)[1],  10);
         return yearA - yearB; // Ascending order
       });
   
@@ -50,7 +50,7 @@ export default function AcademicYearPage() {
     };
   
     fetchData();
-  }, []); // Empty dependency array
+  }, []); // Empty dependency array  
   
 
   const handlePrevious = () => {
@@ -68,17 +68,17 @@ export default function AcademicYearPage() {
       <Navbar />
       <div className="bg-white flex flex-col justify-center xl:py-12 font-Monstserrat">
         <span className="text-center text-5xl font-bold mt-24">
-          Academic Year
+          Batch
         </span>
-        <div className="flex items-center justify-center gap-10 xl:px-12 xl:text-2xl xl:mt-32">
-          <button
+        <div className="flex items-center justify-center xl:text-3xl xl:mt-24">
+          {/* <button
             onClick={handlePrevious}
             className="px-4 py-2 h-12 bg-gray-500 text-white rounded-full"
           >
             {" "}
             <FaCaretLeft />{" "}
-          </button>
-          <div className="grid grid-cols-4 gap-4 transition-transform duration-500 ease-in-out">
+          </button> */}
+          <div className="grid grid-cols-3 gap-8 transition-transform duration-500 ease-in-out">
             {specializations
               .slice(currentIndex, currentIndex + 4)
               .map((spec, index) => (
@@ -89,18 +89,18 @@ export default function AcademicYearPage() {
                     query: { specId: specId, ayId: spec.id },
                   }}
                 >
-                  <div className="transition border-4 border-slate-500 text-slate-500 bg-slate-100 hover:scale-105 hover:bg-slate-500 hover:text-white flex justify-center items-center px-12 py-32 h-full rounded-3xl">
+                  <div className="transition border-4 border-slate-500 text-slate-500 bg-slate-100 hover:scale-105 hover:bg-slate-500 hover:text-white flex justify-center items-center px-16 py-24 h-full rounded-2xl">
                     <span className=" font-semibold">{spec.attributes.ay}</span>
                   </div>
                 </Link>
               ))}
           </div>
-          <button
+          {/* <button
             onClick={handleNext}
             className="px-4 py-2 h-12 bg-gray-500 text-white rounded-full"
           >
             <FaCaretRight />
-          </button>
+          </button> */}
         </div>
       </div>
       <Footer />
