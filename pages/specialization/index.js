@@ -16,19 +16,24 @@ export default function Page() {
   const [specializations, setSpecializations] = useState([]);
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(true);
-  const { data: session } = useSession();
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  
+  // const { data: session } = useSession();
+
+  // useEffect(() => {
+  //   if (!session) {
+  //     router.push("/");
+  //   }
+  // }, [session]);
 
   useEffect(() => {
-    if (!session) {
-      router.push("/");
-    }
-  }, [session]);
-
-  useEffect(() => {
+    const url = process.env.NEXTAUTH_URL;
     const token = process.env.NEXT_PUBLIC_TOKEN;
 
+    // local token: 103e6597ead2beeddb04a4de897834c5b4bcb5d67382c4f2a33991e47130f696758518235d00a278a6d6ac461b0c5ce2089950c7db3dbbdb474a4b55acad3746096bf05ac0a22fee525fd6eae1033245315bf021295f28c843bbf3177a3909eacce7eb19f0b6f7a7cc096fe19df7b40f472413520e64e4f5ceb1f75208e373d8
+
     const fetchData = async () => {
-      const res = await axios.get("http://localhost:1338/api/specializations", {
+      const res = await axios.get("http://ec2-54-84-35-62.compute-1.amazonaws.com:1337/api/specializations", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -101,13 +106,13 @@ export default function Page() {
         >
           <Navbar />
           <div className="bg-[#f6f6f6] h-screen flex flex-col justify-center xl:py-12">
-            <span className="text-center text-5xl font-bold font-Monstserrat">
+            <span className="text-center text-3xl font-bold font-Monstserrat xl:text-5xl">
               School of Art & Design
             </span>
-            <span className="text-center text-4xl font-medium font-Monstserrat">
+            <span className="text-center text-2xl font-medium font-Monstserrat xl:text-4xl">
               Digital Design Archive
             </span>
-            <div className="grid grid-cols-5 text-center gap-7 self-center xl:px-12 xl:text-2xl xl:mt-28">
+            <div className="flex flex-wrap justify-center text-center self-center gap-3 mx-12 mt-24 xl:flex-nowrap xl:gap-7 xl:grid-cols-5 xl:px-12 xl:text-2xl xl:mt-28">
               {specializations.map((spec, index) => (
                 <Link
                   href={{
@@ -116,7 +121,7 @@ export default function Page() {
                   }}
                 >
                   <motion.div
-                    className="border-4 group border-slate-500  bg-slate-100 hover:scale-105 flex justify-center items-center px-8 py-32 h-full rounded-3xl"
+                    className="group border-slate-500 bg-slate-100 hover:scale-105 flex justify-center items-center w-44 h-32 rounded-xl border-2 xl:border-4 xl:px-28 xl:py-32 xl:rounded-3xl"
                     whileHover={{
                       scale: 1.05,
                       backgroundColor: getBackgroundColor(

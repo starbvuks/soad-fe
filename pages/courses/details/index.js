@@ -32,7 +32,7 @@ export default function SemesterPage() {
     const fetchData = async () => {
       const res = await axios
         .get(
-          `http://localhost:1338/api/projects?populate=*&filters[specialization][id][$eq]=${specId}&filters[academic_years][id][$eq]=${ayId}&filters[semesters][id][$eq]=${semId}&filters[course][id][$eq]=${courseId}`,
+          `http://ec2-54-84-35-62.compute-1.amazonaws.com:1337/api/projects?populate=*&filters[specialization][id][$eq]=${specId}&filters[academic_year][id][$eq]=${ayId}&filters[semester][id][$eq]=${semId}&filters[course][id][$eq]=${courseId}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -41,14 +41,11 @@ export default function SemesterPage() {
         )
         .then((res) => {
           setSpecializations(res.data.data);
-          console.log(
-            res.data.data[0].attributes.semesters.data.attributes.semesterNum
-          );
           setSem(
-            res.data.data[0].attributes.semesters.data.attributes.semesterNum
-          ); // Access data directly
-          setAy(res.data.data[0].attributes.academic_years.data.attributes.ay); // Access data directly
-          setCourse(res.data.data[0].attributes.course.data.attributes); // Access data directly
+            res.data.data[0].attributes.semester.data.attributes.semesterNum
+          );
+          setAy(res.data.data[0].attributes.academic_year.data.attributes.ay);
+          setCourse(res.data.data[0].attributes.course.data.attributes);
         })
         .catch((error) => {
           console.log(error);

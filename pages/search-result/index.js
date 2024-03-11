@@ -20,7 +20,7 @@ const SearchResultsPage = () => {
     const fetchSearchResults = async () => {
       const res = await axios
         .get(
-          `http://localhost:1338/api/projects?populate=*&filters[$or][0][students][$contains]=${searchTerm}&filters[$or][1][faculty][$contains]=${searchTerm}&filters[$or][2][keywords][$contains]=${searchTerm}&filters[$or][3][projectName][$contains]=${searchTerm}`,
+          `http://ec2-54-84-35-62.compute-1.amazonaws.com:1337/api/projects?populate=*&filters[$or][0][students][$contains]=${searchTerm}&filters[$or][1][faculty][$contains]=${searchTerm}&filters[$or][2][keywords][$contains]=${searchTerm}&filters[$or][3][projectName][$contains]=${searchTerm}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,

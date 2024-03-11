@@ -24,7 +24,7 @@ export default function SemesterPage() {
     const fetchData = async () => {
       const res = await axios
         .get(
-          `http://localhost:1338/api/projects?populate=*&filters[id][$eq]=${projId}`,
+          `http://ec2-54-84-35-62.compute-1.amazonaws.com:1337/api/projects?populate=*&filters[id][$eq]=${projId}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -83,7 +83,7 @@ export default function SemesterPage() {
             {specializations.brief}
           </span>
           {media ? (
-            <PdfViewer url={`http://localhost:1338${media}`} />
+            <PdfViewer url={`${media}`} />
           ) : (
             <br></br>
           )}
