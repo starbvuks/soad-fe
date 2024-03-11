@@ -21,6 +21,7 @@ export default function SignIn() {
       return;
     }
     alert("Credential is not valid");
+    router.replace("/specialization");
   };
 
   return (
@@ -63,9 +64,11 @@ export default function SignIn() {
             className="border-2 p-1.5"
           />
           <div className="flex items-center">
-            <button className="text-md mt-4 text-[#364E56] border-[#364E56] hover:bg-[#364E56] transition-colors hover:text-white border-2 w-[35%] font-medium p-2 rounded-md">
-              Sign In
-            </button>
+
+              <button className="text-md mt-4 text-[#364E56] border-[#364E56] hover:bg-[#364E56] transition-colors hover:text-white border-2 w-[35%] font-medium p-2 rounded-md">
+                Sign In
+              </button>
+
             <Link href="/" className="mt-5 mx-9 font-light">
               Forgot Password?
             </Link>

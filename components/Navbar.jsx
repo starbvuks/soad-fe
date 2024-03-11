@@ -1,6 +1,6 @@
 import Link from "next/link";
 import axios from "axios";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { signOut, useSession } from "next-auth/react";
 import { FaSearch, FaBars, FaTimes } from "react-icons/fa";
 import { useRouter } from "next/router";
@@ -8,37 +8,47 @@ import { useRouter } from "next/router";
 export default function NavBar() {
   const [searchTerm, setSearchTerm] = useState("");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   const { data: session } = useSession();
   const router = useRouter();
+  const searchRef = useRef();
 
-  // useEffect(() => {
-  //   const token = process.env.NEXT_PUBLIC_TOKEN;
+  useEffect(() => {
+    // Function to set the screen size state
+    const handleResize = () => {
+      setIsSmallScreen(window.matchMedia("(max-width:  768px)").matches);
+    };
 
-  //   const fetchSearchResults = async () => {
-  //     const res = await axios
-  //       .get(
-  //         `http://localhost:1338/api/projects?populate=*&filters[$or][0][students][$contains]=${searchTerm}&filters[$or][1][faculty][$contains]=${searchTerm}&filters[$or][2][keywords][$contains]=${searchTerm}&filters[$or][3][projectName][$contains]=${searchTerm}`,
-  //         {
-  //           headers: {
-  //             Authorization: `Bearer ${token}`,
-  //           },
-  //         }
-  //       )
-  //       .then((res) => {
-  //         setSearchResults(res.data.data);
-  //       })
-  //       .catch((error) => {
-  //         console.log(error);
-  //       });
-  //   };
+    // Initial check for screen size
+    handleResize();
 
-  //   if (searchTerm) {
-  //     fetchSearchResults(searchTerm);
-  //   } else {
-  //     setSearchResults([]);
-  //   }
-  // }, [searchTerm]);
+    // Event listener for resize
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup function
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (searchRef.current && !searchRef.current.contains(event.target)) {
+        setIsSearchOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  const handleSearchClick = () => {
+    setIsSearchOpen(!isSearchOpen);
+  };
 
   const handleSearchSubmit = (event) => {
     event.preventDefault();
@@ -63,21 +73,52 @@ export default function NavBar() {
       </div>
 
       <div className="flex items-center w-[30%] space-x-4">
-        <div className="relative w-[80%]">
-          <form onSubmit={handleSearchSubmit}>
-            <input
-              type="text"
-              value={searchTerm}
-              onChange={(event) => setSearchTerm(event.target.value)}
-              className="w-full px-4 py-2 text-sm font-medium rounded-md bg-gray-100 border border-gray-200 placeholder-gray-400 focus:outline focus:ring-2 focus:ring-gray-500 "
-              placeholder="Search..."
-              aria-label="Search"
-            />
-            <button type="submit" className="absolute right-0 top-0 bottom-0 px-3 border-l-2 rounded-r-md bg-gray-200 border-gray-300 text-gray-400 transition hover:text-gray-600 hover:border-gray-400 hover:bg-gray-400">
-              <FaSearch className="w-6 h-6" />
+        {isSmallScreen ? (
+          <>
+            <button onClick={handleSearchClick} className="p-2">
+              <FaSearch className="w-6 h-6 text-gray-400" />
             </button>
-          </form>
-        </div>
+            {isSearchOpen && (
+              <div className="search-bar">
+                <form onSubmit={handleSearchSubmit}>
+                  <input
+                    type="text"
+                    value={searchTerm}
+                    onChange={(event) => setSearchTerm(event.target.value)}
+                    className="w-full px-4 py-2 text-sm font-medium rounded-md bg-gray-100 border border-gray-200 placeholder-gray-400 focus:outline focus:ring-2 focus:ring-gray-500"
+                    placeholder="Search..."
+                    aria-label="Search"
+                  />
+                  <button
+                    type="submit"
+                    className="absolute right-4 top-4 bottom-4 px-3 border-l-2 rounded-r-md bg-gray-200 border-gray-300 text-gray-400 transition hover:text-gray-600 hover:border-gray-400 hover:bg-gray-400"
+                  >
+                    <FaSearch className="w-6 h-6" />
+                  </button>
+                </form>
+              </div>
+            )}
+          </>
+        ) : (
+          <div className="relative w-[80%]">
+            <form onSubmit={handleSearchSubmit}>
+              <input
+                type="text"
+                value={searchTerm}
+                onChange={(event) => setSearchTerm(event.target.value)}
+                className="w-full px-4 py-2 text-sm font-medium rounded-md bg-gray-100 border border-gray-200 placeholder-gray-400 focus:outline focus:ring-2 focus:ring-gray-500 "
+                placeholder="Search..."
+                aria-label="Search"
+              />
+              <button
+                type="submit"
+                className="absolute right-0 top-0 bottom-0 px-3 border-l-2 rounded-r-md bg-gray-200 border-gray-300 text-gray-400 transition hover:text-gray-600 hover:border-gray-400 hover:bg-gray-400"
+              >
+                <FaSearch className="w-6 h-6" />
+              </button>
+            </form>
+          </div>
+        )}
 
         <button
           id="hamburgerMenu"

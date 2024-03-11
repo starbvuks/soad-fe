@@ -30,7 +30,7 @@ export default function SemesterPage() {
 
     const fetchData = async () => {
       const res = await axios.get(
-        `http://localhost:1338/api/semesters?populate=*&filters[specializations][id][$eq]=${specId}&filters[academic_years][id][$eq]=${ayId}`,
+        `http://ec2-54-84-35-62.compute-1.amazonaws.com:1337/api/semesters?populate=*&filters[specializations][id][$eq]=${specId}&filters[academic_years][id][$eq]=${ayId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
