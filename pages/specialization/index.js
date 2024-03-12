@@ -33,7 +33,7 @@ export default function Page() {
     // local token: 103e6597ead2beeddb04a4de897834c5b4bcb5d67382c4f2a33991e47130f696758518235d00a278a6d6ac461b0c5ce2089950c7db3dbbdb474a4b55acad3746096bf05ac0a22fee525fd6eae1033245315bf021295f28c843bbf3177a3909eacce7eb19f0b6f7a7cc096fe19df7b40f472413520e64e4f5ceb1f75208e373d8
 
     const fetchData = async () => {
-      const res = await axios.get("http://ec2-54-84-35-62.compute-1.amazonaws.com:1337/api/specializations", {
+      const res = await axios.get("http://35.174.134.162:1337/api/specializations", {
         headers: {
           Authorization: `Bearer ${token}`,
         },

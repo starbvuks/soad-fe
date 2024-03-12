@@ -58,8 +58,8 @@ const SearchResultsPage = () => {
                 pathname: "/projects",
                 query: {
                   specId: spec.attributes.specialization.data.id,
-                  ayId: spec.attributes.academic_years.data.id,
-                  semId: spec.attributes.semesters.data.id,
+                  ayId: spec.attributes.academic_year.data.id,
+                  semId: spec.attributes.semester.data.id,
                   courseId: spec.attributes.course.data.id,
                   projId: spec.id
                 },
