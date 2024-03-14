@@ -2,7 +2,6 @@
 
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
@@ -16,14 +15,6 @@ export default function SemesterPage() {
 
   const router = useRouter();
   const { specId, ayId, semId } = router.query; // Get initial params
-
-  const { data: session } = useSession();
-
-  useEffect(() => {
-    if (!session) {
-      router.push("/");
-    }
-  }, [session]);
 
   useEffect(() => {
     const token = process.env.NEXT_PUBLIC_TOKEN;

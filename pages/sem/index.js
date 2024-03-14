@@ -2,7 +2,6 @@
 
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
@@ -13,17 +12,6 @@ export default function SemesterPage() {
   const [specializations, setSpecializations] = useState([]);
   const router = useRouter();
   const { specId, ayId } = router.query;
-  const { data: session } = useSession();
-
-  useEffect(() => {
-    if (!session) {
-      router.push("/");
-    }
-
-    if (!specId) {
-      router.push("/specialization");
-    }
-  }, [session]);
 
   useEffect(() => {
     const token = process.env.NEXT_PUBLIC_TOKEN;
