@@ -1,6 +1,5 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { FaCaretRight, FaCaretLeft } from "react-icons/fa";
@@ -13,17 +12,6 @@ export default function AcademicYearPage() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const router = useRouter();
   const { specId } = router.query;
-  const { data: session } = useSession();
-
-  useEffect(() => {
-    if (!session) {
-      router.push("/");
-    }
-
-    if (!specId) {
-      router.push("/specialization");
-    }
-  }, [session]);
 
   useEffect(() => {
     const token = process.env.NEXT_PUBLIC_TOKEN;

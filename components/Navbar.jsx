@@ -153,14 +153,6 @@ export default function NavBar() {
             >
               Contact
             </Link>
-            {session && (
-              <button
-                className="w-full p-4 text-red-500 transition hover:text-white hover:bg-red-600 border-b-2"
-                onClick={() => signOut()}
-              >
-                Sign Out
-              </button>
-            )}
           </nav>
         </div>
       </div>
