@@ -1,25 +1,11 @@
 "use client";
 
-import axios from "axios";
-import React, { useState, useEffect } from "react";
-import { useSession } from "next-auth/react";
-import Link from "next/link";
-import { useRouter } from "next/router";
+import React from "react";
 
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 
 export default function SemesterPage() {
-  const router = useRouter();
-
-  const { data: session } = useSession();
-
-  useEffect(() => {
-    if (!session) {
-      router.push("/");
-    }
-  }, [session]);
-
   return (
     <div>
       <Navbar />

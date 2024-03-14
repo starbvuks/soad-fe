@@ -1,7 +1,7 @@
 import Link from "next/link";
 import axios from "axios";
 import { useState, useEffect, useRef } from "react";
-import { signOut, useSession } from "next-auth/react";
+import { useSession } from "next-auth/react";
 import { FaSearch, FaBars, FaTimes } from "react-icons/fa";
 import { useRouter } from "next/router";
 
