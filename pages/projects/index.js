@@ -24,7 +24,7 @@ export default function SemesterPage() {
     const fetchData = async () => {
       const res = await axios
         .get(
-          `http://ec2-54-84-35-62.compute-1.amazonaws.com:1337/api/projects?populate=*&filters[id][$eq]=${projId}`,
+          `https://soad.alephinnovation.live/api/projects?populate=*&filters[id][$eq]=${projId}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,

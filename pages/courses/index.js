@@ -31,7 +31,7 @@ export default function SemesterPage() {
     const fetchData = async () => {
       const res = await axios
         .get(
-          `http://ec2-54-84-35-62.compute-1.amazonaws.com:1337/api/courses?populate=*&filters[specialization][id][$eq]=${specId}&filters[academic_years][id][$eq]=${ayId}&filters[semester][id][$eq]=${semId}`,
+          `https://soad.alephinnovation.live/api/courses?populate=*&filters[specialization][id][$eq]=${specId}&filters[academic_years][id][$eq]=${ayId}&filters[semester][id][$eq]=${semId}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,

@@ -30,7 +30,7 @@ export default function AcademicYearPage() {
   
     const fetchData = async () => {
       const res = await axios.get(
-        `http://ec2-54-84-35-62.compute-1.amazonaws.com:1337/api/academic-years?populate=specialization&filters[specialization][id][$eq]=${specId}`,
+        `https://soad.alephinnovation.live/api/academic-years?populate=specialization&filters[specialization][id][$eq]=${specId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
