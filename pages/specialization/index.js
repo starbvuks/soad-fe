@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
@@ -14,17 +13,8 @@ import Loading from "../loading";
 
 export default function Page() {
   const [specializations, setSpecializations] = useState([]);
-  const router = useRouter();
   const [isLoading, setIsLoading] = useState(true);
-  const [isSearchOpen, setIsSearchOpen] = useState(false);
   
-  // const { data: session } = useSession();
-
-  // useEffect(() => {
-  //   if (!session) {
-  //     router.push("/");
-  //   }
-  // }, [session]);
 
   useEffect(() => {
     const url = process.env.NEXTAUTH_URL;

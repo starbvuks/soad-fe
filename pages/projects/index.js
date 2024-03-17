@@ -8,12 +8,14 @@ import { useRouter } from "next/router";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import PdfViewer from "../../components/PdfViewer";
+import Loading from "../loading";
 
 export default function SemesterPage() {
   const [specializations, setSpecializations] = useState([]);
   const [media, setMedia] = useState("");
   const [ay, setAy] = useState("");
   const [course, setCourse] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
 
   const router = useRouter();
   const { specId, ayId, semId, courseId, projId } = router.query;
@@ -33,7 +35,7 @@ export default function SemesterPage() {
         )
         .then((res) => {
           setSpecializations(res.data.data[0].attributes);
-          console.log(specializations)
+          console.log(specializations);
           setMedia(
             res.data.data[0].attributes.projMedia.data[0].attributes.url
           );
@@ -50,46 +52,56 @@ export default function SemesterPage() {
         });
     };
 
-    fetchData();
+    fetchData().then(() => {
+      // After fetching data, wait for   1.5 seconds and then hide the loading screen
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 0);
+    });
   }, []);
 
   return (
     <div>
-      <Navbar />
-      <div className="bg-white flex flex-col justify-center xl:py-12 xl:ml-24 font-Monstserrat">
-        <span className="text-5xl font-bold mt-24">
-          {specializations.projectName}
-        </span>
-        <div className="flex flex-col">
-          <span className="text-3xl font-semibold mt-8">Course Details</span>
-          <span className="text-xl font-normal mt-2">
-            Number Of Days:{" "}
-            <span className=" ml-1">{specializations.numberOfDays}</span>
-          </span>
-          <span className="text-xl font-normal mt-2">
-            Faculty: <span className=" ml-1">{specializations.faculty}</span>
-          </span>
-          <span className="text-xl font-normal mt-2">
-            Student(s):{" "}
-            <span className=" ml-1">{specializations.students}</span>
-          </span>
-          <span className="text-3xl font-semibold mt-12">
-            Brief description of the project
-          </span>
-          <span className="text-lg font-semibold mt-8">
-            Keywords: {specializations.keywords}
-          </span>
-          <span className="text-xl font-normal mt-2 w-[60%]">
-            {specializations.brief}
-          </span>
-          {media ? (
-            <PdfViewer url={`${media}`} />
-          ) : (
-            <br></br>
-          )}
+      {isLoading ? (
+        <Loading />
+      ) : (
+        <div>
+          <Navbar />
+          <div className="bg-white flex flex-col justify-center xl:py-12 xl:ml-24 font-Monstserrat">
+            <span className="text-5xl font-bold mt-24">
+              {specializations.projectName}
+            </span>
+            <div className="flex flex-col">
+              <span className="text-3xl font-semibold mt-8">
+                Course Details
+              </span>
+              <span className="text-xl font-normal mt-2">
+                Number Of Days:{" "}
+                <span className=" ml-1">{specializations.numberOfDays}</span>
+              </span>
+              <span className="text-xl font-normal mt-2">
+                Faculty:{" "}
+                <span className=" ml-1">{specializations.faculty}</span>
+              </span>
+              <span className="text-xl font-normal mt-2">
+                Student(s):{" "}
+                <span className=" ml-1">{specializations.students}</span>
+              </span>
+              <span className="text-3xl font-semibold mt-12">
+                Brief description of the project
+              </span>
+              <span className="text-lg font-semibold mt-8">
+                Keywords: {specializations.keywords}
+              </span>
+              <span className="text-xl font-normal mt-2 w-[60%]">
+                {specializations.brief}
+              </span>
+              {media ? <PdfViewer url={`${media}`} /> : <br></br>}
+            </div>
+          </div>
+          <Footer />
         </div>
-      </div>
-      <Footer />
+      )}
     </div>
   );
 }

@@ -7,12 +7,14 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import Navbar from "../../../components/Navbar";
 import Footer from "../../../components/Footer";
+import Loading from "../../loading";
 
 export default function SemesterPage() {
   const [specializations, setSpecializations] = useState([]);
   const [sem, setSem] = useState("");
   const [ay, setAy] = useState("");
   const [course, setCourse] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
 
   const router = useRouter();
   const { specId, ayId, semId, courseId } = router.query; // Get initial params
@@ -43,50 +45,63 @@ export default function SemesterPage() {
         });
     };
 
-    fetchData();
+    fetchData().then(() => {
+      // After fetching data, wait for   1.5 seconds and then hide the loading screen
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 0);
+    });
   }, []);
 
   return (
     <div>
-      <Navbar />
-      <div className="bg-white flex flex-col justify-center xl:py-12 xl:ml-24 font-Monstserrat">
-        <span className="text-5xl font-bold mt-24">{course.courseName}</span>
-        <span className="text-2xl font-light mt-2">
-          for Sem {sem}, {ay}
-        </span>
-        <span className="text-xl font-medium mt-12">
-          Keywords: {course.keywords}
-        </span>
-        <span className="text-xl font-normal mt-2 w-[60%]">
-          {course.courseDetails}
-        </span>
-        <div className="flex flex-wrap gap-10 xl:text-2xl xl:mt-24 xl:mb-36">
-          {specializations.map((spec, index) => (
-            <Link
-              href={{
-                pathname: `/projects`,
-                query: {
-                  specId: specId,
-                  ayId: ayId,
-                  semId: semId,
-                  courseId: courseId,
-                  projId: spec.id,
-                },
-              }}
-            >
-              <div className="transition border-4 border-slate-500 text-slate-500 bg-slate-100 hover:scale-105 hover:bg-slate-500 hover:text-white flex flex-col items-start px-24 py-16 h-full rounded-3xl ">
-                <span className=" font-thin italic text-xl">
-                  {spec.attributes.students}
-                </span>
-                <span className=" font-semibold">
-                  {spec.attributes.projectName}
-                </span>
-              </div>
-            </Link>
-          ))}
+      {isLoading ? (
+        <Loading />
+      ) : (
+        <div>
+          <Navbar />
+          <div className="bg-white flex flex-col justify-center xl:py-12 xl:ml-24 font-Monstserrat">
+            <span className="text-5xl font-bold mt-24">
+              {course.courseName}
+            </span>
+            <span className="text-2xl font-light mt-2">
+              for Sem {sem}, {ay}
+            </span>
+            <span className="text-xl font-medium mt-12">
+              Keywords: {course.keywords}
+            </span>
+            <span className="text-xl font-normal mt-2 w-[60%]">
+              {course.courseDetails}
+            </span>
+            <div className="flex flex-wrap gap-10 xl:text-2xl xl:mt-24 xl:mb-36">
+              {specializations.map((spec, index) => (
+                <Link
+                  href={{
+                    pathname: `/projects`,
+                    query: {
+                      specId: specId,
+                      ayId: ayId,
+                      semId: semId,
+                      courseId: courseId,
+                      projId: spec.id,
+                    },
+                  }}
+                >
+                  <div className="transition border-4 border-slate-500 text-slate-500 bg-slate-100 hover:scale-105 hover:bg-slate-500 hover:text-white flex flex-col items-start px-24 py-16 h-full rounded-3xl ">
+                    <span className=" font-thin italic text-xl">
+                      {spec.attributes.students}
+                    </span>
+                    <span className=" font-semibold">
+                      {spec.attributes.projectName}
+                    </span>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+          <Footer />
         </div>
-      </div>
-      <Footer />
+      )}
     </div>
   );
 }
