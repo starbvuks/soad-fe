@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 
 import Navbar from "../../components/Navbar";
+import NavPath from "../../components/NavPath";
 import Footer from "../../components/Footer";
 import PdfViewer from "../../components/PdfViewer";
 import Loading from "../loading";
@@ -68,7 +69,8 @@ export default function SemesterPage() {
         <div>
           <Navbar />
           <div className="bg-white flex flex-col justify-center xl:py-12 xl:ml-24 font-Monstserrat">
-            <span className="text-5xl font-bold mt-24">
+            <NavPath currentPath={router.pathname} />
+            <span className="text-5xl font-bold mt-4">
               {specializations.projectName}
             </span>
             <div className="flex flex-col">

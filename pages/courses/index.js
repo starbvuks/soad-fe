@@ -6,10 +6,11 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 
 import Navbar from "../../components/Navbar";
+import NavPath from "../../components/NavPath";
 import Footer from "../../components/Footer";
 import Loading from "../loading";
 
-export default function SemesterPage() {
+export default function CoursesPage() {
   const [specializations, setSpecializations] = useState([]);
   const [sem, setSem] = useState("");
   const [ay, setAy] = useState("");
@@ -61,7 +62,8 @@ export default function SemesterPage() {
         <div>
           <Navbar />
           <div className="bg-white flex flex-col justify-center xl:py-12 xl:mx-24 font-Monstserrat">
-            <span className="text-5xl font-bold mt-24">Courses</span>
+          <NavPath currentPath={router.pathname} />
+            <span className="text-5xl font-bold mt-4">Courses</span>
             <span className="text-2xl font-light mt-2">
               for Sem {sem}, {ay}
             </span>

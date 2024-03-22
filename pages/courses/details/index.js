@@ -6,10 +6,11 @@ import Link from "next/link";
 
 import { useRouter } from "next/router";
 import Navbar from "../../../components/Navbar";
+import NavPath from "../../../components/NavPath";
 import Footer from "../../../components/Footer";
 import Loading from "../../loading";
 
-export default function SemesterPage() {
+export default function CourseDetailsPage() {
   const [specializations, setSpecializations] = useState([]);
   const [sem, setSem] = useState("");
   const [ay, setAy] = useState("");
@@ -60,8 +61,9 @@ export default function SemesterPage() {
       ) : (
         <div>
           <Navbar />
-          <div className="bg-white flex flex-col justify-center xl:py-12 xl:ml-24 font-Monstserrat">
-            <span className="text-5xl font-bold mt-24">
+          <div className="bg-white flex flex-col justify-center xl:py-12 xl:mx-24 font-Monstserrat">
+          <NavPath currentPath={router.pathname} />
+            <span className="text-5xl font-bold mt-4">
               {course.courseName}
             </span>
             <span className="text-2xl font-light mt-2">
@@ -73,7 +75,7 @@ export default function SemesterPage() {
             <span className="text-xl font-normal mt-2 w-[60%]">
               {course.courseDetails}
             </span>
-            <div className="flex flex-wrap gap-10 xl:text-2xl xl:mt-24 xl:mb-36">
+            <div className="grid grid-cols-2 gap-8 xl:text-2xl xl:mt-24">
               {specializations.map((spec, index) => (
                 <Link
                   href={{
@@ -87,8 +89,8 @@ export default function SemesterPage() {
                     },
                   }}
                 >
-                  <div className="transition border-4 border-slate-500 text-slate-500 bg-slate-100 hover:scale-105 hover:bg-slate-500 hover:text-white flex flex-col items-start px-24 py-16 h-full rounded-3xl ">
-                    <span className=" font-thin italic text-xl">
+                  <div className="relative transition border-4 border-slate-500 text-slate-500 bg-slate-100 hover:bg-slate-500 hover:text-white hover:scale-105 flex flex-col justify-center px-20 py-16 h-full rounded-3xl ">
+                    <span className=" font-thin italic text-base">
                       {spec.attributes.students}
                     </span>
                     <span className=" font-semibold">

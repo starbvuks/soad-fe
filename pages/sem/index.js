@@ -6,13 +6,14 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 
 import Navbar from "../../components/Navbar";
+import NavPath from "../../components/NavPath";
 import Footer from "../../components/Footer";
 import Loading from "../loading";
 
 export default function SemesterPage() {
   const [specializations, setSpecializations] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  
+
   const router = useRouter();
   const { specId, ayId } = router.query;
 
@@ -60,14 +61,13 @@ export default function SemesterPage() {
       ) : (
         <div>
           <Navbar />
-          <div className="bg-white flex flex-col justify-center xl:py-12 font-Monstserrat">
-            <span className="text-center text-5xl font-bold mt-24">
-              Semester
-            </span>
+          <div className="bg-white flex flex-col justify-center xl:py-12 xl:mx-24 font-Monstserrat">
+            <NavPath currentPath={router.pathname} />
+            <span className="text-5xl font-bold mt-4">Semester</span>
             {/* <span className="text-center text-4xl font-medium">
         Digital design archive
       </span> */}
-            <div className="flex justify-center text-center gap-10 xl:px-12 xl:text-2xl xl:mt-32">
+            <div className="grid grid-cols-4 gap-8 xl:text-2xl xl:mt-24">
               {specializations.map((spec, index) => (
                 <Link
                   href={{
@@ -75,7 +75,7 @@ export default function SemesterPage() {
                     query: { specId: specId, ayId: ayId, semId: spec.id },
                   }}
                 >
-                  <div className="transition border-4 border-slate-500 text-slate-500 bg-slate-100 hover:scale-105 hover:bg-slate-500 hover:text-white flex justify-center items-center px-12 py-24 h-full rounded-3xl">
+                  <div className="relative transition border-4 border-slate-500 text-slate-500 bg-slate-100 hover:bg-slate-500 hover:text-white hover:scale-105 flex flex-col justify-center items-center px-20 py-16 h-full rounded-3xl ">
                     <span className=" font-semibold">
                       Sem {spec.attributes.semesterNum}
                     </span>
