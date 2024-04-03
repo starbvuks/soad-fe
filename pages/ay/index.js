@@ -21,7 +21,7 @@ export default function AcademicYearPage() {
 
     const fetchData = async () => {
       const res = await axios.get(
-        `https://soad.alephinnovation.live/api/academic-years?populate=specialization&filters[specialization][id][$eq]=${specId}`,
+        `https://soad.alephinnovation.live/api/academic-years?populate=specialization*&filters[specialization][id][$eq]=${specId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -57,8 +57,8 @@ export default function AcademicYearPage() {
           <Navbar />
           <div className="bg-white flex flex-col justify-center xl:py-12 xl:mx-24 font-Monstserrat">
             <NavPath currentPath={router.pathname} />
-            <span className="text-5xl font-bold mt-4">Batch</span>
-            <div className="grid grid-cols-3 gap-8 xl:text-2xl xl:mt-24">
+            <span className="text-4xl ml-6 xl:text-5xl font-bold my-4 xl:ml-0 xl:mt-4">Batch</span>
+            <div className="grid grid-cols-2 gap-4 mx-6 xl:mx-0 xl:grid-cols-3 xl:gap-8 xl:text-2xl xl:mt-24">
               {specializations
                 .slice(currentIndex, currentIndex + 4)
                 .map((spec, index) => (
@@ -69,7 +69,7 @@ export default function AcademicYearPage() {
                       query: { specId: specId, ayId: spec.id },
                     }}
                   >
-                    <div className="relative transition border-4 border-slate-500 text-slate-500 bg-slate-100 hover:bg-slate-500 hover:text-white hover:scale-105 flex flex-col justify-center items-center px-20 py-16 h-full rounded-3xl ">
+                    <div className="relative transition border-4 border-slate-500 text-slate-500 bg-slate-100 hover:bg-slate-500 hover:text-white hover:scale-105 flex flex-col justify-center items-center px-4 py-8 xl:px-20 xl:py-16 h-full rounded-xl xl:rounded-3xl">
                       <span className=" font-semibold">
                         {spec.attributes.ay}
                       </span>

@@ -14,7 +14,6 @@ import Loading from "../loading";
 export default function Page() {
   const [specializations, setSpecializations] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  
 
   useEffect(() => {
     const url = process.env.NEXTAUTH_URL;
@@ -23,11 +22,14 @@ export default function Page() {
     // local token: 103e6597ead2beeddb04a4de897834c5b4bcb5d67382c4f2a33991e47130f696758518235d00a278a6d6ac461b0c5ce2089950c7db3dbbdb474a4b55acad3746096bf05ac0a22fee525fd6eae1033245315bf021295f28c843bbf3177a3909eacce7eb19f0b6f7a7cc096fe19df7b40f472413520e64e4f5ceb1f75208e373d8
 
     const fetchData = async () => {
-      const res = await axios.get("https://soad.alephinnovation.live/api/specializations", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const res = await axios.get(
+        "https://soad.alephinnovation.live/api/specializations",
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
 
       // Define the order of specializations
       const specializationOrder = [
@@ -73,7 +75,7 @@ export default function Page() {
 
   function getBackgroundColor(specializationName) {
     const colors = {
-      "Foundation": "#EF767A",
+      Foundation: "#EF767A",
       "Communication Design": "#D68FD6",
       "Fashion Design": "#FFE26A",
       "Industrial Design": "#75C9B7",
@@ -95,38 +97,40 @@ export default function Page() {
           transition={pageTransition}
         >
           <Navbar />
-          <div className="bg-[#f6f6f6] h-screen flex flex-col justify-center xl:py-12">
-            <span className="text-center text-3xl font-bold font-Monstserrat xl:text-5xl">
-              School of Art & Design
-            </span>
-            <span className="text-center text-2xl font-medium font-Monstserrat xl:text-4xl">
-              Digital Design Archive
-            </span>
-            <div className="flex flex-wrap justify-center text-center self-center gap-3 mx-12 mt-24 xl:flex-nowrap xl:gap-7 xl:grid-cols-5 xl:px-12 xl:text-2xl xl:mt-28">
-              {specializations.map((spec, index) => (
-                <Link
-                  href={{
-                    pathname: `/ay`,
-                    query: { specId: spec.id },
-                  }}
-                >
-                  <motion.div
-                    className="group border-slate-500 bg-slate-100 hover:scale-105 flex justify-center items-center w-44 h-32 rounded-xl border-2 xl:border-4 xl:px-28 xl:py-32 xl:rounded-3xl"
-                    whileHover={{
-                      scale: 1.05,
-                      backgroundColor: getBackgroundColor(
-                        spec.attributes.specializationName
-                      ),
-                      color: "white",
+          <div className="bg-wox-bg bg-cover font-workSans">
+            <div className="bg-black bg-opacity-70 bg-blend-color-dodge h-screen flex flex-col justify-center xl:py-12 ">
+              <span className="text-center text-white text-2xl font-bold  mt-9 xl:mt-0 xl:text-5xl">
+                School of Art & Design
+              </span>
+              <span className="text-center text-white text-xl font-medium xl:text-4xl">
+                Digital Design Archive
+              </span>
+              <div className="flex flex-wrap justify-center text-center self-center gap-3 mx-12 mt-10 xl:flex-nowrap xl:gap-7 xl:grid-cols-5 xl:px-12 xl:text-2xl xl:mt-28">
+                {specializations.map((spec, index) => (
+                  <Link
+                    href={{
+                      pathname: `/ay`,
+                      query: { specId: spec.id },
                     }}
-                    transition={{ type: "linear", stiffness: 500 }}
                   >
-                    <span className="font-Monstserrat font-semibold text-slate-500 group-hover:text-white">
-                      {spec.attributes.specializationName}
-                    </span>
-                  </motion.div>
-                </Link>
-              ))}
+                    <motion.div
+                      className="group border-slate-500 bg-slate-100 hover:scale-105 flex justify-center items-center w-44 h-24 xl:h-32 rounded-xl border-2 xl:border-4 xl:px-28 xl:py-32 xl:rounded-3xl"
+                      whileHover={{
+                        scale: 1.05,
+                        backgroundColor: getBackgroundColor(
+                          spec.attributes.specializationName
+                        ),
+                        color: "white",
+                      }}
+                      transition={{ type: "linear", stiffness: 500 }}
+                    >
+                      <span className="font-medium text-slate-500 group-hover:text-white group-hover:font-semibold">
+                        {spec.attributes.specializationName}
+                      </span>
+                    </motion.div>
+                  </Link>
+                ))}
+              </div>
             </div>
           </div>
           <Footer />

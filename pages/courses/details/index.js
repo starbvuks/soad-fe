@@ -75,7 +75,7 @@ export default function CourseDetailsPage() {
             <span className="text-xl font-normal mt-2 w-[60%]">
               {course.courseDetails}
             </span>
-            <div className="grid grid-cols-2 gap-8 xl:text-2xl xl:mt-24">
+            <div className="grid grid-cols-3 gap-8 xl:text-2xl xl:mt-24">
               {specializations.map((spec, index) => (
                 <Link
                   href={{

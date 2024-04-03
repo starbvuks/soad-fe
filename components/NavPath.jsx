@@ -27,7 +27,7 @@ const NavigationPath = () => {
  }
 
  return (
-    <div className="mt-24">
+    <div className="ml-7 text-sm xl:text-xl xl:ml-0 mt-24">
       <ul className="flex gap-3">
         {pages.map((page, index) => {
           // Only render pages with an index less than the current page's index as clickable
@@ -43,7 +43,7 @@ const NavigationPath = () => {
             );
           } else if (index === currentPageIndex) {
             // Render the current page as plain text
-            return <li key={page.path}>{page.label}</li>;
+            return <li className="" key={page.path}>{page.label}</li>;
           }
           // Do not render pages with an index greater than the current page's index
           return null;
