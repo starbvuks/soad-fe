@@ -97,12 +97,13 @@ export default function Page() {
           transition={pageTransition}
         >
           <Navbar />
-          <div className="bg-wox-bg bg-cover font-workSans">
-            <div className="bg-black bg-opacity-70 bg-blend-color-dodge h-screen flex flex-col justify-center xl:py-12 ">
-              <span className="text-center text-white text-2xl font-bold  mt-9 xl:mt-0 xl:text-5xl">
+          {/* <div className="bg-wox-bg bg-cover"> */}
+            {/* <div className="bg-gradient-to-b from-white to-slate-300 font-workSans h-screen flex flex-col justify-center xl:py-12 "> */}
+            <div className="bg-gradient-to-b from-white to-slate-300 h-screen flex flex-col justify-center xl:py-12 ">
+              <span className="text-center text-black text-2xl font-bold  mt-9 xl:mt-0 xl:text-5xl">
                 School of Art & Design
               </span>
-              <span className="text-center text-white text-xl font-medium xl:text-4xl">
+              <span className="text-center text-black text-xl font-medium xl:text-4xl">
                 Digital Design Archive
               </span>
               <div className="flex flex-wrap justify-center text-center self-center gap-3 mx-12 mt-10 xl:flex-nowrap xl:gap-7 xl:grid-cols-5 xl:px-12 xl:text-2xl xl:mt-28">
@@ -114,23 +115,32 @@ export default function Page() {
                     }}
                   >
                     <motion.div
-                      className="group border-slate-500 bg-slate-100 hover:scale-105 flex justify-center items-center w-44 h-24 xl:h-32 rounded-xl border-2 xl:border-4 xl:px-28 xl:py-32 xl:rounded-3xl"
+                      className="group flex flex-col justify-start items-center border-slate-900 bg-white bg-opacity-20 hover:scale-105 w-[10.5em] h-24 xl:min-h-[15em] rounded-xl border-2 xl:border-4 xl:rounded-3xl"
                       whileHover={{
                         scale: 1.05,
                         backgroundColor: getBackgroundColor(
                           spec.attributes.specializationName
                         ),
-                        color: "white",
+                        color: "black",
                       }}
                       transition={{ type: "linear", stiffness: 500 }}
                     >
-                      <span className="font-medium text-slate-500 group-hover:text-white group-hover:font-semibold">
-                        {spec.attributes.specializationName}
-                      </span>
+                      <div className="text-left min-h-[45%] flex flex-col p-4 bg-white xl:rounded-t-3xl">
+                        <span className="font-medium text-slate-500 group-hover:text-slate-800 group-hover:font-semibold">
+                          {spec.attributes.specializationName}
+                        </span>
+                        <span className="font-light text-sm mt-1 text-slate-500 group-hover:text-whitesemibold">
+                          Please add your content here. Keep it short and
+                          simple. And smile :)
+                        </span>
+                      </div>
+                      <div className="left-auto right-auto bg-transparent bg-opacity-0">
+                        {/* <img src="/tri-card.png" className="w-[50%] ml-[25%] mt-6 self-center"/> */}
+                      </div>
                     </motion.div>
                   </Link>
                 ))}
-              </div>
+              {/* </div> */}
             </div>
           </div>
           <Footer />

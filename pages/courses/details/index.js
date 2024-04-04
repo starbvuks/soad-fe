@@ -91,7 +91,7 @@ export default function CourseDetailsPage() {
                 >
                   <div className="relative transition border-4 border-slate-500 text-slate-500 bg-slate-100 hover:bg-slate-500 hover:text-white hover:scale-105 flex flex-col justify-center px-20 py-16 h-full rounded-3xl ">
                     <span className=" font-thin italic text-base">
-                      {spec.attributes.students}
+                      {spec.attributes.studentNames}
                     </span>
                     <span className=" font-semibold">
                       {spec.attributes.projectName}

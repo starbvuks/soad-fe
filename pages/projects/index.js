@@ -87,7 +87,7 @@ export default function SemesterPage() {
               </span>
               <span className="text-xl font-normal mt-2">
                 Student(s):{" "}
-                <span className=" ml-1">{specializations.students}</span>
+                <span className=" ml-1">{specializations.studentNames}</span>
               </span>
               <span className="text-3xl font-semibold mt-12">
                 Brief description of the project

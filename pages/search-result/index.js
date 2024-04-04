@@ -20,7 +20,7 @@ const SearchResultsPage = () => {
     const fetchSearchResults = async () => {
       const res = await axios
         .get(
-          `https://soad.alephinnovation.live/api/projects?populate=*&filters[$or][0][students][$contains]=${searchTerm}&filters[$or][1][faculty][$contains]=${searchTerm}&filters[$or][2][keywords][$contains]=${searchTerm}&filters[$or][3][projectName][$contains]=${searchTerm}`,
+          `https://soad.alephinnovation.live/api/projects?populate=*&filters[$or][0][studentNames][$contains]=${searchTerm}&filters[$or][1][faculty][$contains]=${searchTerm}&filters[$or][2][keywords][$contains]=${searchTerm}&filters[$or][3][projectName][$contains]=${searchTerm}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -67,7 +67,7 @@ const SearchResultsPage = () => {
             >
               <div className="transition border-4 border-slate-500 text-slate-500 bg-slate-100 hover:scale-105 hover:bg-slate-500 hover:text-white flex flex-col items-start px-24 py-16 h-full rounded-3xl ">
                 <span className=" font-thin italic text-xl">
-                  {spec.attributes.students}
+                  {spec.attributes.studentNames}
                 </span>
                 <span className=" font-semibold">
                   {spec.attributes.projectName}
