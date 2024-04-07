@@ -20,7 +20,7 @@ const SearchResultsPage = () => {
     const fetchSearchResults = async () => {
       const res = await axios
         .get(
-          `https://soad.alephinnovation.live/api/projects?populate=*&filters[$or][0][students][$contains]=${searchTerm}&filters[$or][1][faculty][$contains]=${searchTerm}&filters[$or][2][keywords][$contains]=${searchTerm}&filters[$or][3][projectName][$contains]=${searchTerm}`,
+          `https://soad.alephinnovation.live/api/projects?populate=*&filters[$or][0][studentNames][$contains]=${searchTerm}&filters[$or][1][faculty][$contains]=${searchTerm}&filters[$or][2][keywords][$contains]=${searchTerm}&filters[$or][3][projectName][$contains]=${searchTerm}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
