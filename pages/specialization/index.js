@@ -46,7 +46,7 @@ export default function Page() {
     fetchData().then(() => {
       setTimeout(() => {
         setIsLoading(false);
-      }, 750);
+      }, 500);
     });
   }, []);
 
