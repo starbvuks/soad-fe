@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
@@ -14,13 +13,10 @@ import Loading from "../loading";
 export default function Page() {
   const [specializations, setSpecializations] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  
 
   useEffect(() => {
     const url = process.env.NEXTAUTH_URL;
     const token = process.env.NEXT_PUBLIC_TOKEN;
-
-    // local token: 103e6597ead2beeddb04a4de897834c5b4bcb5d67382c4f2a33991e47130f696758518235d00a278a6d6ac461b0c5ce2089950c7db3dbbdb474a4b55acad3746096bf05ac0a22fee525fd6eae1033245315bf021295f28c843bbf3177a3909eacce7eb19f0b6f7a7cc096fe19df7b40f472413520e64e4f5ceb1f75208e373d8
 
     const fetchData = async () => {
       const res = await axios.get("https://soad.alephinnovation.live/api/specializations", {
@@ -29,7 +25,6 @@ export default function Page() {
         },
       });
 
-      // Define the order of specializations
       const specializationOrder = [
         "Foundation",
         "Communication Design",
@@ -38,7 +33,6 @@ export default function Page() {
         "Interior Design",
       ];
 
-      // Sort the fetched specializations based on the defined order
       const sortedSpecializations = res.data.data.sort((a, b) => {
         return (
           specializationOrder.indexOf(a.attributes.specializationName) -
@@ -46,17 +40,15 @@ export default function Page() {
         );
       });
 
-      // Update the state with the sorted specializations
       setSpecializations(sortedSpecializations);
     };
 
     fetchData().then(() => {
-      // After fetching data, wait for   1.5 seconds and then hide the loading screen
       setTimeout(() => {
         setIsLoading(false);
       }, 750);
     });
-  }, []); // Empty dependency array
+  }, []);
 
   const pageVariants = {
     hidden: { opacity: 0, scale: 0.9 },
@@ -79,8 +71,19 @@ export default function Page() {
       "Industrial Design": "#75C9B7",
       "Interior Design": "#ABD699",
     };
-    return colors[specializationName] || "defaultColor"; // Replace "defaultColor" with the default color if needed
+    return colors[specializationName] || "defaultColor";
   }
+
+  function getSpecializationDescription(specializationName) {
+    const descriptions = {
+      "Foundation": "Focuses on foundational design principles.",
+      "Communication Design": "Creates visual messages across mediums.",
+      "Fashion Design": "Designs clothing and accessories with style and function.",
+      "Industrial Design": "Designs functional and aesthetically pleasing products.",
+      "Interior Design": "Enhances interior spaces for aesthetics and function.",
+    };
+    return descriptions[specializationName] || "";
+  }  
 
   return (
     <div>
@@ -95,35 +98,39 @@ export default function Page() {
           transition={pageTransition}
         >
           <Navbar />
-          <div className="bg-[#f6f6f6] h-screen flex flex-col justify-center xl:py-12">
-            <span className="text-center text-3xl font-bold font-Monstserrat xl:text-5xl">
+          <div className="bg-gradient-to-b from-white to-slate-300 h-screen flex flex-col justify-center xl:py-12 ">
+            <span className="text-center text-black text-2xl font-bold mt-9 xl:mt-0 xl:text-5xl">
               School of Art & Design
             </span>
-            <span className="text-center text-2xl font-medium font-Monstserrat xl:text-4xl">
+            <span className="text-center text-black text-xl font-medium xl:text-4xl">
               Digital Design Archive
             </span>
-            <div className="flex flex-wrap justify-center text-center self-center gap-3 mx-12 mt-24 xl:flex-nowrap xl:gap-7 xl:grid-cols-5 xl:px-12 xl:text-2xl xl:mt-28">
+            <div className="flex flex-wrap justify-center text-center self-center gap-3 mx-12 mt-10 xl:flex-nowrap xl:gap-7 xl:grid-cols-5 xl:px-12 xl:text-2xl xl:mt-28">
               {specializations.map((spec, index) => (
                 <Link
+                  key={spec.id}
                   href={{
                     pathname: `/ay`,
                     query: { specId: spec.id },
                   }}
                 >
                   <motion.div
-                    className="group border-slate-500 bg-slate-100 hover:scale-105 flex justify-center items-center w-44 h-32 rounded-xl border-2 xl:border-4 xl:px-28 xl:py-32 xl:rounded-3xl"
+                    className="group flex flex-col justify-start items-center border-slate-900 bg-white bg-opacity-20 hover:scale-105 w-[10.5em] h-24 xl:min-h-[15em] rounded-xl border-2 xl:border-4 xl:rounded-3xl"
                     whileHover={{
                       scale: 1.05,
-                      backgroundColor: getBackgroundColor(
-                        spec.attributes.specializationName
-                      ),
-                      color: "white",
+                      backgroundColor: getBackgroundColor(spec.attributes.specializationName),
+                      color: "black",
                     }}
                     transition={{ type: "linear", stiffness: 500 }}
                   >
-                    <span className="font-Monstserrat font-semibold text-slate-500 group-hover:text-white">
-                      {spec.attributes.specializationName}
-                    </span>
+                    <div className="text-left min-h-[45%] w-full flex flex-col p-4 bg-white xl:rounded-t-3xl">
+                      <span className="font-medium text-slate-500 group-hover:text-slate-800 group-hover:font-semibold">
+                        {spec.attributes.specializationName}
+                      </span>
+                      <span className="font-light text-sm mt-1 text-slate-500 group-hover:text-whitesemibold">
+                        {getSpecializationDescription(spec.attributes.specializationName)}
+                      </span>
+                    </div>
                   </motion.div>
                 </Link>
               ))}

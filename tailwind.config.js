@@ -11,9 +11,12 @@ module.exports = {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        "main-bg": "url('/wox-bg.png')",
+        "btn-arrow": "url('/btn-arrow.png')",
       },
       fontFamily: {
         Monstserrat: ["Montserrat", "sans-serif"],
+        WorkSans: ["Work Sans", "sans-serif"],
       },
     },
   },

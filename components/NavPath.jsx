@@ -143,7 +143,7 @@ const NavigationPath = () => {
  }
 
  return (
-    <div className="mt-24">
+    <div className="mt-20">
       <ul className="flex gap-3">
         {pages.map((page, index) => {
           if (index < currentPageIndex) {

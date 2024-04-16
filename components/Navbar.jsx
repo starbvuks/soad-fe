@@ -65,7 +65,7 @@ export default function NavBar() {
     <header className="fixed top-0 font-Monstserrat left-0 w-full h-[4.5rem] bg-white border-b-2 border-gray-200 z-50 flex justify-between items-center">
       <div className="flex items-center">
         <Link
-          href="/specialization"
+          href="/"
           className="mx-4 text-2xl font-light italic tracking-tight"
         >
           <img src="/wox-logo.png" alt="logo" className="w-24" />
