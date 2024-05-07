@@ -135,7 +135,7 @@ export default function Page() {
                     }}
                   >
                     <motion.div
-                      className="group flex flex-col justify-start items-center bg-opacity-20 hover:scale-105 w-[10em] h-24 xl:min-h-[9em] rounded-xl shadow-md xl:rounded-3xl"
+                      className="group flex flex-col justify-start items-center bg-opacity-20 hover:scale-105 w-[10em] h-24 xl:min-h-[6em] rounded-xl shadow-md"
                       whileHover={{
                         scale: 1.05,
                         backgroundColor: getBackgroundColor(
