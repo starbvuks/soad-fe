@@ -20,9 +20,9 @@ const Carousel = () => {
         }
       );
 
-      setGallery(res.data.data)
+      setGallery(res.data.data);
     };
-    
+
     fetchGalleryData();
   }, []);
 
@@ -38,10 +38,10 @@ const Carousel = () => {
     );
   };
 
-  console.log(gallery)
+  console.log(gallery);
 
   return (
-    <div className="relative mx-auto overflow-hidden rounded-lg w-full h-96 bg-white shadow-md">
+    <div className="relative mx-auto overflow-hidden rounded-lg w-full h-72 bg-white shadow-md">
       <div className="relative w-full h-full">
         {gallery.map((item, index) => (
           <div
@@ -51,9 +51,11 @@ const Carousel = () => {
             }`}
           >
             <div className="absolute inset-0 flex items-start justify-between text-black rounded-lg ">
-              <div className="max-w-lg flex flex-col m-20 rounded-lg ">
-                <h2 className="text-3xl font-semibold">{item.attributes.heading}</h2>
-                <p className="mt-2">{item.attributes.content}</p>
+              <div className="max-w-lg flex flex-col mx-20 mt-24 rounded-lg ">
+                <h2 className="text-3xl font-semibold">
+                  {item.attributes.heading}
+                </h2>
+                {/* <p className="mt-2">{item.attributes.content}</p> */}
                 <div className="absolute bottom-8 right-0 flex items-center justify-between z-50 mx-10 gap-5">
                   {/* Left and Right arrows */}
                   <button
@@ -70,7 +72,24 @@ const Carousel = () => {
                   </button>
                 </div>
               </div>
-              <img src={item.attributes.image.data[0].attributes.url} className="h-full min-w-[60%] object-cover rounded-sm bg-slate-100" />
+              <div className="flex gap-2">
+                <img
+                  src={item.attributes.image.data[0].attributes.url}
+                  className="h-72 min-w-[25%] object-cover rounded-sm bg-slate-100 border-black border-l-[1px] border-r-[1px]"
+                />
+                <img
+                  src={item.attributes.image.data[0].attributes.url}
+                  className="h-72 min-w-[25%] object-cover object-left-bottom rounded-sm bg-slate-100 border-black border-l-[1px] border-r-[1px]"
+                />
+                <img
+                  src={item.attributes.image.data[0].attributes.url}
+                  className="h-72 min-w-[25%] object-cover object-right rounded-sm bg-slate-100 border-black border-l-[1px] border-r-[1px]"
+                />
+                <img
+                  src={item.attributes.image.data[0].attributes.url}
+                  className="h-72 min-w-[25%] object-cover object-left rounded-sm bg-slate-100 border-black border-l-[1px] border-r-[1px]"
+                />
+              </div>
             </div>
           </div>
         ))}

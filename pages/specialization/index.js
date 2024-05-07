@@ -107,21 +107,20 @@ export default function Page() {
           <Navbar />
           <div className="bg-[#FAFAFA] flex flex-col justify-center font-WorkSans xl:mt-20 xl:mb-44">
             <div className="flex flex-col gap- tracking-tight">
-              <span className="text-center text-black text-2xl font-bold mt-9 xl:mt-[5%] xl:text-5xl">
+              <span className="text-center text-black text-2xl font-bold mt-9 xl:mt-[3%] xl:text-5xl">
                 School of Art & Design
               </span>
               <span className="text-center text-black text-xl font-light xl:text-4xl">
                 Digital Design Archive
               </span>
             </div>
-            <div className="mx-16 mt-24 flex flex-col gap-5">
-              <span className="text-2xl font-medium tracking-tight">
+            <div className="mx-16 mt-12 flex flex-col gap-5">
+              <span className="text-2xl font-semibold tracking-tight">
                 Student Gallery
               </span>
-
               <Carousel />
             </div>
-            <div className="mt-32">
+            <div className="mt-20">
               <span className="text-2xl font-semibold tracking-tight mx-16">
                 Our Departments
               </span>

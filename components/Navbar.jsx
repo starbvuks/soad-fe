@@ -130,7 +130,7 @@ export default function NavBar() {
 
         <div
           id="dropdownMenu"
-          className={`fixed top-0 right-0 border-2 border-gray-200 h-screen w-72 bg-[#f9f9f9] transform transition-all duration-300 ease-out ${
+          className={`fixed z-100 top-0 right-0 border-2 border-gray-200 h-screen w-72 bg-[#f9f9f9] transform transition-all duration-300 ease-out ${
             isDropdownOpen ? "translate-x-0" : "translate-x-full"
           }`}
         >
