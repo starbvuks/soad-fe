@@ -37,7 +37,7 @@ export default function Home() {
               </span>
               <Link
                 href="/specialization"
-                className="flex justify-between items-center w-[30%] mt-5 text-2xl font-light tracking-tight py-5 px-10 bg-[#D7616F] hover:bg-[#b14a56] text-white transition-all hover:scale-105"
+                className="flex justify-between items-center w-[30%] mt-5 text-2xl font-light tracking-tight py-5 px-10 bg-[#D7616F] hover:bg-[#b14a56] text-white transition-all"
               >
                 Explore Our Works
                 <img src="/btn-arrow.png" className="w-[20%]" />
