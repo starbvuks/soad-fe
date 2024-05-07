@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-import Navbar from "../../components/navbar";
+import Navbar from "../../components/Navbar";
 import Loading from "../loading";
 
 const GalleryPage = () => {
