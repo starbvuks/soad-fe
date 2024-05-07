@@ -140,10 +140,16 @@ export default function NavBar() {
           >
             <FaTimes className="w-6 h-6 text-black" />
           </button>
-          <nav className="py-2 flex flex-col  text-black font-semibold">
+          <nav className="py-2 flex flex-col text-black font-semibold z-100">
+            <Link
+              href="/gallery"
+              className="mt-12 w-full p-4 text-center border-y-2 transition hover:text-white hover:bg-slate-600"
+            >
+              Gallery
+            </Link>
             <Link
               href="/about"
-              className="mt-12 w-full p-4 text-center border-y-2 transition hover:text-white hover:bg-slate-600"
+              className="w-full p-4 text-center border-b-2 transition hover:text-white hover:bg-slate-600"
             >
               About
             </Link>
