@@ -145,11 +145,11 @@ export default function Page() {
                       }}
                       transition={{ type: "linear", stiffness: 500 }}
                     >
-                      <div className="text-left min-h-[45%] w-full flex group-hover:text-white flex-col p-4 xl:rounded-t-3xl">
+                      <div className="text-left min-h-[45%] w-full flex flex-col p-4 xl:rounded-t-3xl">
                         <span className="font-medium text-slate-500 group-hover:text-white  group-hover:font-semibold">
                           {spec.attributes.specializationName}
                         </span>
-                        <span className="font-light text-sm mt-1 text-slate-500 ">
+                        <span className="font-light text-sm mt-1 group-hover:text-slate-100 text-slate-500 ">
                           {getSpecializationDescription(
                             spec.attributes.specializationName
                           )}
