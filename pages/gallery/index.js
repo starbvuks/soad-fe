@@ -14,7 +14,7 @@ const GalleryPage = () => {
 
     const fetchGalleryData = async () => {
         const res = await axios.get(
-          "https://soad.alephinnovation.live/api/carousels?populate=*",
+          "https://soad.alephinnovation.live/api/galleries?populate=*",
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -49,7 +49,7 @@ const GalleryPage = () => {
       ) : (
         <div>
           <Navbar />
-          <div className="w-full font-Monstserrat xl:py-32 xl:px-24">
+          <div className="w-full font-Monstserrat xl:py-32 xl:px-24 h-screen">
             <span className="text-5xl font-bold ">Gallery</span>
             <div className="grid grid-cols-4 gap-9 mt-12">
               {images.map((imageUrl, index) => (
@@ -57,7 +57,7 @@ const GalleryPage = () => {
                   <img
                     src={imageUrl.attributes.images.data[0].attributes.url}
                     alt={`Gallery Image ${index + 1}`}
-                    className="object-cover overflow-hidden h-full"
+                    className="object-contain overflow-hidden h-full w-full"
                   />
                 </div>
               ))}
@@ -71,7 +71,7 @@ const GalleryPage = () => {
             <button className="absolute top-4 right-4 text-white text-2xl" onClick={closeModal}>
               &times;
             </button>
-            <img src={selectedImage} alt="Selected Image" className="object-contain w-full h-full" />
+            <img src={selectedImage} alt="Selected Image" className="object-contain w-full h-full " />
           </div>
         </div>
       )}

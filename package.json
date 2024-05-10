@@ -9,13 +9,14 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@nextui-org/react": "^2.3.6",
     "@react-pdf-viewer/core": "^3.12.0",
     "@react-pdf-viewer/default-layout": "^3.12.0",
     "@react-pdf-viewer/scroll-mode": "^3.12.0",
     "@react-pdf-viewer/toolbar": "^3.12.0",
     "axios": "^1.6.5",
     "flowbite-react": "^0.9.0",
-    "framer-motion": "^11.0.3",
+    "framer-motion": "^11.1.9",
     "next": "14.0.4",
     "next-auth": "^4.24.5",
     "pdfjs-dist": "^3.11.174",
