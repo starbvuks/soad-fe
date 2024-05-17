@@ -60,7 +60,7 @@ const Carousel = () => {
                 index === currentSlide ? "opacity-100" : "opacity-0"
               }`}
             >
-              <div className="absolute flex items-start justify-between text-black rounded-lg ">
+              <div className="absolute w-full flex items-start justify-between text-black rounded-lg ">
                 <div className="absolute bottom-8 right-0 flex items-center justify-between mx-10 gap-5">
                   {/* Left and Right arrows */}
                   <button
@@ -77,22 +77,22 @@ const Carousel = () => {
                   </button>
                 </div>
 
-                <div className="flex gap-2">
+                <div className="flex justify-between w-full gap-2">
                   <img
                     src={item.attributes.images.data[0].attributes.url}
-                    className="h-72 w-[25%] object-cover rounded-sm bg-slate-100"
+                    className="h-72 w-[25%] object-contain rounded-sm bg-slate-100"
                   />
                   <img
                     src={item.attributes.images.data[1].attributes.url}
-                    className="h-72 w-[25%] object-cover rounded-sm bg-slate-100"
+                    className="h-72 w-[25%] object-contain rounded-sm bg-slate-100"
                   />
                   <img
                     src={item.attributes.images.data[2].attributes.url}
-                    className="h-72 w-[25%] object-cover rounded-sm bg-slate-100"
+                    className="h-72 w-[25%] object-contain rounded-sm bg-slate-100"
                   />
                   <img
                     src={item.attributes.images.data[3].attributes.url}
-                    className="h-72 w-[25%] object-cover rounded-sm bg-slate-100"
+                    className="h-72 w-[25%] object-contain rounded-sm bg-slate-100"
                   />
                 </div>
               </div>
