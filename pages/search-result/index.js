@@ -45,37 +45,36 @@ const SearchResultsPage = () => {
 
   return (
     <div>
-      <div className="bg-white flex flex-col justify-center xl:py-12 xl:ml-24 font-Monstserrat">
+      <div className="bg-white flex flex-col justify-center xl:p-12 font-Monstserrat">
         <Navbar />
         <span className="text-2xl text-black font-light mt-24">
           Search Results for "{searchTerm}"
         </span>
-        <div className="flex flex-wrap gap-10 xl:text-2xl xl:mt-24 xl:mb-36">
-          {searchResults.map((spec, index) => (
-            <Link
-              key={index}
-              href={{
-                pathname: "/projects",
-                query: {
-                  specId: spec.attributes.specialization.data.id,
-                  ayId: spec.attributes.academic_year.data.id,
-                  semId: spec.attributes.semester.data.id,
-                  courseId: spec.attributes.course.data.id,
-                  projId: spec.id
-                },
-              }}
-            >
-              <div className="transition border-4 border-slate-500 text-slate-500 bg-slate-100 hover:scale-105 hover:bg-slate-500 hover:text-white flex flex-col items-start px-24 py-16 h-full rounded-3xl ">
-                <span className=" font-thin italic text-xl">
-                  {spec.attributes.students}
-                </span>
-                <span className=" font-semibold">
-                  {spec.attributes.projectName}
-                </span>
-              </div>
-            </Link>
-          ))}
-        </div>
+            <div className="grid grid-cols-2 gap-8 xl:text-2xl xl:mt-16">
+              {searchResults.map((spec, index) => (
+                <Link
+                  href={{
+                    pathname: `/projects`,
+                    query: {
+                      specId: spec.attributes.specialization.data.id,
+                      ayId: spec.attributes.academic_year.data.id,
+                      semId: spec.attributes.semester.data.id,
+                      courseId: spec.attributes.course.data.id,
+                      projId: spec.id
+                    },
+                  }}
+                >
+                  <div className="relative transition border-4 border-slate-500 text-slate-500 bg-slate-100 hover:bg-slate-500 hover:text-white hover:scale-105 flex flex-col justify-center px-20 py-16 h-full rounded-3xl ">
+                    <span className=" font-thin italic text-base">
+                      {spec.attributes.studentNames}
+                    </span>
+                    <span className=" font-semibold">
+                      {spec.attributes.projectName}
+                    </span>
+                  </div>
+                </Link>
+              ))}
+            </div>
       </div>
     </div>
   );

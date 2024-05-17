@@ -78,9 +78,9 @@ const GalleryPage = () => {
       )}
       {selectedImage && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 font-WorkSans tracking-tight">
-          <div className="relative h-4/5 w-2/3 max-h-3xl bg-[#FAFAFA] shadow-xl rounded-xl text-black">
+          <div className="relative h-4/5 max-w-2/3 max-h-3xl bg-[#FAFAFA] shadow-xl rounded-xl text-black">
             <button
-              className="absolute top-2 right-4 text-slate-500 text-2xl"
+              className="absolute top-2 right-4 text-slate-500 hover:text-slate-800 text-2xl"
               onClick={closeModal}
             >
               &times;

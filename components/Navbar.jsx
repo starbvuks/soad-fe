@@ -72,7 +72,7 @@ export default function NavBar() {
         </Link>
       </div>
 
-      <div className="flex items-center w-[30%] space-x-4">
+      <div className="flex items-center w-[35%] space-x-4">
         {isSmallScreen ? (
           <>
             <button onClick={handleSearchClick} className="p-2">
@@ -100,21 +100,21 @@ export default function NavBar() {
             )}
           </>
         ) : (
-          <div className="relative w-[80%]">
-            <form onSubmit={handleSearchSubmit}>
+          <div className="relative w-[90%]">
+            <form onSubmit={handleSearchSubmit} className="flex items-center">
               <input
                 type="text"
                 value={searchTerm}
                 onChange={(event) => setSearchTerm(event.target.value)}
-                className="w-full px-4 py-2 text-sm font-medium rounded-md bg-gray-100 border border-gray-200 placeholder-gray-400 focus:outline focus:ring-2 focus:ring-gray-500 "
+                className="w-[70%] px-4 py-2.5 text-sm font-medium rounded-full bg-gray-100 border border-gray-200 placeholder-gray-400 focus:outline focus:ring-2 focus:ring-gray-500 "
                 placeholder="Search..."
                 aria-label="Search"
               />
               <button
                 type="submit"
-                className="absolute right-0 top-0 bottom-0 px-3 border-l-2 rounded-r-md bg-gray-200 border-gray-300 text-gray-400 transition hover:text-gray-600 hover:border-gray-400 hover:bg-gray-400"
+                className="p-3 ml-2 self-center rounded-full bg-[#FFAAAA] border-gray-300 text-[#E9E9E9] transition hover:text-[#cfcfcf] hover:border-gray-600 hover:bg-[#ff8585]"
               >
-                <FaSearch className="w-6 h-6" />
+                <FaSearch className="w-4 h-4" />
               </button>
             </form>
           </div>
@@ -125,7 +125,7 @@ export default function NavBar() {
           className="p-2"
           onClick={handleDropdownToggle}
         >
-          <FaBars className="w-6 h-6 text-gray-400" />
+          <FaBars className="w-6 h-6 text-gray-400 mr-3" />
         </button>
 
         <div
