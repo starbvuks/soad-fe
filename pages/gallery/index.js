@@ -91,7 +91,7 @@ const GalleryPage = () => {
                 alt="Selected Image"
                 className="object-contain w-full h-[80vh] p-6"
               />
-              <div className="flex flex-col py-16 pr-3">
+              <div className="flex flex-col py-16 pr-8">
                 <span className="text-3xl z-100 font-semibold">{selectedImageHeader}</span>
                 <span className="text-lg mt-2 font-normal">{selectedImageContent}</span>
               </div>
