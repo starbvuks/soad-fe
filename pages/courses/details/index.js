@@ -61,7 +61,7 @@ export default function CourseDetailsPage() {
       ) : (
         <div>
           <Navbar />
-          <div className="bg-white flex flex-col justify-center xl:py-12 xl:mx-24 font-Monstserrat">
+          <div className="bg-white flex flex-col justify-center lg:py-12 lg:mx-24 font-Monstserrat">
           <NavPath currentPath={router.pathname} />
             <span className="text-5xl font-bold mt-4">
               {course.courseName}
@@ -75,7 +75,7 @@ export default function CourseDetailsPage() {
             <span className="text-xl font-normal mt-2 w-[60%]">
               {course.courseDetails}
             </span>
-            <div className="grid grid-cols-2 gap-8 xl:text-2xl xl:mt-24">
+            <div className="grid grid-cols-2 gap-8 lg:text-2xl lg:mt-24">
               {specializations.map((spec, index) => (
                 <Link
                   href={{

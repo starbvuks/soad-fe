@@ -54,7 +54,7 @@ const GalleryPage = () => {
       ) : (
         <div>
           <Navbar />
-          <div className="w-full font-Monstserrat xl:py-32 xl:px-24 h-screen">
+          <div className="w-full font-Monstserrat lg:py-32 lg:px-24 h-screen">
             <div className="flex items-center">
               <button className="mr-4 text-2xl" onClick={() => router.back()}>
                 &larr;

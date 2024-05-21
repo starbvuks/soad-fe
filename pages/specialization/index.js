@@ -105,12 +105,12 @@ export default function Page() {
           transition={pageTransition}
         >
           <Navbar />
-          <div className="bg-[#FAFAFA] flex flex-col justify-center font-WorkSans xl:pt-20 xl:pb-44">
-            <div className="flex flex-col gap- tracking-tight">
-              <span className="text-center text-black text-2xl font-bold mt-9 xl:mt-[3%] xl:text-5xl">
+          <div className="bg-[#FAFAFA] flex flex-col justify-center font-WorkSans lg:pt-20 lg:pb-44">
+            <div className="flex flex-col gap-1 tracking-tight">
+              <span className="text-center text-black text-2xl font-bold mt-9 lg:mt-[3%] lg:text-5xl">
                 School of Art & Design
               </span>
-              <span className="text-center text-black text-xl font-light xl:text-4xl">
+              <span className="text-center text-black text-xl font-light lg:text-4xl">
                 Digital Design Archive
               </span>
             </div>
@@ -124,7 +124,7 @@ export default function Page() {
               <span className="text-2xl font-semibold tracking-tight mx-16">
                 Our Departments
               </span>
-              <div className="flex flex-wrap justify-center text-center self-center gap-3 mx-12 xl:flex-nowrap xl:gap-6 xl:grid-cols-5 xl:mx-12 mt-5 xl:text-2xl">
+              <div className="flex flex-wrap justify-center text-center self-center gap-3 mx-12 lg:flex-nowrap lg:gap-6 lg:grid-cols-5 lg:mx-12 mt-5 lg:text-2xl">
                 {specializations.map((spec, index) => (
                   <Link
                     key={spec.id}
@@ -134,7 +134,7 @@ export default function Page() {
                     }}
                   >
                     <motion.div
-                      className="group flex flex-col justify-start items-center bg-opacity-20 hover:scale-105 w-[10em] h-24 xl:min-h-[6em] rounded-xl shadow-md"
+                      className="group flex flex-col justify-start items-center bg-opacity-20 hover:scale-105 w-[9em] h-[6.5em] xl:w-[10em] xl:min-h-[6em] rounded-xl shadow-md"
                       whileHover={{
                         scale: 1.05,
                         backgroundColor: getBackgroundColor(
@@ -144,7 +144,7 @@ export default function Page() {
                       }}
                       transition={{ type: "linear", stiffness: 500 }}
                     >
-                      <div className="text-left min-h-[45%] w-full flex flex-col p-4 xl:rounded-t-3xl">
+                      <div className="text-left min-h-[45%] w-full flex flex-col p-4 lg:rounded-t-3xl">
                         <span className="font-medium text-slate-500 group-hover:text-white  group-hover:font-semibold">
                           {spec.attributes.specializationName}
                         </span>

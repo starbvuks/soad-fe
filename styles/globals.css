@@ -9,14 +9,6 @@ body {
   background: #FAFAFA;
 }
 
-.react-pdf__Page__canvasWrapper::-webkit-scrollbar {
-  display: none; /* Hide scrollbar for Chrome, Safari, and Opera */
- }
- 
- .react-pdf__Page__canvasWrapper {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
- }
  
 /* Mobile styles */
 @media (max-width:   768px) {

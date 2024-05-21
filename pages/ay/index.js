@@ -55,10 +55,10 @@ export default function AcademicYearPage() {
       ) : (
         <div>
           <Navbar />
-          <div className="bg-white flex flex-col justify-center xl:py-12 xl:mx-24 font-Monstserrat">
+          <div className="bg-white flex flex-col justify-center lg:py-12 lg:mx-24 font-Monstserrat">
             <NavPath currentPath={router.pathname} />
             <span className="text-5xl font-bold mt-4">Batch</span>
-            <div className="grid grid-cols-3 gap-8 xl:text-2xl xl:mt-24">
+            <div className="grid grid-cols-3 gap-8 lg:text-2xl lg:mt-24">
               {specializations
                 .slice(currentIndex, currentIndex + 4)
                 .map((spec, index) => (

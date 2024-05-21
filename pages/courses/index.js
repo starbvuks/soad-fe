@@ -61,14 +61,14 @@ export default function CoursesPage() {
       ) : (
         <div>
           <Navbar />
-          <div className="bg-white flex flex-col justify-center xl:py-12 xl:mx-24 font-Monstserrat">
+          <div className="bg-white flex flex-col justify-center lg:py-12 lg:mx-24 font-Monstserrat">
           <NavPath currentPath={router.pathname} />
             <span className="text-5xl font-bold mt-4">Courses</span>
             <span className="text-2xl font-light mt-2">
               for Sem {sem}, {ay}
             </span>
 
-            <div className="grid grid-cols-2 gap-8 xl:text-2xl xl:mt-24">
+            <div className="grid grid-cols-2 gap-8 lg:text-2xl lg:mt-24">
               {specializations.map((spec, index) => (
                 <div>
                   <Link
