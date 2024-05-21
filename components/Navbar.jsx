@@ -1,5 +1,4 @@
 import Link from "next/link";
-import axios from "axios";
 import { useState, useEffect, useRef } from "react";
 import { useSession } from "next-auth/react";
 import { FaSearch, FaBars, FaTimes } from "react-icons/fa";
@@ -8,30 +7,11 @@ import { useRouter } from "next/router";
 export default function NavBar() {
   const [searchTerm, setSearchTerm] = useState("");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [isSmallScreen, setIsSmallScreen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   const { data: session } = useSession();
   const router = useRouter();
   const searchRef = useRef();
-
-  useEffect(() => {
-    // Function to set the screen size state
-    const handleResize = () => {
-      setIsSmallScreen(window.matchMedia("(max-width:  768px)").matches);
-    };
-
-    // Initial check for screen size
-    handleResize();
-
-    // Event listener for resize
-    window.addEventListener("resize", handleResize);
-
-    // Cleanup function
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -52,111 +32,73 @@ export default function NavBar() {
 
   const handleSearchSubmit = (event) => {
     event.preventDefault();
-    // Redirect to the search results page with the search term as a URL parameter
     router.push(`/search-result?term=${encodeURIComponent(searchTerm)}`);
   };
 
   const handleDropdownToggle = () => {
     setIsDropdownOpen(!isDropdownOpen);
-    console.log("Dropdown state:", isDropdownOpen);
   };
 
   return (
-    <header className="fixed top-0 font-Monstserrat left-0 w-full h-[4.5rem] bg-white border-b-2 border-gray-200 z-50 flex justify-between items-center">
+    <header className="fixed top-0 left-0 w-full h-[4.5rem] bg-white border-b-2 border-gray-200 z-50 flex justify-between items-center font-Monstserrat">
       <div className="flex items-center">
-        <Link
-          href="/"
-          className="mx-4 text-2xl font-light italic tracking-tight"
-        >
+        <Link href="/" className="mx-4 text-2xl font-light italic tracking-tight">
           <img src="/wox-logo.png" alt="logo" className="w-24" />
         </Link>
       </div>
 
-      <div className="flex items-center w-[35%] space-x-4">
-        {isSmallScreen ? (
-          <>
-            <button onClick={handleSearchClick} className="p-2">
-              <FaSearch className="w-6 h-6 text-gray-400" />
+      <div className="flex items-center space-x-4">
+        <div className="relative hidden lg:block">
+          <form onSubmit={handleSearchSubmit} className="flex items-center">
+            <input
+              type="text"
+              value={searchTerm}
+              onChange={(event) => setSearchTerm(event.target.value)}
+              className="px-4 py-2.5 text-sm font-medium rounded-full bg-gray-100 border border-gray-200 placeholder-gray-400 focus:outline focus:ring-2 focus:ring-gray-500 w-[300px]"
+              placeholder="Search..."
+              aria-label="Search"
+            />
+            <button
+              type="submit"
+              className="p-3 ml-2 rounded-full bg-[#FFAAAA] text-[#E9E9E9] transition hover:text-[#cfcfcf] hover:bg-[#ff8585]"
+            >
+              <FaSearch className="w-4 h-4" />
             </button>
-            {isSearchOpen && (
-              <div className="search-bar">
-                <form onSubmit={handleSearchSubmit}>
-                  <input
-                    type="text"
-                    value={searchTerm}
-                    onChange={(event) => setSearchTerm(event.target.value)}
-                    className="w-full px-4 py-2 text-sm font-medium rounded-md bg-gray-100 border border-gray-200 placeholder-gray-400 focus:outline focus:ring-2 focus:ring-gray-500"
-                    placeholder="Search..."
-                    aria-label="Search"
-                  />
-                  <button
-                    type="submit"
-                    className="absolute right-4 top-4 bottom-4 px-3 border-l-2 rounded-r-md bg-gray-200 border-gray-300 text-gray-400 transition hover:text-gray-600 hover:border-gray-400 hover:bg-gray-400"
-                  >
-                    <FaSearch className="w-6 h-6" />
-                  </button>
-                </form>
-              </div>
-            )}
-          </>
-        ) : (
-          <div className="relative w-[90%]">
-            <form onSubmit={handleSearchSubmit} className="flex items-center">
-              <input
-                type="text"
-                value={searchTerm}
-                onChange={(event) => setSearchTerm(event.target.value)}
-                className="w-[70%] px-4 py-2.5 text-sm font-medium rounded-full bg-gray-100 border border-gray-200 placeholder-gray-400 focus:outline focus:ring-2 focus:ring-gray-500 "
-                placeholder="Search..."
-                aria-label="Search"
-              />
-              <button
-                type="submit"
-                className="p-3 ml-2 self-center rounded-full bg-[#FFAAAA] border-gray-300 text-[#E9E9E9] transition hover:text-[#cfcfcf] hover:border-gray-600 hover:bg-[#ff8585]"
-              >
-                <FaSearch className="w-4 h-4" />
-              </button>
-            </form>
-          </div>
-        )}
+          </form>
+        </div>
 
-        <button
-          id="hamburgerMenu"
-          className="p-2"
-          onClick={handleDropdownToggle}
-        >
-          <FaBars className="w-6 h-6 text-gray-400 mr-3" />
+        <nav className="hidden lg:flex space-x-8 pl-3 pr-8">
+          <Link href="/gallery" className="text-black font-medium transition hover:text-gray-600">
+            Gallery
+          </Link>
+          <Link href="/about" className="text-black font-medium transition hover:text-gray-600">
+            About
+          </Link>
+          <Link href="/contact" className="text-black font-medium transition hover:text-gray-600">
+            Contact
+          </Link>
+        </nav>
+
+        <button className="lg:hidden p-2" onClick={handleDropdownToggle}>
+          <FaBars className="w-6 h-6 text-gray-400" />
         </button>
 
         <div
-          id="dropdownMenu"
-          className={`fixed z-100 top-0 right-0 border-2 border-gray-200 h-screen w-72 bg-[#f9f9f9] transform transition-all duration-300 ease-out ${
-            isDropdownOpen ? "translate-x-0" : "translate-x-full"
-          }`}
+          className={`fixed top-0 right-0 h-screen w-72 bg-[#f9f9f9] border-l-2 border-gray-200 transition-transform transform ${
+            isDropdownOpen ? 'translate-x-0' : 'translate-x-full'
+          } lg:hidden`}
         >
-          <button
-            className="absolute top-0 right-0 m-4"
-            onClick={handleDropdownToggle}
-          >
+          <button className="absolute top-4 right-4" onClick={handleDropdownToggle}>
             <FaTimes className="w-6 h-6 text-black" />
           </button>
-          <nav className="py-2 flex flex-col text-black font-semibold z-100">
-            <Link
-              href="/gallery"
-              className="mt-12 w-full p-4 text-center border-y-2 transition hover:text-white hover:bg-slate-600"
-            >
+          <nav className="flex flex-col items-center mt-16 space-y-4">
+            <Link href="/gallery" className="w-full p-4 text-center border-b-2 transition hover:text-white hover:bg-slate-600">
               Gallery
             </Link>
-            <Link
-              href="/about"
-              className="w-full p-4 text-center border-b-2 transition hover:text-white hover:bg-slate-600"
-            >
+            <Link href="/about" className="w-full p-4 text-center border-b-2 transition hover:text-white hover:bg-slate-600">
               About
             </Link>
-            <Link
-              href="/contact"
-              className=" w-full p-4 text-center border-b-2 transition hover:text-white hover:bg-slate-600"
-            >
+            <Link href="/contact" className="w-full p-4 text-center border-b-2 transition hover:text-white hover:bg-slate-600">
               Contact
             </Link>
           </nav>
