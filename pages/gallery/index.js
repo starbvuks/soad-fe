@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { useRouter } from "next/router";
 
 import Navbar from "../../components/Navbar";
 import Loading from "../loading";
 
 const GalleryPage = () => {
+  const router = useRouter();
   const [isLoading, setIsLoading] = useState(true);
   const [selectedImage, setSelectedImage] = useState(null);
   const [selectedImageHeader, setSelectedImageHeader] = useState(null);
@@ -39,10 +41,6 @@ const GalleryPage = () => {
     setSelectedImage(image.attributes.images.data[0].attributes.url);
     setSelectedImageHeader(image.attributes.header);
     setSelectedImageContent(image.attributes.content);
-    console.log(image);
-    console.log(selectedImage);
-    console.log(selectedImageHeader);
-    console.log(selectedImageContent);
   };
 
   const closeModal = () => {
@@ -57,7 +55,12 @@ const GalleryPage = () => {
         <div>
           <Navbar />
           <div className="w-full font-Monstserrat xl:py-32 xl:px-24 h-screen">
-            <span className="text-5xl font-bold ">Gallery</span>
+            <div className="flex items-center">
+              <button className="mr-4 text-2xl" onClick={() => router.back()}>
+                &larr;
+              </button>
+              <span className="text-5xl font-bold">Gallery</span>
+            </div>
             <div className="grid grid-cols-4 gap-12 mt-12">
               {images.map((image, index) => (
                 <div

@@ -40,7 +40,7 @@ export default function SemesterPage() {
           b.attributes.semesterNum.replace("Sem ", ""),
           10
         );
-        return semesterNumA - semesterNumB; // Ascending order
+        return semesterNumB - semesterNumA; // Ascending order
       });
 
       setSpecializations(sortedSpecializations);

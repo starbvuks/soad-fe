@@ -34,7 +34,7 @@ export default function AcademicYearPage() {
         const yearPattern = /(\d{4}) - \d{4}/;
         const yearA = parseInt(a.attributes.ay.match(yearPattern)[1], 10);
         const yearB = parseInt(b.attributes.ay.match(yearPattern)[1], 10);
-        return yearA - yearB; // Ascending order
+        return yearB - yearA; // Ascending order
       });
 
       setSpecializations(sortedSpecializations);
