@@ -52,7 +52,7 @@ export default function CourseDetailsPage() {
         setIsLoading(false);
       }, 0);
     });
-  }, []);
+  }, [specId, ayId, semId, courseId]);
 
   return (
     <div>

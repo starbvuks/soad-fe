@@ -25,32 +25,23 @@ export default function SemesterPage() {
     const token = process.env.NEXT_PUBLIC_TOKEN;
 
     const fetchData = async () => {
-      const res = await axios
-        .get(
-          `https://soad.alephinnovation.live/api/projects?populate=*&filters[id][$eq]=${projId}`,
+      try {
+        const res = await axios.get(
+          `https://soad.alephinnovation.live/api/projects/${projId}?populate=*`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
             },
           }
-        )
-        .then((res) => {
-          setSpecializations(res.data.data[0].attributes);
-          console.log(specializations);
-          setMedia(
-            res.data.data[0].attributes.projMedia.data[0].attributes.url
-          );
-          // setSem(
-          //   res.data.data[0].attributes.semesters.data[0].attributes.semesterNum
-          // );
-          // setAy(
-          //   res.data.data[0].attributes.academic_years.data[0].attributes.ay
-          // );
-          // setCourse(res.data.data[0].attributes.course.data.attributes);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+        );
+
+        console.log(res.data.data);
+
+        setSpecializations(res.data.data.attributes);
+        setMedia(res.data.data.attributes.projMedia.data[0].attributes.url);
+      } catch (error) {
+        console.log(error);
+      }
     };
 
     fetchData().then(() => {
@@ -59,7 +50,7 @@ export default function SemesterPage() {
         setIsLoading(false);
       }, 0);
     });
-  }, []);
+  }, [projId]);
 
   return (
     <div>
@@ -98,7 +89,11 @@ export default function SemesterPage() {
               <span className="text-xl font-normal mt-2 w-[60%]">
                 {specializations.brief}
               </span>
-              {media ? <PdfViewer url={`${media}`} /> : <br></br>}
+              {media ? (
+                <PdfViewer url={`${media}`} />
+              ) : (
+                <span>Project Loading</span>
+              )}
             </div>
           </div>
           <Footer />

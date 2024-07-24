@@ -18,7 +18,7 @@ const GalleryPage = () => {
 
     const fetchGalleryData = async () => {
       const res = await axios.get(
-        "https://soad.alephinnovation.live/api/galleries?populate=*",
+        "https://soad.alephinnovation.live/api/galleries?populate=*&pagination[start]=0&pagination[limit]=50",
         {
           headers: {
             Authorization: `Bearer ${token}`,

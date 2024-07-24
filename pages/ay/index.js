@@ -20,33 +20,36 @@ export default function AcademicYearPage() {
     const token = process.env.NEXT_PUBLIC_TOKEN;
 
     const fetchData = async () => {
-      const res = await axios.get(
-        `https://soad.alephinnovation.live/api/academic-years?populate=specialization&filters[specialization][id][$eq]=${specId}`,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
+      if (!specId) return; // Ensure specId is available before fetching
 
-      // Extract the starting year from the batch string and sort by it
-      const sortedSpecializations = res.data.data.sort((a, b) => {
-        const yearPattern = /(\d{4}) - \d{4}/;
-        const yearA = parseInt(a.attributes.ay.match(yearPattern)[1], 10);
-        const yearB = parseInt(b.attributes.ay.match(yearPattern)[1], 10);
-        return yearB - yearA; // Ascending order
-      });
+      try {
+        const res = await axios.get(
+          `https://soad.alephinnovation.live/api/academic-years?populate=specialization&filters[specialization][id][$eq]=${specId}`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
 
-      setSpecializations(sortedSpecializations);
+        // Extract the starting year from the batch string and sort by it
+        const sortedSpecializations = res.data.data.sort((a, b) => {
+          const yearPattern = /(\d{4}) - \d{4}/;
+          const yearA = parseInt(a.attributes.ay.match(yearPattern)[1], 10);
+          const yearB = parseInt(b.attributes.ay.match(yearPattern)[1], 10);
+          return yearB - yearA; // Ascending order
+        });
+
+        setSpecializations(sortedSpecializations);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      } finally {
+        setIsLoading(false); // Set loading to false after fetching
+      }
     };
 
-    fetchData().then(() => {
-      // After fetching data, wait for   1.5 seconds and then hide the loading screen
-      setTimeout(() => {
-        setIsLoading(false);
-      }, 0);
-    });
-  }, []); // Empty dependency array
+    fetchData();
+  }, [specId]); // Add specId as a dependency
 
   return (
     <div>
@@ -77,12 +80,6 @@ export default function AcademicYearPage() {
                   </Link>
                 ))}
             </div>
-            {/* <button
-            onClick={handleNext}
-            className="px-4 py-2 h-12 bg-gray-500 text-white rounded-full"
-          >
-            <FaCaretRight />
-          </button> */}
           </div>
           <Footer />
         </div>

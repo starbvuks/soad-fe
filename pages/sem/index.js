@@ -52,7 +52,7 @@ export default function SemesterPage() {
         setIsLoading(false);
       }, 0);
     });
-  }, []); // Empty dependency array
+  }, [specId, ayId]); // Empty dependency array
 
   return (
     <div>
