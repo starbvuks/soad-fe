@@ -24,6 +24,7 @@
     "react-dom": "^18",
     "react-icons": "^5.0.1",
     "react-multi-carousel": "^2.8.4",
+    "react-pdf": "^9.1.0",
     "react-spring": "^9.7.3",
     "strapi-google-auth": "^0.2.1"
   },
