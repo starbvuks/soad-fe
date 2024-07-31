@@ -134,7 +134,7 @@ export default function Page() {
                     }}
                   >
                     <motion.div
-                      className="group flex flex-col justify-start items-center bg-opacity-20 hover:scale-105 w-[9em] h-[6.5em] xl:w-[10em] xl:min-h-[6em] rounded-xl shadow-md"
+                      className="group flex flex-col justify-start items-center bg-opacity-20 hover:scale-105 w-[9em] h-[6.5em] xl:w-[10em] xl:min-h-[6em] rounded-xl shadow-lg shadow-center"
                       whileHover={{
                         scale: 1.05,
                         backgroundColor: getBackgroundColor(
@@ -144,15 +144,15 @@ export default function Page() {
                       }}
                       transition={{ type: "linear", stiffness: 500 }}
                     >
-                      <div className="text-left min-h-[45%] w-full flex flex-col p-4 lg:rounded-t-3xl">
-                        <span className="font-medium text-slate-500 group-hover:text-white  group-hover:font-semibold">
+                      <div className="text-center w-full h-full flex flex-col justify-center items-center p-4 lg:rounded-xl border-2 border-slate-300">
+                        <span className="font-medium text-slate-500 group-hover:text-white group-hover:font-semibold tracking-tight">
                           {spec.attributes.specializationName}
                         </span>
-                        <span className="font-light text-sm mt-1 group-hover:text-slate-100 text-slate-500 ">
+                        {/* <span className="font-light text-sm mt-1 group-hover:text-slate-100 text-slate-500 ">
                           {getSpecializationDescription(
                             spec.attributes.specializationName
                           )}
-                        </span>
+                        </span> */}
                       </div>
                     </motion.div>
                   </Link>
