@@ -27,8 +27,8 @@ export default function Home() {
             <Head>
               <title>Home Page</title>
             </Head>
-          <div className="flex h-screen justify-center gap-4 align-center items-center bg-[#FFE6E6] font-WorkSans px-20">
-            <div className="flex flex-col gap-3 text-left text-2xl w-[90%]">
+          <div className="flex h-screen justify-center gap-4 2xl:gap-0 align-center items-center bg-[#FFE6E6] font-WorkSans px-20">
+            <div className="flex flex-col gap-3 text-left text-2xl w-[90%] 2xl:w-[50%]">
               <span className="">Welcome to</span>
               <span className="text-6xl font-semibold">
                 Digital Archival Platform
@@ -44,8 +44,8 @@ export default function Home() {
                 <img src="/btn-arrow.png" className="w-[20%]" />
               </Link>
             </div>
-            <div className="flex justify-end">
-              <img src="/collage.png" className="w-[90%] self-end" />
+            <div className="flex justify-end 2xl:justify-start">
+              <img src="/collage.png" className="w-[90%]" />
             </div>
           </div>
           <Footer />
