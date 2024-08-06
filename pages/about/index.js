@@ -10,7 +10,7 @@ export default function SemesterPage() {
   return (
     <div>
       <Navbar />
-      <div className="bg-white flex flex-col justify-center xl:py-12 xl:ml-24 font-Monstserrat">
+      <div className="flex flex-col justify-center xl:py-12 xl:ml-24 font-Monstserrat">
         <span className="text-5xl font-bold mt-24">Welcome</span>
         <span className="text-3xl font-light mt-2">
           the the Woxsen School of Design Archives

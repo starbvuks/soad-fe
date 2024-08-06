@@ -9,7 +9,7 @@ export default function App({
   return (
     <SessionProvider session={session}>
       <NextUIProvider>
-        <Component {...pageProps} />
+        <Component {...pageProps} className="bg-[#fafafa]" />
       </NextUIProvider>
     </SessionProvider>
   );

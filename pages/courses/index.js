@@ -61,7 +61,7 @@ export default function CoursesPage() {
       ) : (
         <div>
           <Navbar />
-          <div className="bg-white flex flex-col justify-center lg:py-12 lg:mx-24 font-Monstserrat">
+          <div className="flex flex-col justify-center lg:py-12 lg:mx-24 font-Monstserrat">
           <NavPath currentPath={router.pathname} />
             <span className="text-5xl font-bold mt-4">Courses</span>
             <span className="text-2xl font-light mt-2">

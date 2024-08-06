@@ -45,7 +45,7 @@ const SearchResultsPage = () => {
 
   return (
     <div>
-      <div className="bg-white flex flex-col justify-center xl:p-12 font-Monstserrat">
+      <div className="flex flex-col justify-center xl:p-12 font-Monstserrat">
         <Navbar />
         <span className="text-2xl text-black font-light mt-24">
           Search Results for "{searchTerm}"

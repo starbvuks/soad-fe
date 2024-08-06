@@ -59,7 +59,7 @@ export default function SemesterPage() {
       ) : (
         <div>
           <Navbar />
-          <div className="bg-white flex flex-col justify-center lg:py-12 lg:pl-24 font-Monstserrat">
+          <div className="flex flex-col justify-center lg:py-12 lg:pl-24 font-Monstserrat">
             <NavPath currentPath={router.pathname} />
             <span className="text-5xl font-bold mt-4">
               {specializations.projectName}
