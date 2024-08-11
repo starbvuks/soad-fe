@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-const {nextui} = require("@nextui-org/react");
+const { nextui } = require("@nextui-org/react");
 
 module.exports = {
   content: [
@@ -18,8 +18,8 @@ module.exports = {
         "btn-arrow": "url('/btn-arrow.png')",
       },
       fontFamily: {
-        Monstserrat: ["Montserrat", "sans-serif"],
-        WorkSans: ["Work Sans", "sans-serif"],
+        Monstserrat: ["Work Sans", "sans-serif"],
+        WorkSans: ["Montserrat", "sans-serif"],
       },
     },
   },

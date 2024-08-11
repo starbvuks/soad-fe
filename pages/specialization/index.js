@@ -116,7 +116,7 @@ export default function Page() {
             </div>
             <div className="mx-16 mt-12 flex flex-col gap-5">
               <span className="text-2xl font-semibold tracking-tight">
-                Student Gallery
+                Our Expertise
               </span>
               <Carousel />
             </div>
@@ -124,7 +124,7 @@ export default function Page() {
               <span className="text-2xl font-semibold tracking-tight mx-16">
                 Our Departments
               </span>
-              <div className="flex flex-wrap justify-center text-center self-center gap-3 mx-12 lg:flex-nowrap lg:gap-6 lg:grid-cols-5 lg:mx-12 mt-5 lg:text-2xl">
+              <div className="flex flex-wrap justify-between text-center self-center gap-3 mx-12 lg:flex-nowrap lg:gap-6 lg:grid-cols-5 lg:mx-12 mt-5 lg:text-2xl">
                 {specializations.map((spec, index) => (
                   <Link
                     key={spec.id}
@@ -134,7 +134,7 @@ export default function Page() {
                     }}
                   >
                     <motion.div
-                      className="group flex flex-col justify-start items-center bg-opacity-20 hover:scale-105 w-[9em] h-[6.5em] xl:w-[10em] xl:min-h-[6em] rounded-xl shadow-lg shadow-center"
+                      className="group flex flex-col justify-start items-center bg-opacity-20 hover:scale-105 w-[9em] h-[6.5em] xl:w-[10em] 2xl:w-[12em] xl:min-h-[6em] rounded-xl shadow-lg shadow-center"
                       whileHover={{
                         scale: 1.05,
                         backgroundColor: getBackgroundColor(

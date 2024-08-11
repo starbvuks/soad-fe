@@ -1,6 +1,6 @@
 // Carousel.js
 import React, { useState, useEffect } from "react";
-import {Spinner} from "@nextui-org/react";
+import { Spinner } from "@nextui-org/react";
 import axios from "axios";
 
 import Loading from "@/pages/loading";
@@ -49,7 +49,7 @@ const Carousel = () => {
     <div className="relative mx-auto overflow-hidden rounded-lg w-full h-72 bg-white shadow-md">
       {isLoading ? (
         <div className="flex items-center justify-center w-full h-full">
-          <Spinner color="warning" size="lg" className="z-100"/>
+          <Spinner color="warning" size="lg" className="z-100" />
         </div>
       ) : (
         <div className="relative w-full h-full">
@@ -77,23 +77,43 @@ const Carousel = () => {
                   </button>
                 </div>
 
-                <div className="flex justify-between w-full gap-2">
-                  <img
-                    src={item.attributes.images.data[0].attributes.url}
-                    className="h-72 w-[25%] object-contain rounded-sm bg-slate-100"
-                  />
-                  <img
-                    src={item.attributes.images.data[1].attributes.url}
-                    className="h-72 w-[25%] object-contain rounded-sm bg-slate-100"
-                  />
-                  <img
-                    src={item.attributes.images.data[2].attributes.url}
-                    className="h-72 w-[25%] object-contain rounded-sm bg-slate-100"
-                  />
-                  <img
-                    src={item.attributes.images.data[3].attributes.url}
-                    className="h-72 w-[25%] object-contain rounded-sm bg-slate-100"
-                  />
+                <div className="flex justify-between w-full h-72 gap-2">
+                  <div className="w-[25%] relative">
+                    <img
+                      src={item.attributes.images.data[0].attributes.url}
+                      className="h-full rounded-sm bg-slate-100"
+                    />
+                    <span className="absolute text-white text-lg text-center bottom-2 left-0 right-0 mx-auto w-64 opacity-60">
+                      {item.attributes.title1}
+                    </span>
+                  </div>
+                  <div className="w-[25%] relative">
+                    <img
+                      src={item.attributes.images.data[1].attributes.url}
+                      className="h-full rounded-sm bg-slate-100"
+                    />
+                    <span className="absolute text-white text-lg text-center bottom-2 left-0 right-0 mx-auto w-64 opacity-60">
+                      {item.attributes.title2}
+                    </span>
+                  </div>
+                  <div className="w-[25%] relative">
+                    <img
+                      src={item.attributes.images.data[2].attributes.url}
+                      className="h-full rounded-sm bg-slate-1000 object-cover"
+                    />
+                    <span className="absolute text-white text-lg text-center bottom-2 left-0 right-0 mx-auto w-64 opacity-60">
+                      {item.attributes.title3}
+                    </span>
+                  </div>
+                  <div className="w-[25%] relative">
+                    <img
+                      src={item.attributes.images.data[3].attributes.url}
+                      className="h-full rounded-sm bg-slate-1000"
+                    />
+                    <span className="absolute text-white text-lg text-center bottom-2 left-0 right-0 mx-auto w-64 opacity-60">
+                      {item.attributes.title4}
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
