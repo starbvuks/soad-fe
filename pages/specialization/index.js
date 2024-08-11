@@ -65,7 +65,7 @@ export default function Page() {
 
       if (newTypedSequence === secretSequence) {
         router.push("https://www.sarvag.me/");
-        setTypedSequence(""); 
+        setTypedSequence("");
       } else if (!secretSequence.startsWith(newTypedSequence)) {
         setTypedSequence(key);
       } else {
@@ -124,11 +124,11 @@ export default function Page() {
         <Loading />
       ) : (
         <motion.div
-          // initial="hidden"
-          // animate="visible"
-          // exit="exit"
-          // variants={pageVariants}
-          // transition={pageTransition}
+        // initial="hidden"
+        // animate="visible"
+        // exit="exit"
+        // variants={pageVariants}
+        // transition={pageTransition}
         >
           <Navbar />
           <div className="bg-[#FAFAFA] flex flex-col justify-center font-DMSans pt-20 pb-24 lg:pb-44">
@@ -160,7 +160,7 @@ export default function Page() {
                     }}
                   >
                     <motion.div
-                      className="group lg:flex lg:flex-col justify-start items-center bg-opacity-20 hover:scale-105 w-full lg:w-[9em] h-[6.5em] xl:w-[10em] 2xl:w-[12em] xl:min-h-[6em] rounded-xl shadow-md lg:shadow-lg shadow-center"
+                      className="group lg:flex lg:flex-col justify-start items-center bg-opacity-20 hover:scale-105 w-full lg:w-[9em] h-[6.5em] xl:w-[10em] 2xl:w-[14em] xl:min-h-[6em] rounded-xl shadow-md lg:shadow-lg shadow-center"
                       whileHover={{
                         scale: 1.05,
                         backgroundColor: getBackgroundColor(
