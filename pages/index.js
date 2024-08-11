@@ -24,10 +24,10 @@ export default function Home() {
       ) : (
         <>
           <NavBar />
-            <Head>
-              <title>Home Page</title>
-            </Head>
-          <div className="flex h-screen justify-center gap-4 2xl:gap-0 align-center items-center bg-[#FFE6E6] font-WorkSans px-20">
+          <Head>
+            <title>Home Page</title>
+          </Head>
+          <div className="flex h-screen justify-center gap-4 2xl:gap-0 align-center items-center bg-[#FFE6E6] font-DMSans px-20">
             <div className="flex flex-col gap-3 text-left text-2xl w-[90%] 2xl:w-[50%]">
               <span className="">Welcome to</span>
               <span className="text-6xl font-semibold">
@@ -38,7 +38,7 @@ export default function Home() {
               </span>
               <Link
                 href="/specialization"
-                className="flex justify-between items-center w-[50%] mt-5 text-2xl font-light tracking-tight py-5 px-10 2xl:px-7 bg-[#D7616F] hover:bg-[#b14a56] text-white transition-all"
+                className="flex font-DMSans justify-between items-center w-[50%] mt-5 text-2xl font-light tracking-tight py-5 px-10 2xl:px-7 bg-[#D7616F] hover:bg-[#b14a56] text-white transition-all"
               >
                 Explore Our Works
                 <img src="/btn-arrow.png" className="w-[20%]" />

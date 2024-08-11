@@ -61,7 +61,7 @@ export default function AcademicYearPage() {
           <div className="flex flex-col justify-center lg:py-12 lg:mx-24 h-full font-Monstserrat">
             <NavPath currentPath={router.pathname} />
             <span className="text-5xl font-bold mt-4">Batch</span>
-            <div className="grid grid-cols-3 gap-8 lg:text-2xl lg:mt-24">
+            <div className="grid grid-cols-3 gap-8 lg:text-2xl lg:mt-24 font-Outfit">
               {specializations
                 .slice(currentIndex, currentIndex + 4)
                 .map((spec, index) => (
@@ -73,9 +73,7 @@ export default function AcademicYearPage() {
                     }}
                   >
                     <div className="relative transition border-4 border-slate-500 text-slate-500 bg-slate-100 hover:bg-slate-500 hover:text-white hover:scale-105 flex flex-col justify-center items-center px-20 py-16 h-full rounded-3xl ">
-                      <span className=" font-semibold">
-                        {spec.attributes.ay}
-                      </span>
+                      <span className=" font-medium">{spec.attributes.ay}</span>
                     </div>
                   </Link>
                 ))}

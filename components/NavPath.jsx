@@ -5,16 +5,16 @@ import axios from "axios";
 import Link from "next/link";
 
 const NavigationPath = () => {
- const router = useRouter();
- const { specId, ayId, semId } = router.query;
- const [specializationName, setSpecializationName] = useState("");
- const [ayName, setAyName] = useState("");
- const [semName, setSemName] = useState("");
- const [isLoading, setIsLoading] = useState(true); // Loading state
+  const router = useRouter();
+  const { specId, ayId, semId } = router.query;
+  const [specializationName, setSpecializationName] = useState("");
+  const [ayName, setAyName] = useState("");
+  const [semName, setSemName] = useState("");
+  const [isLoading, setIsLoading] = useState(true); // Loading state
 
- const token = process.env.NEXT_PUBLIC_TOKEN;
+  const token = process.env.NEXT_PUBLIC_TOKEN;
 
- useEffect(() => {
+  useEffect(() => {
     const fetchDetails = async () => {
       setIsLoading(true); // Set loading to true before fetching
 
@@ -28,7 +28,9 @@ const NavigationPath = () => {
               },
             }
           );
-          setSpecializationName(response.data.data.attributes.specializationName);
+          setSpecializationName(
+            response.data.data.attributes.specializationName
+          );
         } catch (error) {
           console.error("Failed to fetch specialization details:", error);
         }
@@ -70,19 +72,19 @@ const NavigationPath = () => {
     };
 
     fetchDetails();
- }, [specId, ayId, semId]);
+  }, [specId, ayId, semId]);
 
- // Skeleton component
- const Skeleton = () => (
+  // Skeleton component
+  const Skeleton = () => (
     <div className="skeleton">
       <div className="skeleton-item"></div>
       <div className="skeleton-item"></div>
       <div className="skeleton-item"></div>
     </div>
- );
+  );
 
- // CSS for the skeleton
- const skeletonStyle = `
+  // CSS for the skeleton
+  const skeletonStyle = `
  .skeleton {
    display: flex;
    gap: 10px;
@@ -111,38 +113,37 @@ const NavigationPath = () => {
  }
 `;
 
-
- // Conditional rendering based on loading state
- if (isLoading) {
+  // Conditional rendering based on loading state
+  if (isLoading) {
     return (
       <div>
         <style>{skeletonStyle}</style>
         <Skeleton />
       </div>
     );
- }
+  }
 
- const currentPath = router.pathname;
- const queryParams = router.query;
+  const currentPath = router.pathname;
+  const queryParams = router.query;
 
- const pages = [
+  const pages = [
     { path: "/specialization", label: specializationName, index: 1 },
     { path: "/ay", label: `Batch ${ayName}`, index: 2 },
     { path: "/sem", label: `Sem ${semName}`, index: 3 },
     { path: "/courses", label: "Courses", index: 4 },
     { path: "/courses/details", label: "Course Details", index: 5 },
     { path: "/projects", label: "Project", index: 6 },
- ];
+  ];
 
- let currentPageIndex = pages.findIndex((page) => currentPath === page.path);
+  let currentPageIndex = pages.findIndex((page) => currentPath === page.path);
 
- if (currentPageIndex === -1) {
+  if (currentPageIndex === -1) {
     currentPageIndex = pages.findIndex((page) =>
       currentPath.startsWith(page.path)
     );
- }
+  }
 
- return (
+  return (
     <div className="mt-20">
       <ul className="flex gap-3">
         {pages.map((page, index) => {
@@ -153,9 +154,9 @@ const NavigationPath = () => {
             return (
               <li key={page.path}>
                 <Link href={href}>
-                 <span className="font-semibold text-slate-500 hover:text-slate-800">
+                  <span className="font-semibold text-slate-500 hover:text-slate-800">
                     {page.label} /
-                 </span>
+                  </span>
                 </Link>
               </li>
             );
@@ -166,7 +167,7 @@ const NavigationPath = () => {
         })}
       </ul>
     </div>
- );
+  );
 };
 
 export default NavigationPath;

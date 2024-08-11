@@ -40,9 +40,12 @@ export default function NavBar() {
   };
 
   return (
-    <header className="fixed top-0 left-0 w-full h-[4.5rem] bg-white border-b-2 border-gray-200 z-50 flex justify-between items-center font-Monstserrat">
+    <header className="fixed top-0 left-0 w-full h-[4.5rem] bg-white border-b-2 border-gray-200 z-50 flex justify-between items-center font-DMSans">
       <div className="flex items-center">
-        <Link href="/" className="mx-4 text-2xl font-light italic tracking-tight">
+        <Link
+          href="/"
+          className="mx-4 text-2xl font-light italic tracking-tight"
+        >
           <img src="/wox-logo.png" alt="logo" className="w-24" />
         </Link>
       </div>
@@ -68,13 +71,22 @@ export default function NavBar() {
         </div>
 
         <nav className="hidden lg:flex space-x-8 pl-3 pr-8">
-          <Link href="/gallery" className="text-black font-medium transition hover:text-gray-600">
+          <Link
+            href="/gallery"
+            className="text-black font-medium transition hover:text-gray-600"
+          >
             Gallery
           </Link>
-          <Link href="/about" className="text-black font-medium transition hover:text-gray-600">
+          <Link
+            href="/about"
+            className="text-black font-medium transition hover:text-gray-600"
+          >
             About
           </Link>
-          <Link href="/contact" className="text-black font-medium transition hover:text-gray-600">
+          <Link
+            href="/contact"
+            className="text-black font-medium transition hover:text-gray-600"
+          >
             Contact
           </Link>
         </nav>
@@ -85,20 +97,32 @@ export default function NavBar() {
 
         <div
           className={`fixed top-0 right-0 h-screen w-72 bg-[#f9f9f9] border-l-2 border-gray-200 transition-transform transform ${
-            isDropdownOpen ? 'translate-x-0' : 'translate-x-full'
+            isDropdownOpen ? "translate-x-0" : "translate-x-full"
           } lg:hidden`}
         >
-          <button className="absolute top-4 right-4" onClick={handleDropdownToggle}>
+          <button
+            className="absolute top-4 right-4"
+            onClick={handleDropdownToggle}
+          >
             <FaTimes className="w-6 h-6 text-black" />
           </button>
           <nav className="flex flex-col items-center mt-16 space-y-4">
-            <Link href="/gallery" className="w-full p-4 text-center border-b-2 transition hover:text-white hover:bg-slate-600">
+            <Link
+              href="/gallery"
+              className="w-full p-4 text-center border-b-2 transition hover:text-white hover:bg-slate-600"
+            >
               Gallery
             </Link>
-            <Link href="/about" className="w-full p-4 text-center border-b-2 transition hover:text-white hover:bg-slate-600">
+            <Link
+              href="/about"
+              className="w-full p-4 text-center border-b-2 transition hover:text-white hover:bg-slate-600"
+            >
               About
             </Link>
-            <Link href="/contact" className="w-full p-4 text-center border-b-2 transition hover:text-white hover:bg-slate-600">
+            <Link
+              href="/contact"
+              className="w-full p-4 text-center border-b-2 transition hover:text-white hover:bg-slate-600"
+            >
               Contact
             </Link>
           </nav>

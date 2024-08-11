@@ -52,7 +52,7 @@ const Carousel = () => {
           <Spinner color="warning" size="lg" className="z-100" />
         </div>
       ) : (
-        <div className="relative w-full h-full">
+        <div className="relative h-full">
           {gallery.map((item, index) => (
             <div
               key={index}
@@ -60,7 +60,7 @@ const Carousel = () => {
                 index === currentSlide ? "opacity-100" : "opacity-0"
               }`}
             >
-              <div className="absolute w-full flex items-start justify-between text-black rounded-lg ">
+              <div className="w-full justify-center text-black rounded-lg">
                 <div className="absolute bottom-8 right-0 flex items-center justify-between mx-10 gap-5">
                   {/* Left and Right arrows */}
                   <button
@@ -77,40 +77,40 @@ const Carousel = () => {
                   </button>
                 </div>
 
-                <div className="flex justify-between w-full h-72 gap-2">
+                <div className="flex w-[100%] justify-between h-72">
                   <div className="w-[25%] relative">
                     <img
                       src={item.attributes.images.data[0].attributes.url}
-                      className="h-full rounded-sm bg-slate-100"
+                      className="h-full rounded-sm bg-slate-100 lg:object-cover object-contain"
                     />
-                    <span className="absolute text-white text-lg text-center bottom-2 left-0 right-0 mx-auto w-64 opacity-60">
+                    <span className="absolute text-white text-lg text-center m-auto bottom-2 left-0 right-0 opacity-60">
                       {item.attributes.title1}
                     </span>
                   </div>
                   <div className="w-[25%] relative">
                     <img
                       src={item.attributes.images.data[1].attributes.url}
-                      className="h-full rounded-sm bg-slate-100"
+                      className="h-full rounded-sm bg-slate-100 lg:object-cover object-contain"
                     />
-                    <span className="absolute text-white text-lg text-center bottom-2 left-0 right-0 mx-auto w-64 opacity-60">
+                    <span className="absolute text-white text-lg text-center m-auto bottom-2 left-0 right-0 opacity-60">
                       {item.attributes.title2}
                     </span>
                   </div>
                   <div className="w-[25%] relative">
                     <img
                       src={item.attributes.images.data[2].attributes.url}
-                      className="h-full rounded-sm bg-slate-1000 object-cover"
+                      className="h-full rounded-sm bg-slate-100 lg:object-cover object-contain"
                     />
-                    <span className="absolute text-white text-lg text-center bottom-2 left-0 right-0 mx-auto w-64 opacity-60">
+                    <span className="absolute text-white text-lg text-center m-auto bottom-2 left-0 right-0 opacity-60">
                       {item.attributes.title3}
                     </span>
                   </div>
                   <div className="w-[25%] relative">
                     <img
                       src={item.attributes.images.data[3].attributes.url}
-                      className="h-full rounded-sm bg-slate-1000"
+                      className="h-full rounded-sm bg-slate-100 lg:object-cover object-contain"
                     />
-                    <span className="absolute text-white text-lg text-center bottom-2 left-0 right-0 mx-auto w-64 opacity-60">
+                    <span className="absolute text-white text-lg text-center m-auto bottom-2 left-0 right-0 opacity-60">
                       {item.attributes.title4}
                     </span>
                   </div>

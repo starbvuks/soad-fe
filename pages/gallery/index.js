@@ -54,7 +54,7 @@ const GalleryPage = () => {
       ) : (
         <div>
           <Navbar />
-          <div className="w-full font-Monstserrat lg:py-32 lg:px-24 h-screen">
+          <div className="w-full font-Outfit lg:py-32 lg:px-24 h-screen">
             <div className="flex items-center">
               <button className="mr-4 text-2xl" onClick={() => router.back()}>
                 &larr;
@@ -80,7 +80,7 @@ const GalleryPage = () => {
         </div>
       )}
       {selectedImage && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 font-WorkSans tracking-tight">
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 font- tracking-tight">
           <div className="relative h-4/5 mx-32 max-h-3xl bg-[#FAFAFA] shadow-xl rounded-xl text-black ">
             <button
               className="absolute top-2 right-4 text-slate-500 hover:text-slate-800 text-2xl"

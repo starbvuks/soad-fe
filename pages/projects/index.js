@@ -61,32 +61,38 @@ export default function SemesterPage() {
           <Navbar />
           <div className="flex flex-col justify-center lg:py-12 lg:pl-24 font-Monstserrat">
             <NavPath currentPath={router.pathname} />
-            <span className="text-5xl font-bold mt-4">
+            <span className="text-5xl font-bold mt-4 ">
               {specializations.projectName}
             </span>
             <div className="flex flex-col">
               <span className="text-3xl font-semibold mt-8">
                 Course Details
               </span>
-              <span className="text-xl font-normal mt-2">
+              <span className="text-xl font-normal mt-2 font-DMSans">
                 Number Of Days:{" "}
-                <span className=" ml-1">{specializations.numberOfDays}</span>
+                <span className=" ml-1 font-DMSans">
+                  {specializations.numberOfDays}
+                </span>
               </span>
-              <span className="text-xl font-normal mt-2">
+              <span className="text-xl font-normal mt-2 font-DMSans">
                 Faculty:{" "}
-                <span className=" ml-1 font-semibold">{specializations.faculty}</span>
+                <span className=" ml-1 font-semibold font-DMSans">
+                  {specializations.faculty}
+                </span>
               </span>
-              <span className="text-xl font-normal mt-2">
+              <span className="text-xl font-normal mt-2 font-DMSans">
                 Student(s):{" "}
-                <span className=" ml-1 font-semibold">{specializations.studentNames}</span>
+                <span className=" ml-1 font-semibold font-DMSans">
+                  {specializations.studentNames}
+                </span>
               </span>
-              <span className="text-3xl font-semibold mt-12">
+              <span className="text-3xl font-semibold mt-12 font-DMSans">
                 Brief description of the project
               </span>
-              <span className="text-lg font-semibold mt-8">
+              <span className="text-lg font-semibold mt-8 font-DMSans">
                 Keywords: {specializations.keywords}
               </span>
-              <span className="text-xl font-normal mt-2 w-[60%]">
+              <span className="text-xl font-normal mt-2 w-[60%] font-DMSans">
                 {specializations.brief}
               </span>
               {media ? (

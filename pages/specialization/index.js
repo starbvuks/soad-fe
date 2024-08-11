@@ -105,8 +105,8 @@ export default function Page() {
           transition={pageTransition}
         >
           <Navbar />
-          <div className="bg-[#FAFAFA] flex flex-col justify-center font-WorkSans lg:pt-20 lg:pb-44">
-            <div className="flex flex-col gap-1 tracking-tight">
+          <div className="bg-[#FAFAFA] flex flex-col justify-center font-DMSans lg:pt-20 lg:pb-44">
+            <div className="flex flex-col gap-1 tracking-tight font-Outfit">
               <span className="text-center text-black text-2xl font-bold mt-9 lg:mt-[3%] lg:text-5xl">
                 School of Art & Design
               </span>

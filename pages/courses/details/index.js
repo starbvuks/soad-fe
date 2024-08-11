@@ -62,10 +62,8 @@ export default function CourseDetailsPage() {
         <div>
           <Navbar />
           <div className="flex flex-col justify-center lg:py-12 lg:mx-24 font-Monstserrat">
-          <NavPath currentPath={router.pathname} />
-            <span className="text-5xl font-bold mt-4">
-              {course.courseName}
-            </span>
+            <NavPath currentPath={router.pathname} />
+            <span className="text-5xl font-bold mt-4">{course.courseName}</span>
             <span className="text-2xl font-light mt-2">
               for Sem {sem}, {ay}
             </span>
@@ -75,7 +73,7 @@ export default function CourseDetailsPage() {
             <span className="text-xl font-normal mt-2 w-[60%]">
               {course.courseDetails}
             </span>
-            <div className="grid grid-cols-2 gap-8 lg:text-2xl lg:mt-24">
+            <div className="grid grid-cols-2 gap-8 lg:text-3xl lg:mt-24">
               {specializations.map((spec, index) => (
                 <Link
                   href={{
@@ -89,8 +87,8 @@ export default function CourseDetailsPage() {
                     },
                   }}
                 >
-                  <div className="relative transition border-4 border-slate-500 text-slate-500 bg-slate-100 hover:bg-slate-500 hover:text-white hover:scale-105 flex flex-col justify-center px-20 py-16 h-full rounded-3xl ">
-                    <span className=" font-thin italic text-base">
+                  <div className="relative font-Outfit transition border-4 border-slate-500 text-slate-500 bg-slate-100 hover:bg-slate-500 hover:text-white hover:scale-105 flex flex-col justify-center px-20 py-16 h-full rounded-3xl ">
+                    <span className=" font-light italic text-base">
                       {spec.attributes.studentNames}
                     </span>
                     <span className=" font-semibold">

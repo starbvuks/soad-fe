@@ -18,8 +18,9 @@ module.exports = {
         "btn-arrow": "url('/btn-arrow.png')",
       },
       fontFamily: {
-        Monstserrat: ["Work Sans", "sans-serif"],
-        WorkSans: ["Montserrat", "sans-serif"],
+        Monstserrat: ["Montserrat", "sans-serif"],
+        DMSans: ["DM Sans", "sans-serif"],
+        Outfit: ["Outfit", "sans-serif"],
       },
     },
   },

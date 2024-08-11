@@ -67,7 +67,7 @@ export default function SemesterPage() {
             {/* <span className="text-center text-4xl font-medium">
         Digital design archive
       </span> */}
-            <div className="grid grid-cols-4 gap-8 lg:text-2xl lg:mt-24">
+            <div className="grid grid-cols-4 gap-8 lg:text-2xl lg:mt-24 font-Outfit">
               {specializations.map((spec, index) => (
                 <Link
                   href={{
@@ -76,7 +76,7 @@ export default function SemesterPage() {
                   }}
                 >
                   <div className="relative transition border-4 border-slate-500 text-slate-500 bg-slate-100 hover:bg-slate-500 hover:text-white hover:scale-105 flex flex-col justify-center items-center px-20 py-16 h-full rounded-3xl ">
-                    <span className=" font-semibold">
+                    <span className=" font-medium">
                       Sem {spec.attributes.semesterNum}
                     </span>
                   </div>
