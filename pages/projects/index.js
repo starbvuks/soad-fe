@@ -63,7 +63,7 @@ export default function SemesterPage() {
               {specializations.projectName}
             </span>
             <div className="flex flex-col">
-              <div className="flex w-5/6 gap-5">
+              <div className="flex w-5/6 gap-20">
                 <div className="w-1/2 flex flex-col">
                   <span className="text-2xl font-medium mt-5 font-DMSans">
                     Brief description of the project
@@ -75,7 +75,7 @@ export default function SemesterPage() {
                     Keywords: {specializations.keywords}
                   </span>
                 </div>
-                <div className="flex flex-col items-start justify-center w-1/2 bg-slate-100 border-dashed border-2 px-8 py-5 rounded-lg">
+                <div className="flex flex-col items-start justify-center bg-slate-100 border-dashed border-2 px-8 py-5 rounded-lg">
                   <span className="text-2xl font-semibold border-b-1 border-dashed border-slate-500">
                     Course Details
                   </span>
@@ -103,7 +103,7 @@ export default function SemesterPage() {
               {media ? (
                 <PdfViewer url={`${media}`} />
               ) : (
-                <span>Project Loading</span>
+                ""
               )}
             </div>
           </div>

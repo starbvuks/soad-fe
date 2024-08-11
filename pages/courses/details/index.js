@@ -67,13 +67,13 @@ export default function CourseDetailsPage() {
             <span className="text-2xl font-light mt-2">
               for Sem {sem}, {ay}
             </span>
-            <span className="text-xl font-medium mt-12">
+            <span className="text-xl font-medium mt-9 font-Outfit">
               Keywords: {course.keywords}
             </span>
-            <span className="text-xl font-normal mt-2 w-[60%]">
+            <span className="text-xl font-light mt-2 w-3/4 font-Outfit">
               {course.courseDetails}
             </span>
-            <div className="grid grid-cols-2 gap-8 lg:text-3xl lg:mt-24">
+            <div className="grid grid-cols-2 gap-8 lg:text-3xl lg:mt-20">
               {specializations.map((spec, index) => (
                 <Link
                   href={{

@@ -23,6 +23,10 @@ body {
   }
 }
 
+.rpv-core__text-layer {
+  visibility: hidden;
+}
+
 
  
 /* 
