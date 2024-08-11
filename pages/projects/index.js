@@ -14,8 +14,6 @@ import Loading from "../loading";
 export default function SemesterPage() {
   const [specializations, setSpecializations] = useState([]);
   const [media, setMedia] = useState("");
-  const [ay, setAy] = useState("");
-  const [course, setCourse] = useState("");
   const [isLoading, setIsLoading] = useState(true);
 
   const router = useRouter();
@@ -61,40 +59,47 @@ export default function SemesterPage() {
           <Navbar />
           <div className="flex flex-col justify-center lg:py-12 lg:pl-24 font-Monstserrat">
             <NavPath currentPath={router.pathname} />
-            <span className="text-5xl font-bold mt-4 ">
+            <span className="text-5xl font-bold mt-6 mb-5">
               {specializations.projectName}
             </span>
             <div className="flex flex-col">
-              <span className="text-3xl font-semibold mt-8">
-                Course Details
-              </span>
-              <span className="text-xl font-normal mt-2 font-DMSans">
-                Number Of Days:{" "}
-                <span className=" ml-1 font-DMSans">
-                  {specializations.numberOfDays}
-                </span>
-              </span>
-              <span className="text-xl font-normal mt-2 font-DMSans">
-                Faculty:{" "}
-                <span className=" ml-1 font-semibold font-DMSans">
-                  {specializations.faculty}
-                </span>
-              </span>
-              <span className="text-xl font-normal mt-2 font-DMSans">
-                Student(s):{" "}
-                <span className=" ml-1 font-semibold font-DMSans">
-                  {specializations.studentNames}
-                </span>
-              </span>
-              <span className="text-3xl font-semibold mt-12 font-DMSans">
-                Brief description of the project
-              </span>
-              <span className="text-lg font-semibold mt-8 font-DMSans">
-                Keywords: {specializations.keywords}
-              </span>
-              <span className="text-xl font-normal mt-2 w-[60%] font-DMSans">
-                {specializations.brief}
-              </span>
+              <div className="flex w-5/6 gap-5">
+                <div className="w-1/2 flex flex-col">
+                  <span className="text-2xl font-medium mt-5 font-DMSans">
+                    Brief description of the project
+                  </span>
+                  <span className="text-lg font-normal mt-2 font-DMSans">
+                    {specializations.brief}
+                  </span>
+                  <span className="text-lg font-semibold mt-6 font-DMSans">
+                    Keywords: {specializations.keywords}
+                  </span>
+                </div>
+                <div className="flex flex-col items-start justify-center w-1/2 bg-slate-100 border-dashed border-2 px-8 py-5 rounded-lg">
+                  <span className="text-2xl font-semibold border-b-1 border-dashed border-slate-500">
+                    Course Details
+                  </span>
+                  <div className="" />
+                  <span className="text-xl font-normal mt-2 font-DMSans">
+                    Number Of Days:{" "}
+                    <span className=" ml-1 font-DMSans">
+                      {specializations.numberOfDays}
+                    </span>
+                  </span>
+                  <span className="text-xl font-normal mt-2 font-DMSans">
+                    Faculty:{" "}
+                    <span className=" ml-1 font-semibold font-DMSans text-slate-600">
+                      {specializations.faculty}
+                    </span>
+                  </span>
+                  <span className="text-xl font-normal mt-2 font-DMSans">
+                    Student(s):{" "}
+                    <span className=" ml-1 font-semibold font-DMSans text-slate-600">
+                      {specializations.studentNames}
+                    </span>
+                  </span>
+                </div>
+              </div>
               {media ? (
                 <PdfViewer url={`${media}`} />
               ) : (

@@ -12,14 +12,14 @@ const PdfViewer = ({ url }) => {
       <div className="">
         <button
           onClick={handleOpenInNewTab}
-          className="py-2 font-medium text-[#FFAAAA] rounded hover:text-[#d66767]"
+          className="p-2 bg-slate-100 border-slate-300 border-2 rounded-lg mb-3 font-medium text-slate-500 rounded transition hover:text-slate-700 hover:border-slate-600"
         >
           Open PDF in New Tab
         </button>
       </div>
-      <div className="flex-1 w-full overflow-hidden">
+      <div className="w-full">
         <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.11.174/build/pdf.worker.min.js">
-          <div className="w-4/5 xl:w-[50%] h-full">
+          <div className="w-[90%] h-full">
             <Viewer
               fileUrl={url}
               defaultScale={SpecialZoomLevel.PageFit}
