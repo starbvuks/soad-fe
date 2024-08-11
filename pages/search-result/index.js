@@ -29,6 +29,7 @@ const SearchResultsPage = () => {
         )
         .then((res) => {
           setSearchResults(res.data.data);
+          console.log(res.data.data)
         })
         .catch((error) => {
           console.log(error);
@@ -58,6 +59,8 @@ const SearchResultsPage = () => {
                     query: {
                       specId: spec.attributes.specialization.data.id,
                       semId: spec.attributes.semester.data.id,
+                      ayId: spec.attributes.academic_year.data.id,
+                      courseId: spec.attributes.course.data.id,
                       projId: spec.id
                     },
                   }}

@@ -14,6 +14,7 @@ import Loading from "../loading";
 export default function Page() {
   const [specializations, setSpecializations] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [typedSequence, setTypedSequence] = useState("");
 
   useEffect(() => {
     const url = process.env.NEXTAUTH_URL;
@@ -53,6 +54,31 @@ export default function Page() {
       }, 500);
     });
   }, []);
+
+  const router = useRouter();
+  useEffect(() => {
+    const secretSequence = "sarvagwashere";
+
+    const handleKeyPress = (event) => {
+      const { key } = event;
+      const newTypedSequence = typedSequence + key;
+
+      if (newTypedSequence === secretSequence) {
+        router.push("https://www.sarvag.me/");
+        setTypedSequence(""); 
+      } else if (!secretSequence.startsWith(newTypedSequence)) {
+        setTypedSequence(key);
+      } else {
+        setTypedSequence(newTypedSequence);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyPress);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyPress);
+    };
+  }, [typedSequence]);
 
   const pageVariants = {
     hidden: { opacity: 0, scale: 0.9 },
