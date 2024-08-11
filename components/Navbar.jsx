@@ -46,7 +46,7 @@ export default function NavBar() {
           href="/"
           className="mx-4 text-2xl font-light italic tracking-tight"
         >
-          <img src="/wox-logo.png" alt="logo" className="w-24" />
+          <img src="/wox-logo.png" alt="logo" className="w-20 lg:w-24" />
         </Link>
       </div>
 
@@ -91,12 +91,12 @@ export default function NavBar() {
           </Link>
         </nav>
 
-        <button className="lg:hidden p-2" onClick={handleDropdownToggle}>
+        <button className="lg:hidden p-4" onClick={handleDropdownToggle}>
           <FaBars className="w-6 h-6 text-gray-400" />
         </button>
 
         <div
-          className={`fixed top-0 right-0 h-screen w-72 bg-[#f9f9f9] border-l-2 border-gray-200 transition-transform transform ${
+          className={`fixed top-0 right-0 h-screen w-56 bg-[#f9f9f9] border-l-2 border-gray-200 transition-transform transform ${
             isDropdownOpen ? "translate-x-0" : "translate-x-full"
           } lg:hidden`}
         >
@@ -104,12 +104,12 @@ export default function NavBar() {
             className="absolute top-4 right-4"
             onClick={handleDropdownToggle}
           >
-            <FaTimes className="w-6 h-6 text-black" />
+            <FaTimes className="w-6 h-6 text-black text-slate-600" />
           </button>
-          <nav className="flex flex-col items-center mt-16 space-y-4">
+          <nav className="flex flex-col items-center mt-16 ">
             <Link
               href="/gallery"
-              className="w-full p-4 text-center border-b-2 transition hover:text-white hover:bg-slate-600"
+              className="w-full p-4 text-center border-b-2 border-t-2 transition hover:text-white hover:bg-slate-600"
             >
               Gallery
             </Link>

@@ -57,18 +57,18 @@ export default function SemesterPage() {
       ) : (
         <div>
           <Navbar />
-          <div className="flex flex-col justify-center lg:py-12 lg:pl-24 font-Monstserrat">
+          <div className="flex flex-col justify-center py-6 lg:py-12 px-6 lg:pl-24 font-Monstserrat">
             <NavPath currentPath={router.pathname} />
-            <span className="text-5xl font-bold mt-6 mb-5">
+            <span className="text-3xl lg:text-5xl font-bold mt-6 mb-5">
               {specializations.projectName}
             </span>
             <div className="flex flex-col">
-              <div className="flex w-5/6 gap-20">
-                <div className="w-1/2 flex flex-col">
-                  <span className="text-2xl font-medium mt-5 font-DMSans">
+              <div className="flex flex-col lg:flex-row lg:w-5/6 gap-8 lg:gap-20">
+                <div className="lg:w-1/2 flex flex-col">
+                  <span className="text-2xl font-semibold lg:font-medium lg:mt-5 font-DMSans">
                     Brief description of the project
                   </span>
-                  <span className="text-lg font-normal mt-2 font-DMSans">
+                  <span className="text-base lg:text-lg font-normal mt-2 font-DMSans">
                     {specializations.brief}
                   </span>
                   <span className="text-lg font-semibold mt-6 font-DMSans">
@@ -76,23 +76,22 @@ export default function SemesterPage() {
                   </span>
                 </div>
                 <div className="flex flex-col items-start justify-center bg-slate-100 border-dashed border-2 px-8 py-5 rounded-lg">
-                  <span className="text-2xl font-semibold border-b-1 border-dashed border-slate-500">
+                  <span className="text-xl lg:text-2xl font-semibold border-b-1 border-dashed border-slate-500">
                     Course Details
                   </span>
-                  <div className="" />
-                  <span className="text-xl font-normal mt-2 font-DMSans">
+                  <span className="text-lg lg:text-xl font-normal mt-2 font-DMSans">
                     Number Of Days:{" "}
                     <span className=" ml-1 font-DMSans">
                       {specializations.numberOfDays}
                     </span>
                   </span>
-                  <span className="text-xl font-normal mt-2 font-DMSans">
+                  <span className="text-lg lg:text-xl font-normal mt-2 font-DMSans">
                     Faculty:{" "}
                     <span className=" ml-1 font-semibold font-DMSans text-slate-600">
                       {specializations.faculty}
                     </span>
                   </span>
-                  <span className="text-xl font-normal mt-2 font-DMSans">
+                  <span className="text-lg lg:text-xl font-normal mt-2 font-DMSans">
                     Student(s):{" "}
                     <span className=" ml-1 font-semibold font-DMSans text-slate-600">
                       {specializations.studentNames}

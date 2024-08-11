@@ -124,11 +124,11 @@ export default function Page() {
         <Loading />
       ) : (
         <motion.div
-          initial="hidden"
-          animate="visible"
-          exit="exit"
-          variants={pageVariants}
-          transition={pageTransition}
+          // initial="hidden"
+          // animate="visible"
+          // exit="exit"
+          // variants={pageVariants}
+          // transition={pageTransition}
         >
           <Navbar />
           <div className="bg-[#FAFAFA] flex flex-col justify-center font-DMSans pt-20 pb-24 lg:pb-44">
@@ -146,11 +146,11 @@ export default function Page() {
               </span>
               <Carousel />
             </div>
-            <div className="mt-20">
+            <div className="mt-12 lg:mt-20">
               <span className="text-base lg:text-2xl font-semibold tracking-tight mx-6 lg:mx-16">
                 Our Departments
               </span>
-              <div className="flex flex-wrap justify-between text-center self-center gap-3 mx-6 lg:mx-12 lg:flex-nowrap lg:gap-6 lg:grid-cols-5 lg:mx-12 mt-5 lg:text-2xl">
+              <div className="flex flex-wrap justify-between text-center self-center gap-3 mx-6 lg:mx-12 lg:flex-nowrap lg:gap-6 lg:grid-cols-5 lg:mx-12 mt-3 lg:mt-5 lg:text-2xl">
                 {specializations.map((spec, index) => (
                   <Link
                     key={spec.id}

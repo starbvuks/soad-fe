@@ -61,19 +61,19 @@ export default function CourseDetailsPage() {
       ) : (
         <div>
           <Navbar />
-          <div className="flex flex-col justify-center lg:py-12 lg:mx-24 font-Monstserrat">
+          <div className="flex flex-col justify-center pt-6 pb-20 lg:py-12 mx-6 lg:mx-24 font-Monstserrat">
             <NavPath currentPath={router.pathname} />
-            <span className="text-5xl font-bold mt-4">{course.courseName}</span>
-            <span className="text-2xl font-light mt-2">
+            <span className="text-3xl lg:text-5xl font-bold mt-4">{course.courseName}</span>
+            <span className="text-lg lg:text-2xl font-light mt-2">
               for Sem {sem}, {ay}
             </span>
-            <span className="text-xl font-medium mt-9 font-Outfit">
+            <span className="text-base lg:text-xl font-medium mt-9 font-Outfit">
               Keywords: {course.keywords}
             </span>
-            <span className="text-xl font-light mt-2 w-3/4 font-Outfit">
+            <span className="text-base lg:text-xl font-light mt-2 lg:w-3/4 font-Outfit">
               {course.courseDetails}
             </span>
-            <div className="grid grid-cols-2 gap-8 lg:text-3xl lg:mt-20">
+            <div className="grid grid-cols-2 gap-3 lg:gap-8 text-base lg:text-2xl mt-7 lg:mt-24 font-Outfit">
               {specializations.map((spec, index) => (
                 <Link
                   href={{
@@ -87,8 +87,8 @@ export default function CourseDetailsPage() {
                     },
                   }}
                 >
-                  <div className="relative font-Outfit transition border-4 border-slate-500 text-slate-500 bg-slate-100 hover:bg-slate-500 hover:text-white hover:scale-105 flex flex-col justify-center px-20 py-16 h-full rounded-3xl ">
-                    <span className=" font-light italic text-base">
+                  <div className="relative font-Outfit transition border-2 lg:border-4 border-slate-500 text-slate-500 bg-slate-100 hover:bg-slate-500 hover:text-white hover:scale-105 flex flex-col justify-center py-9 px-4 lg:px-20 lg:py-16 h-full rounded-xl lg:rounded-3xl">
+                    <span className=" font-light italic text-xs lg:text-base">
                       {spec.attributes.studentNames}
                     </span>
                     <span className=" font-semibold">

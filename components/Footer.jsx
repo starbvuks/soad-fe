@@ -10,7 +10,7 @@ export default function NavBar() {
   };
 
   return (
-    <header className="fixed text-sm -bottom-1 px-8 py-6 font-Monstserrat font-normal bg-[#f6f6f6] left-0 w-screen h-6 text-gray-400 border-t-2 border-gray-200 z-50 flex justify-between items-center">
+    <header className="fixed text-xs lg:text-sm -bottom-1 px-8 pb-4 pt-2 lg:py-6 font-Monstserrat font-normal bg-[#f6f6f6] left-0 w-screen lg:h-6 text-gray-400 border-t-2 border-gray-200 z-50 flex justify-between items-center">
       <span>@Copyright, Woxsen University, Hyderabad</span>
       {/* <span>Contact</span> */}
     </header>

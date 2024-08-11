@@ -10,12 +10,12 @@ export default function SemesterPage() {
   return (
     <div>
       <Navbar />
-      <div className="flex flex-col justify-center xl:py-12 xl:ml-24 font-Monstserrat">
-        <span className="text-5xl font-bold mt-24">Welcome</span>
-        <span className="text-3xl font-light mt-2">
+      <div className="flex flex-col justify-center px-10 xl:py-12 xl:ml-24 font-Monstserrat">
+        <span className="text-3xl lg:text-5xl font-bold mt-24">Welcome</span>
+        <span className="text-xl lg:text-3xl font-light mt-2">
           the the Woxsen School of Design Archives
         </span>
-        <span className="text-xl font-normal mt-20 w-[70%]">
+        <span className="text-sm lg:text-xl font-normal mt-4 lg:mt-20 lg:w-[70%]">
           Welcome to the School of Design Archives, a visual journey through our
           rich design legacy. Delve into our captivating timeline, charting the
           evolution of design excellence at our university, from inception to
@@ -27,7 +27,7 @@ export default function SemesterPage() {
           education. Explore further, connect with us, and become part of our
           design narrative.
         </span>
-        <span className="text-xl font-normal mt-8 w-[70%]">
+        <span className="text-sm font-semibold mt-8 lg:w-[70%]">
           Welcome to the School of Design Archives, a visual journey through our
           rich design legacy.
         </span>

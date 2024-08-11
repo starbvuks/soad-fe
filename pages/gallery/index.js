@@ -54,24 +54,24 @@ const GalleryPage = () => {
       ) : (
         <div>
           <Navbar />
-          <div className="w-full font-Outfit lg:py-32 lg:px-24 h-screen">
+          <div className="w-full font-Outfit py-24 lg:py-32 px-6 lg:px-24 h-screen">
             <div className="flex items-center">
-              <button className="mr-4 text-2xl" onClick={() => router.back()}>
+              <button className="mr-2 lg:mr-4 mb-2 lg:mb-0 text-4xl lg:text-2xl" onClick={() => router.back()}>
                 &larr;
               </button>
-              <span className="text-5xl font-bold">Gallery</span>
+              <span className="text-3xl lg:text-5xl font-bold">Gallery</span>
             </div>
-            <div className="grid grid-cols-4 gap-12 mt-12">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-12 mt-3 lg:mt-12">
               {images.map((image, index) => (
                 <div
                   key={index}
-                  className="h-64 shadow-lg cursor-pointer hover:scale-105 transition-all delay-50"
+                  className="h-44 lg:h-64 shadow-lg cursor-pointer hover:scale-105 transition-all delay-50"
                   onClick={() => openModal(image)}
                 >
                   <img
                     src={image.attributes.images.data[0].attributes.url}
                     alt={`Gallery Image ${index + 1}`}
-                    className="object-contain overflow-hidden h-full w-full"
+                    className="object-cover border-1 border-slate-400 lg:border-0 lg:object-contain overflow-hidden h-full w-full"
                   />
                 </div>
               ))}
@@ -80,25 +80,25 @@ const GalleryPage = () => {
         </div>
       )}
       {selectedImage && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 font- tracking-tight">
-          <div className="relative h-4/5 mx-32 max-h-3xl bg-[#FAFAFA] shadow-xl rounded-xl text-black ">
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 tracking-tight">
+          <div className="relative h-2/3 lg:h-4/5 mx-12 lg:mx-32 lg:max-h-3xl bg-[#FAFAFA] shadow-xl rounded-xl text-black ">
             <button
-              className="absolute top-2 right-4 text-slate-500 hover:text-slate-800 text-2xl"
+              className="absolute top-2 right-4 bg-black lg:bg-white rounded-full px-2 lg:px-0 text-white lg:text-slate-500 hover:text-slate-800 text-2xl"
               onClick={closeModal}
             >
               &times;
             </button>
-            <div className="flex justify-start">
+            <div className="flex flex-col lg:flex-row justify-start">
               <img
                 src={selectedImage}
                 alt="Selected Image"
-                className="object-cover rounded-md w-2/3 h-[80vh]"
+                className="object-contain lg:object-cover rounded-t-md rounded-b-none lg:rounded-md lg:w-2/3 lg:h-[80vh]"
               />
-              <div className="flex flex-col py-16 px-8 w-1/2">
-                <span className="text-3xl z-100 font-semibold">
+              <div className="flex flex-col lg:py-16 px-8 lg:w-1/2">
+                <span className="text-lg lg:text-3xl z-100 font-semibold mt-6 lg:mt-0">
                   {selectedImageHeader}
                 </span>
-                <span className="text-lg mt-2 font-normal">
+                <span className="text-sm lg:text-lg mt-2 font-normal">
                   {selectedImageContent}
                 </span>
               </div>

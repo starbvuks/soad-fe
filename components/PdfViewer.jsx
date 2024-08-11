@@ -19,7 +19,7 @@ const PdfViewer = ({ url }) => {
       </div>
       <div className="w-full">
         <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.11.174/build/pdf.worker.min.js">
-          <div className="w-[90%] h-full">
+          <div className="lg:w-[90%] h-full">
             <Viewer
               fileUrl={url}
               defaultScale={SpecialZoomLevel.PageFit}

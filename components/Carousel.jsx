@@ -65,13 +65,13 @@ const Carousel = () => {
                   {/* Left and Right arrows */}
                   <button
                     onClick={prevSlide}
-                    className=" left-0 z-20 w-6 h-6 bg-white lg:bg-opacity-75 rounded-full flex items-center justify-center text-gray-800 hover:bg-opacity-50 focus:outline-none focus:bg-opacity-50"
+                    className=" left-0 z-20 w-6 h-6 pb-1 lg:pb-0 bg-white lg:bg-opacity-75 rounded-full flex items-center justify-center text-gray-800 hover:bg-opacity-50 focus:outline-none focus:bg-opacity-50"
                   >
                     &larr;
                   </button>
                   <button
                     onClick={nextSlide}
-                    className=" right-0 z-20 w-6 h-6 bg-white lg:bg-opacity-75 rounded-full flex items-center justify-center text-gray-800 hover:bg-opacity-50 focus:outline-none focus:bg-opacity-50"
+                    className=" right-0 z-20 w-6 h-6 pb-1 lg:pb-0 bg-white lg:bg-opacity-75 rounded-full flex items-center justify-center text-gray-800 hover:bg-opacity-50 focus:outline-none focus:bg-opacity-50"
                   >
                     &rarr;
                   </button>

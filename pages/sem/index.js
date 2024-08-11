@@ -61,13 +61,10 @@ export default function SemesterPage() {
       ) : (
         <div>
           <Navbar />
-          <div className="flex flex-col justify-center lg:py-12 lg:mx-16 xl:mx-24 font-Monstserrat">
+          <div className="flex flex-col justify-center py-6 mx-6 lg:mx-16 xl:mx-24 font-Monstserrat">
             <NavPath currentPath={router.pathname} />
-            <span className="text-5xl font-bold mt-4">Semester</span>
-            {/* <span className="text-center text-4xl font-medium">
-        Digital design archive
-      </span> */}
-            <div className="grid grid-cols-4 gap-8 lg:text-2xl lg:mt-24 font-Outfit">
+            <span className="text-3xl lg:text-5xl font-bold mt-4">Semester</span>
+             <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-8 text-base lg:text-2xl mt-7 lg:mt-24 font-Outfit">
               {specializations.map((spec, index) => (
                 <Link
                   href={{
@@ -75,7 +72,7 @@ export default function SemesterPage() {
                     query: { specId: specId, ayId: ayId, semId: spec.id },
                   }}
                 >
-                  <div className="relative transition border-4 border-slate-500 text-slate-500 bg-slate-100 hover:bg-slate-500 hover:text-white hover:scale-105 flex flex-col justify-center items-center px-20 py-16 h-full rounded-3xl ">
+                    <div className="relative transition border-2 lg:border-4 border-slate-500 text-slate-500 bg-slate-100 hover:bg-slate-500 hover:text-white hover:scale-105 flex flex-col justify-center items-center p-9 lg:px-20 lg:py-16 h-full rounded-3xl">
                     <span className=" font-medium">
                       Sem {spec.attributes.semesterNum}
                     </span>
