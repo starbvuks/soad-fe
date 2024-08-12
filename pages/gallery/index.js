@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
+import { FaChevronLeft } from "react-icons/fa";
 
 import Navbar from "../../components/Navbar";
 import Loading from "../loading";
@@ -56,8 +57,8 @@ const GalleryPage = () => {
           <Navbar />
           <div className="w-full font-Outfit py-24 lg:py-32 px-6 lg:px-24 h-screen">
             <div className="flex items-center">
-              <button className="mr-2 lg:mr-4 mb-2 lg:mb-0 text-4xl lg:text-2xl" onClick={() => router.back()}>
-                &larr;
+              <button className="mr-2 lg:mr-4 mb-2 lg:mb-0 text-4xl transition lg:text-3xl hover:text-red-400" onClick={() => router.back()}>
+                <FaChevronLeft />
               </button>
               <span className="text-3xl lg:text-5xl font-bold">Gallery</span>
             </div>
@@ -94,7 +95,7 @@ const GalleryPage = () => {
                 alt="Selected Image"
                 className="object-contain lg:object-cover rounded-t-md rounded-b-none lg:rounded-md lg:w-2/3 lg:h-[80vh]"
               />
-              <div className="flex flex-col lg:py-16 px-8 lg:w-1/2">
+              <div className="overflow-y-auto flex flex-col lg:py-16 px-8 lg:w-1/2">
                 <span className="text-lg lg:text-3xl z-100 font-semibold mt-6 lg:mt-0">
                   {selectedImageHeader}
                 </span>

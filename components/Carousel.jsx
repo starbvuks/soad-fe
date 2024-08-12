@@ -2,8 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { Spinner } from "@nextui-org/react";
 import axios from "axios";
-
-import Loading from "@/pages/loading";
+import { FaChevronCircleRight, FaChevronCircleLeft } from "react-icons/fa";
 
 const Carousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -61,19 +60,19 @@ const Carousel = () => {
               }`}
             >
               <div className="w-full justify-center text-black rounded-lg">
-                <div className="absolute bottom-2 lg:bottom-8 right-0 flex items-center justify-between mx-10 gap-5">
+                <div className="absolute bottom-2 lg:bottom-6 right-0 flex items-center justify-between mx-5 gap-3">
                   {/* Left and Right arrows */}
                   <button
                     onClick={prevSlide}
-                    className=" left-0 z-20 w-6 h-6 pb-1 lg:pb-0 bg-white lg:bg-opacity-75 rounded-full flex items-center justify-center text-gray-800 hover:bg-opacity-50 focus:outline-none focus:bg-opacity-50"
+                    className=" left-0 z-20 pb-1 lg:pb-0 flex items-center justify-center text-gray-300 transition hover:scale-110 hover:text-red-200 focus:outline-none focus:bg-opacity-50"
                   >
-                    &larr;
+                    <FaChevronCircleLeft className="w-6 h-6" />
                   </button>
                   <button
                     onClick={nextSlide}
-                    className=" right-0 z-20 w-6 h-6 pb-1 lg:pb-0 bg-white lg:bg-opacity-75 rounded-full flex items-center justify-center text-gray-800 hover:bg-opacity-50 focus:outline-none focus:bg-opacity-50"
+                    className=" right-0 z-20 pb-1 lg:pb-0 flex items-center justify-center text-gray-300 transition hover:scale-110 hover:text-red-200 focus:outline-none focus:bg-opacity-50"
                   >
-                    &rarr;
+                    <FaChevronCircleRight className="w-6 h-6" />
                   </button>
                 </div>
 
