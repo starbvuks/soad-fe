@@ -73,7 +73,7 @@ export default function AcademicYearPage() {
                     }}
                   >
                     <div className="relative transition border-2 lg:border-4 border-slate-500 text-slate-500 bg-slate-100 hover:bg-slate-500 hover:text-white hover:scale-105 flex flex-col justify-center items-center p-9 lg:px-20 lg:py-16 h-full rounded-3xl">
-                      <span className=" font-medium">{spec.attributes.ay}</span>
+                      <span className="whitespace-nowrap font-medium">{spec.attributes.ay}</span>
                     </div>
                   </Link>
                 ))}
