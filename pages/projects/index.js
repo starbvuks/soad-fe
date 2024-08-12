@@ -93,7 +93,7 @@ export default function SemesterPage() {
                   </span>
                   <span className="text-lg lg:text-xl font-normal mt-2 font-DMSans">
                     Student(s):{" "}
-                    <Link href={`/search-result?term=${specializations.studentNames}`} className="border-black border-dotted border-slate-400 lg:border-slate-300 border-b-1 ml-1 font-semibold font-DMSans text-slate-600">
+                    <Link href={`/search-result?term=${specializations.studentNames}`} className="border-black border-dotted border-slate-400 lg:border-slate-300 border-b-1 ml-1 font-semibold font-DMSans text-slate-600 hover:text-slate-800">
                       {specializations.studentNames}
                     </Link>
                   </span>
