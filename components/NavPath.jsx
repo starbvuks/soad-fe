@@ -145,7 +145,7 @@ const NavigationPath = () => {
 
   return (
     <div className="mt-20">
-      <ul className="flex flex-wrap gap-1 lg:gap-3">
+      <ul className="flex flex-wrap gap-x-1 lg:gap-3">
         {pages.map((page, index) => {
           if (index < currentPageIndex) {
             const href = `${page.path}?${new URLSearchParams(
@@ -154,14 +154,14 @@ const NavigationPath = () => {
             return (
               <li key={page.path}>
                 <Link href={href}>
-                  <span className="font-semibold text-slate-500 hover:text-slate-800 text-sm lg:text-lg">
+                  <span className="font-semibold text-slate-500 hover:text-slate-800 text-xs lg:text-lg">
                     {page.label} /
                   </span>
                 </Link>
               </li>
             );
           } else if (index === currentPageIndex) {
-            return <li key={page.path} className="pt-[1px] lg:pt-[2px]">{page.label}</li>;
+            return <li key={page.path} className="text-xs lg:text-lg pt-[5px] lg:pt-[0px]">{page.label}</li>;
           }
           return null;
         })}

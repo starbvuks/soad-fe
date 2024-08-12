@@ -18,7 +18,7 @@ const PdfViewer = ({ url }) => {
       <div className="">
         <button
           onClick={handleOpenInNewTab}
-          className="p-2 bg-slate-100 border-slate-300 border-2 text-base rounded-lg mb-3 font-medium text-slate-500 rounded transition hover:text-slate-700 hover:border-slate-600"
+          className="p-2 bg-slate-100 border-slate-300 border-2 text-xs lg:text-base rounded-lg mb-3 font-medium text-slate-500 rounded transition hover:text-slate-700 hover:border-slate-600"
         >
           Open PDF in New Tab
         </button>

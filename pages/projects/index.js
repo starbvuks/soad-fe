@@ -57,7 +57,7 @@ export default function SemesterPage() {
       ) : (
         <div>
           <Navbar />
-          <div className="flex flex-col justify-center py-6 lg:py-12 px-6 lg:pl-24 lg:pr-16 font-Monstserrat">
+          <div className="flex flex-col justify-center pt-6 pb-14 lg:py-12 px-6 lg:pl-24 lg:pr-16 font-Monstserrat">
             <NavPath currentPath={router.pathname} />
             <span className="text-3xl lg:text-5xl font-bold mt-6 mb-5">
               {specializations.projectName}
@@ -71,7 +71,7 @@ export default function SemesterPage() {
                   <span className="text-base lg:text-lg font-normal mt-2 font-DMSans">
                     {specializations.brief}
                   </span>
-                  <span className="text-lg font-semibold mt-6 font-DMSans">
+                  <span className="text-sm lg:text-lg font-semibold mt-6 font-DMSans">
                     Keywords: {specializations.keywords}
                   </span>
                 </div>
@@ -93,7 +93,7 @@ export default function SemesterPage() {
                   </span>
                   <span className="text-lg lg:text-xl font-normal mt-2 font-DMSans">
                     Student(s):{" "}
-                    <Link href={`/search-result?term=${specializations.studentNames}`} className="border-black border-dotted border-slate-300 border-b-1 ml-1 font-semibold font-DMSans text-slate-600">
+                    <Link href={`/search-result?term=${specializations.studentNames}`} className="border-black border-dotted border-slate-400 lg:border-slate-300 border-b-1 ml-1 font-semibold font-DMSans text-slate-600">
                       {specializations.studentNames}
                     </Link>
                   </span>

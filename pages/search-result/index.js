@@ -46,12 +46,12 @@ const SearchResultsPage = () => {
 
   return (
     <div>
-      <div className="flex flex-col justify-center xl:p-12 font-Monstserrat">
+      <div className="flex flex-col justify-center p-6 xl:p-12 font-Monstserrat">
         <Navbar />
-        <span className="text-2xl text-black font-light mt-24 border-b-3 border-dashed pb-6">
+        <span className="text-lg lg:text-2xl text-black font-light mt-24 border-b-3 border-dashed pb-6">
           Search Results For <span className="font-normal">"{searchTerm}"</span>
         </span>
-            <div className="grid grid-cols-2 gap-8 font-Outfit xl:text-2xl xl:mt-10">
+            <div className="grid grid-cols-2 gap-3 lg:gap-8 font-Outfit mt-8 xl:text-2xl xl:mt-10">
               {searchResults.map((spec, index) => (
                 <Link
                   href={{
@@ -65,11 +65,11 @@ const SearchResultsPage = () => {
                     },
                   }}
                 >
-                  <div className="relative transition border-4 border-slate-500 text-slate-500 bg-slate-100 hover:bg-slate-500 hover:text-white hover:scale-105 flex flex-col justify-center px-20 py-16 h-full rounded-3xl ">
-                    <span className=" font-extralight italic text-base">
+                  <div className="relative font-Outfit transition border-2 lg:border-4 border-slate-500 text-slate-500 bg-slate-100 hover:bg-slate-500 hover:text-white hover:scale-105 flex flex-col justify-center py-9 px-4 lg:px-20 lg:py-16 h-full rounded-xl lg:rounded-3xl">
+                    <span className=" font-light italic text-xs lg:text-base">
                       {spec.attributes.studentNames}
                     </span>
-                    <span className=" font-medium">
+                    <span className=" font-semibold">
                       {spec.attributes.projectName}
                     </span>
                   </div>

@@ -51,13 +51,13 @@ export default function NavBar() {
       </div>
 
       <div className="flex items-center space-x-4">
-        <div className="relative hidden lg:block">
-          <form onSubmit={handleSearchSubmit} className="flex items-center">
+        <div className="relative block">
+          <form onSubmit={handleSearchSubmit} className="flex justify-end items-center">
             <input
               type="text"
               value={searchTerm}
               onChange={(event) => setSearchTerm(event.target.value)}
-              className="px-4 py-2.5 text-sm font-medium rounded-full bg-gray-100 border border-gray-200 placeholder-gray-400 focus:outline focus:ring-2 focus:ring-gray-500 w-[300px]"
+              className="px-3 lg:px-4 py-2 lg:py-2.5 text-sm font-medium rounded-full bg-gray-100 border border-gray-200 placeholder-gray-400 focus:outline focus:ring-2 focus:ring-gray-500 w-2/3 lg:w-[300px]"
               placeholder="Search..."
               aria-label="Search"
             />
@@ -65,7 +65,7 @@ export default function NavBar() {
               type="submit"
               className="p-3 ml-2 rounded-full bg-[#FFAAAA] text-[#E9E9E9] transition hover:text-[#cfcfcf] hover:bg-[#ff8585]"
             >
-              <FaSearch className="w-4 h-4" />
+              <FaSearch className="w-3 lg:w-4 h-3 lg:h-4" />
             </button>
           </form>
         </div>

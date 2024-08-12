@@ -64,15 +64,15 @@ const Carousel = () => {
                   {/* Left and Right arrows */}
                   <button
                     onClick={prevSlide}
-                    className=" left-0 z-20 pb-1 lg:pb-0 flex items-center justify-center text-gray-300 transition hover:scale-110 hover:text-red-200 focus:outline-none focus:bg-opacity-50"
+                    className=" left-0 z-20 pb-1 lg:pb-0 flex items-center justify-center text-gray-300 transition hover:scale-110 lg:hover:text-red-200 focus:outline-none focus:bg-opacity-50"
                   >
-                    <FaChevronCircleLeft className="w-6 h-6" />
+                    <FaChevronCircleLeft className="w-4 h-4 lg:w-6 lg:h-6" />
                   </button>
                   <button
                     onClick={nextSlide}
-                    className=" right-0 z-20 pb-1 lg:pb-0 flex items-center justify-center text-gray-300 transition hover:scale-110 hover:text-red-200 focus:outline-none focus:bg-opacity-50"
+                    className=" right-0 z-20 pb-1 lg:pb-0 flex items-center justify-center text-gray-300 transition hover:scale-110 lg:hover:text-red-200 focus:outline-none focus:bg-opacity-50"
                   >
-                    <FaChevronCircleRight className="w-6 h-6" />
+                    <FaChevronCircleRight className="w-4 h-4 lg:w-6 lg:h-6" />
                   </button>
                 </div>
 
@@ -80,7 +80,7 @@ const Carousel = () => {
                   <div className="w-[25%] relative">
                     <img
                       src={item.attributes.images.data[0].attributes.url}
-                      className="h-full w-full rounded-sm bg-slate-100 lg:object-cover object-contain 2xl:object-cover"
+                      className="h-full w-full rounded-none lg:rounded-sm bg-slate-100 object-cover"
                     />
                     <span className="absolute text-white text-lg text-center m-auto bottom-2 left-0 right-0 opacity-60 hidden lg:block">
                       {item.attributes.title1}
@@ -89,7 +89,7 @@ const Carousel = () => {
                   <div className="w-[25%] relative">
                     <img
                       src={item.attributes.images.data[1].attributes.url}
-                      className="h-full w-full rounded-sm bg-slate-100 lg:object-cover object-contain 2xl:object-cover"
+                      className="h-full w-full rounded-none lg:rounded-sm bg-slate-100 object-cover"
                     />
                     <span className="absolute  text-white text-lg text-center m-auto bottom-2 left-0 right-0 opacity-60 hidden lg:block">
                       {item.attributes.title2}
@@ -98,7 +98,7 @@ const Carousel = () => {
                   <div className="w-[25%] relative">
                     <img
                       src={item.attributes.images.data[2].attributes.url}
-                      className="h-full w-full rounded-sm bg-slate-100 lg:object-cover object-contain 2xl:object-cover"
+                      className="h-full w-full rounded-none lg:rounded-sm bg-slate-100 object-cover"
                     />
                     <span className="absolute text-white text-lg text-center m-auto bottom-2 left-0 right-0 opacity-60 hidden lg:block">
                       {item.attributes.title3}
@@ -107,7 +107,7 @@ const Carousel = () => {
                   <div className="w-[25%] relative">
                     <img
                       src={item.attributes.images.data[3].attributes.url}
-                      className="h-full w-full rounded-sm bg-slate-100 lg:object-cover object-contain 2xl:object-cover"
+                      className="h-full w-full rounded-none lg:rounded-sm bg-slate-100 object-cover"
                     />
                     <span className="absolute text-white text-lg text-center m-auto bottom-2 left-0 right-0 opacity-60 hidden lg:block">
                       {item.attributes.title4}
