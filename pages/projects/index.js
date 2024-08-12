@@ -57,14 +57,14 @@ export default function SemesterPage() {
       ) : (
         <div>
           <Navbar />
-          <div className="flex flex-col justify-center py-6 lg:py-12 px-6 lg:pl-24 font-Monstserrat">
+          <div className="flex flex-col justify-center py-6 lg:py-12 px-6 lg:pl-24 lg:pr-16 font-Monstserrat">
             <NavPath currentPath={router.pathname} />
             <span className="text-3xl lg:text-5xl font-bold mt-6 mb-5">
               {specializations.projectName}
             </span>
             <div className="flex flex-col">
-              <div className="flex flex-col lg:flex-row lg:w-5/6 gap-8 lg:gap-20">
-                <div className="lg:w-1/2 flex flex-col">
+              <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-24">
+                <div className="flex flex-col">
                   <span className="text-2xl font-semibold lg:font-medium lg:mt-5 font-DMSans">
                     Brief description of the project
                   </span>
@@ -75,7 +75,7 @@ export default function SemesterPage() {
                     Keywords: {specializations.keywords}
                   </span>
                 </div>
-                <div className="flex flex-col items-start justify-center bg-slate-100 border-dashed border-2 px-8 py-5 rounded-lg">
+                <div className="flex flex-col lg:w-4/5 items-start justify-center bg-slate-100 border-dashed border-2 px-8 py-5 rounded-lg">
                   <span className="text-xl lg:text-2xl font-semibold border-b-1 border-dashed border-slate-500">
                     Course Details
                   </span>
@@ -93,9 +93,9 @@ export default function SemesterPage() {
                   </span>
                   <span className="text-lg lg:text-xl font-normal mt-2 font-DMSans">
                     Student(s):{" "}
-                    <span className=" ml-1 font-semibold font-DMSans text-slate-600">
+                    <Link href={`/search-result?term=${specializations.studentNames}`} className="border-black border-dotted border-slate-300 border-b-1 ml-1 font-semibold font-DMSans text-slate-600">
                       {specializations.studentNames}
-                    </span>
+                    </Link>
                   </span>
                 </div>
               </div>
