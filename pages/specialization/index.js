@@ -133,10 +133,10 @@ export default function Page() {
           <Navbar />
           <div className="bg-[#FAFAFA] flex flex-col justify-center font-DMSans pt-20 pb-24 lg:pb-44">
             <div className="flex flex-col gap-1 tracking-tight font-Outfit">
-              <span className="text-center text-black text-3xl lg:text-2xl font-bold mt-7 lg:mt-[3%] lg:text-5xl">
+              <span className="text-center text-black text-3xl lg:text-2xl font-bold mt-9 lg:mt-[3%] lg:text-5xl">
                 School of Art & Design
               </span>
-              <span className="text-center text-black text-2xl font-light lg:text-4xl">
+              <span className="text-center text-black text-2xl font-extralight lg:text-4xl">
                 Digital Design Archive
               </span>
             </div>
@@ -150,7 +150,7 @@ export default function Page() {
               <span className="text-base lg:text-2xl font-semibold tracking-tight mx-6 lg:mx-16">
                 Our Departments
               </span>
-              <div className="grid grid-cols-2 md:flex md:flex-wrap justify-between text-center self-center gap-3 mx-6 lg:mx-12 lg:flex-nowrap lg:gap-5 lg:grid-cols-5 lg:mx-12 mt-3 lg:mt-5 lg:text-2xl">
+              <div className="grid grid-cols-2 lg:flex lg:flex-wrap justify-between text-center self-center gap-3 mx-6 lg:mx-12 lg:flex-nowrap lg:gap-6 lg:grid-cols-5 lg:mx-12 mt-3 lg:mt-5 lg:text-2xl">
                 {specializations.map((spec, index) => (
                   <Link
                     key={spec.id}
@@ -160,7 +160,7 @@ export default function Page() {
                     }}
                   >
                     <motion.div
-                      className="group md:flex md:flex-col justify-start items-center bg-opacity-20 hover:scale-105 w-full h-[6.5em] xl:w-[10em] 2xl:w-[14em] xl:min-h-[6em] rounded-xl shadow-md lg:shadow-lg shadow-center"
+                      className="group lg:flex lg:flex-col justify-start items-center bg-opacity-20 w-full lg:w-[9em] h-[6.5em] xl:w-[10em] 2xl:w-[14em] xl:min-h-[6em] rounded-xl shadow-md lg:shadow-lg shadow-center"
                       whileHover={{
                         scale: 1.05,
                         backgroundColor: getBackgroundColor(
@@ -170,7 +170,7 @@ export default function Page() {
                       }}
                       transition={{ type: "linear", stiffness: 500 }}
                     >
-                      <div className="text-center w-full h-full flex flex-col justify-center items-center p-4 rounded-lg lg:rounded-lg border-2 border-slate-300">
+                      <div className="text-center w-full h-full flex flex-col justify-center items-center p-4 rounded-lg lg:rounded-xl border-2 border-slate-300">
                         <span className="font-medium text-slate-500 lg:group-hover:text-white group-hover:font-semibold tracking-tight">
                           {spec.attributes.specializationName}
                         </span>
