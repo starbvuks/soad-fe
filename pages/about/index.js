@@ -27,7 +27,7 @@ export default function SemesterPage() {
           education. Explore further, connect with us, and become part of our
           design narrative.
         </span>
-        <span className="text-sm font-semibold mt-8 lg:w-[70%]">
+        <span className="text-sm lg:text-xl font-semibold mt-8 lg:w-[70%]">
           Welcome to the School of Design Archives, a visual journey through our
           rich design legacy.
         </span>

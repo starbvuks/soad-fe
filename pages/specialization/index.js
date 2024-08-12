@@ -150,7 +150,7 @@ export default function Page() {
               <span className="text-base lg:text-2xl font-semibold tracking-tight mx-6 lg:mx-16">
                 Our Departments
               </span>
-              <div className="grid grid-cols-2 md:flex md:flex-wrap justify-between text-center self-center gap-3 mx-6 lg:mx-12 lg:flex-nowrap lg:gap-6 lg:grid-cols-5 lg:mx-12 mt-3 lg:mt-5 lg:text-2xl">
+              <div className="grid grid-cols-2 md:flex md:flex-wrap justify-between text-center self-center gap-3 mx-6 lg:mx-12 lg:flex-nowrap lg:gap-5 lg:grid-cols-5 lg:mx-12 mt-3 lg:mt-5 lg:text-2xl">
                 {specializations.map((spec, index) => (
                   <Link
                     key={spec.id}
@@ -170,7 +170,7 @@ export default function Page() {
                       }}
                       transition={{ type: "linear", stiffness: 500 }}
                     >
-                      <div className="text-center w-full h-full flex flex-col justify-center items-center p-4 rounded-lg lg:rounded-xl border-2 border-slate-300">
+                      <div className="text-center w-full h-full flex flex-col justify-center items-center p-4 rounded-lg lg:rounded-lg border-2 border-slate-300">
                         <span className="font-medium text-slate-500 lg:group-hover:text-white group-hover:font-semibold tracking-tight">
                           {spec.attributes.specializationName}
                         </span>
