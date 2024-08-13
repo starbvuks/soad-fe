@@ -45,7 +45,7 @@ const Carousel = () => {
   console.log(gallery);
 
   return (
-    <div className="relative mx-auto overflow-hidden rounded-lg w-full h-28 lg:h-72 bg-white shadow-md">
+    <div className="relative mx-auto overflow-hidden lg:rounded-lg w-full h-32 lg:h-72 bg-white shadow-md">
       {isLoading ? (
         <div className="flex items-center justify-center w-full h-full">
           <Spinner color="warning" size="lg" className="z-100" />
@@ -76,7 +76,7 @@ const Carousel = () => {
                   </button>
                 </div>
 
-                <div className="flex w-[100%] justify-between h-28 lg:h-72">
+                <div className="flex w-[100%] justify-between h-32 lg:h-72">
                   <div className="w-[25%] relative">
                     <img
                       src={item.attributes.images.data[0].attributes.url}
@@ -91,7 +91,7 @@ const Carousel = () => {
                       src={item.attributes.images.data[1].attributes.url}
                       className="h-full w-full rounded-none lg:rounded-sm bg-slate-100 object-cover"
                     />
-                    <span className="absolute  text-white text-lg text-center m-auto bottom-2 left-0 right-0 opacity-60 hidden lg:block">
+                    <span className="absolute text-white text-lg text-center m-auto bottom-2 left-0 right-0 opacity-60 hidden lg:block">
                       {item.attributes.title2}
                     </span>
                   </div>

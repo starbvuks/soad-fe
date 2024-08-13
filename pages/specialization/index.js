@@ -5,6 +5,7 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { FaHouse } from "react-icons/fa6";
 
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
@@ -92,8 +93,7 @@ export default function Page() {
     damping: 25,
     stiffness: 90,
   };
-
-  function getBackgroundColor(specializationName) {
+  function getTextColor(specializationName) {
     const colors = {
       Foundation: "#EF767A",
       "Communication Design": "#D68FD6",
@@ -101,19 +101,16 @@ export default function Page() {
       "Industrial Design": "#75C9B7",
       "Interior Design": "#ABD699",
     };
-    return colors[specializationName] || "defaultColor";
+    return colors[specializationName] || "#808080"; // Fallback to a gray color
   }
 
   function getSpecializationDescription(specializationName) {
     const descriptions = {
-      Foundation: "Focuses on foundational design principles.",
-      "Communication Design": "Creates visual messages across mediums.",
-      "Fashion Design":
-        "Designs clothing and accessories with style and function.",
-      "Industrial Design":
-        "Designs functional and aesthetically pleasing products.",
-      "Interior Design":
-        "Enhances interior spaces for aesthetics and function.",
+      Foundation: "FoD",
+      "Communication Design": "Cd",
+      "Fashion Design": "Fd",
+      "Industrial Design": "IId",
+      "Interior Design": "Id",
     };
     return descriptions[specializationName] || "";
   }
@@ -123,34 +120,28 @@ export default function Page() {
       {isLoading ? (
         <Loading />
       ) : (
-        <motion.div
-        // initial="hidden"
-        // animate="visible"
-        // exit="exit"
-        // variants={pageVariants}
-        // transition={pageTransition}
-        >
+        <motion.div>
           <Navbar />
-          <div className="bg-[#FAFAFA] flex flex-col justify-center font-DMSans pt-20 pb-24 lg:pb-44">
+          <div className="bg-[#FAFAFA] flex flex-col justify-center font-DMSans pt-20">
             <div className="flex flex-col gap-1 tracking-tight font-Outfit">
-              <span className="text-center text-black text-3xl lg:text-2xl font-bold mt-9 lg:mt-[3%] lg:text-5xl">
+              <span className="text-center text-neutral-700 text-3xl font-bold mt-6 lg:mt-[3%] lg:text-5xl">
                 School of Art & Design
               </span>
-              <span className="text-center text-black text-2xl font-extralight lg:text-4xl">
+              <span className="text-center text-neutral-900 text-2xl font-extralight lg:text-4xl">
                 Digital Design Archive
               </span>
             </div>
-            <div className="mx-6 lg:mx-16 mt-12 flex flex-col gap-5">
-              <span className="text-base lg:text-2xl font-semibold tracking-tight">
+            <div className="lg:mx-16 mt-12 lg:flex lg:flex-col gap-2 lg:gap-5">
+              <span className="text-xl hidden lg:flex mx-6 lg:mx-0 lg:text-3xl font-medium tracking-tight">
                 Our Expertise
               </span>
               <Carousel />
             </div>
-            <div className="mt-12 lg:mt-20">
-              <span className="text-base lg:text-2xl font-semibold tracking-tight mx-6 lg:mx-16">
+            <div className="flex flex-col items-center lg:block lg:items-start mt-16 lg:mt-20 border-t-2 border-slate-200 bg-neutral-100 pt-6 lg:pt-9 pb-24">
+              <span className="text-2xl text-slate-700 lg:text-3xl font-medium tracking-tight mx-6 lg:mx-16">
                 Our Departments
               </span>
-              <div className="grid grid-cols-2 lg:flex lg:flex-wrap justify-between text-center self-center gap-3 mx-6 lg:mx-12 lg:flex-nowrap lg:gap-6 lg:grid-cols-5 lg:mx-12 mt-3 lg:mt-5 lg:text-2xl">
+              <div className="grid grid-cols-2 gap-3 mx-6 lg:mx-16 mt-7 lg:mt-7 lg:flex lg:justify-between lg:gap-6">
                 {specializations.map((spec, index) => (
                   <Link
                     key={spec.id}
@@ -158,29 +149,43 @@ export default function Page() {
                       pathname: `/ay`,
                       query: { specId: spec.id },
                     }}
+                    className="w-full lg:w-1/5"
                   >
-                    <motion.div
-                      className="group lg:flex lg:flex-col justify-start items-center bg-opacity-20 w-full lg:w-[9em] h-[6.5em] xl:w-[10em] 2xl:w-[14em] xl:min-h-[6em] rounded-xl shadow-md lg:shadow-lg shadow-center"
-                      whileHover={{
-                        scale: 1.05,
-                        backgroundColor: getBackgroundColor(
-                          spec.attributes.specializationName
-                        ),
-                        color: "black",
-                      }}
-                      transition={{ type: "linear", stiffness: 500 }}
+                    <div
+                      className={`
+                          group flex flex-col justify-center items-center h-[7.5em] lg:h-[10em] rounded-xl shadow-md lg:shadow-lg
+                          transition-all duration-300 ease-linear hover:scale-105
+                          hover:bg-[${getTextColor(
+                            spec.attributes.specializationName
+                          )}]
+                        `}
                     >
-                      <div className="text-center w-full h-full flex flex-col justify-center items-center p-4 rounded-lg lg:rounded-xl border-2 border-slate-300">
-                        <span className="font-medium text-slate-500 lg:group-hover:text-white group-hover:font-semibold tracking-tight">
-                          {spec.attributes.specializationName}
-                        </span>
-                        {/* <span className="font-light text-sm mt-1 group-hover:text-slate-100 text-slate-500 ">
+                      <div
+                        className={`text-center w-full h-full flex flex-col justify-center items-center p-4 rounded-lg border-2`}
+                        style={{
+                          borderColor: getTextColor(
+                            spec.attributes.specializationName
+                          ),
+                        }}
+                      >
+                        <span
+                          className={`
+                              text-3xl lg:text-4xl font-medium tracking-tight
+                              text-[${getTextColor(
+                                spec.attributes.specializationName
+                              )}]
+                              group-hover:text-white group-hover:font-semibold
+                            `}
+                        >
                           {getSpecializationDescription(
                             spec.attributes.specializationName
                           )}
-                        </span> */}
+                        </span>
+                        <span className="font-normal text-sm lg:text-base mt-1 text-slate-500 group-hover:font-medium group-hover:text-white">
+                          {spec.attributes.specializationName}
+                        </span>
                       </div>
-                    </motion.div>
+                    </div>
                   </Link>
                 ))}
               </div>
