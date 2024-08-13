@@ -124,7 +124,7 @@ export default function Page() {
           <Navbar />
           <div className="bg-[#FAFAFA] flex flex-col justify-center font-DMSans pt-20">
             <div className="flex flex-col gap-1 tracking-tight font-Outfit">
-              <span className="text-center text-neutral-700 text-3xl font-bold mt-6 lg:mt-[3%] lg:text-5xl">
+              <span className="text-center text-red-700 text-3xl font-bold mt-6 lg:mt-[3%] lg:text-5xl">
                 School of Art & Design
               </span>
               <span className="text-center text-neutral-900 text-2xl font-extralight lg:text-4xl">
