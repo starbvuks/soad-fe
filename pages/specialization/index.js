@@ -17,6 +17,8 @@ export default function Page() {
   const [isLoading, setIsLoading] = useState(true);
   const [typedSequence, setTypedSequence] = useState("");
 
+  const [hoveredIndex, setHoveredIndex] = useState(null);
+
   useEffect(() => {
     const url = process.env.NEXTAUTH_URL;
     const token = process.env.NEXT_PUBLIC_TOKEN;
@@ -149,16 +151,15 @@ export default function Page() {
                       pathname: `/ay`,
                       query: { specId: spec.id },
                     }}
-                    className="w-full lg:w-1/5"
+                    className="w-full lg:w-1/5 group"
                   >
                     <div
                       className={`
-                          group flex flex-col justify-center items-center h-[7.5em] lg:h-[10em] rounded-xl shadow-md lg:shadow-lg
-                          transition-all duration-300 ease-linear hover:scale-105
-                          hover:bg-[${getTextColor(
-                            spec.attributes.specializationName
-                          )}]
-                        `}
+                      group flex flex-col justify-center items-center h-[7.5em] lg:h-[10em] rounded-xl shadow-md lg:shadow-lg transition-all duration-150 ease-linear hover:scale-105
+                      group-hover:bg-[${getTextColor(
+                        spec.attributes.specializationName
+                      )}]
+                    `}
                     >
                       <div
                         className={`text-center w-full h-full flex flex-col justify-center items-center p-4 rounded-lg border-2`}
@@ -170,18 +171,19 @@ export default function Page() {
                       >
                         <span
                           className={`
-                              text-3xl lg:text-4xl font-medium tracking-tight
-                              text-[${getTextColor(
-                                spec.attributes.specializationName
-                              )}]
-                              group-hover:text-white group-hover:font-semibold
+                              text-3xl lg:text-4xl font-medium tracking-tight group-hover:text-white group-hover:font-semibold
                             `}
+                          style={{
+                            color: getTextColor(
+                              spec.attributes.specializationName
+                            ),
+                          }}
                         >
                           {getSpecializationDescription(
                             spec.attributes.specializationName
                           )}
                         </span>
-                        <span className="font-normal text-sm lg:text-base mt-1 text-slate-500 group-hover:font-medium group-hover:text-white">
+                        <span className="font-normal text-sm lg:text-base mt-1 text-slate-500 group-hover:font-medium group-hover:text-black">
                           {spec.attributes.specializationName}
                         </span>
                       </div>
