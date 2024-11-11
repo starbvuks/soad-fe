@@ -71,9 +71,23 @@ export default function SemesterPage() {
                   <span className="text-base lg:text-lg font-normal mt-2 font-DMSans">
                     {specializations.brief}
                   </span>
-                  <span className="text-sm lg:text-lg font-semibold mt-6 font-DMSans">
-                    Keywords: {specializations.keywords}
+                  <span className="text-sm lg:text-lg font-normal mt-6 font-DMSans">
+                    <span className="font-semibold">Keywords:</span>{" "}
+                    {specializations.keywords}
                   </span>
+                  <span className="flex text-sm lg:text-lg font-normal mt-2 font-DMSans">
+                    <span className="text-green-600 font-semibold text-sm lg:text-lg">
+                      SDG Goals Met:
+                    </span>
+                    <div className=" ml-1 font-normal font-DMSans text-black">
+                      {specializations.sdgs.data.map((sdg, index) => (
+                        <span>
+                          {/* {sdg.id} - {sdg.attributes.Goal}, &nbsp; */}
+                          {sdg.attributes.Goal}, &nbsp;
+                        </span>
+                      ))}
+                    </div>
+                  </span>{" "}
                 </div>
                 <div className="flex flex-col lg:w-4/5 items-start justify-center bg-slate-100 border-dashed border-2 px-8 py-5 rounded-lg">
                   <span className="text-xl lg:text-2xl font-semibold border-b-1 border-dashed border-slate-500">
@@ -93,17 +107,16 @@ export default function SemesterPage() {
                   </span>
                   <span className="text-lg lg:text-xl font-normal mt-2 font-DMSans">
                     Student(s):{" "}
-                    <Link href={`/search-result?term=${specializations.studentNames}`} className="border-black border-dotted border-slate-400 lg:border-slate-300 border-b-1 ml-1 font-semibold font-DMSans text-slate-600 hover:text-slate-800">
+                    <Link
+                      href={`/search-result?term=${specializations.studentNames}`}
+                      className="border-dotted border-slate-400 lg:border-slate-300 border-b-1 ml-1 font-semibold font-DMSans text-slate-600 hover:text-slate-800"
+                    >
                       {specializations.studentNames}
                     </Link>
                   </span>
                 </div>
               </div>
-              {media ? (
-                <PdfViewer url={`${media}`} />
-              ) : (
-                ""
-              )}
+              {media ? <PdfViewer url={`${media}`} /> : ""}
             </div>
           </div>
           <Footer />
