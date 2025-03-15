@@ -15,7 +15,7 @@ const Carousel = () => {
 
     const fetchGalleryData = async () => {
       const res = await axios.get(
-        "https://soad.alephinnovation.live/api/carousels?populate=*",
+        "https://admin.soad.co.in/api/carousels?populate=*",
         {
           headers: {
             Authorization: `Bearer ${token}`,

@@ -21,7 +21,7 @@ const NavigationPath = () => {
       if (specId) {
         try {
           const response = await axios.get(
-            `https://soad.alephinnovation.live/api/specializations/${specId}`,
+            `https://admin.soad.co.in/api/specializations/${specId}`,
             {
               headers: {
                 Authorization: `Bearer ${token}`,
@@ -39,7 +39,7 @@ const NavigationPath = () => {
       if (ayId) {
         try {
           const response = await axios.get(
-            `https://soad.alephinnovation.live/api/academic-years/${ayId}`,
+            `https://admin.soad.co.in/api/academic-years/${ayId}`,
             {
               headers: {
                 Authorization: `Bearer ${token}`,
@@ -55,7 +55,7 @@ const NavigationPath = () => {
       if (semId) {
         try {
           const response = await axios.get(
-            `https://soad.alephinnovation.live/api/semesters/${semId}`,
+            `https://admin.soad.co.in/api/semesters/${semId}`,
             {
               headers: {
                 Authorization: `Bearer ${token}`,

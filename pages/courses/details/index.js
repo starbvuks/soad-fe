@@ -26,7 +26,7 @@ export default function CourseDetailsPage() {
     const fetchData = async () => {
       const res = await axios
         .get(
-          `https://soad.alephinnovation.live/api/projects?populate=*&filters[specialization][id][$eq]=${specId}&filters[academic_year][id][$eq]=${ayId}&filters[semester][id][$eq]=${semId}&filters[course][id][$eq]=${courseId}`,
+          `https://admin.soad.co.in/api/projects?populate=*&filters[specialization][id][$eq]=${specId}&filters[academic_year][id][$eq]=${ayId}&filters[semester][id][$eq]=${semId}&filters[course][id][$eq]=${courseId}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,

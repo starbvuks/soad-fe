@@ -22,7 +22,7 @@ export default function SemesterPage() {
 
     const fetchData = async () => {
       const res = await axios.get(
-        `https://soad.alephinnovation.live/api/semesters?populate=*&filters[specializations][id][$eq]=${specId}&filters[academic_years][id][$eq]=${ayId}`,
+        `https://admin.soad.co.in/api/semesters?populate=*&filters[specializations][id][$eq]=${specId}&filters[academic_years][id][$eq]=${ayId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

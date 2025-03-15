@@ -25,7 +25,7 @@ export default function Page() {
 
     const fetchData = async () => {
       const res = await axios.get(
-        "https://soad.alephinnovation.live/api/specializations?populate=*",
+        "https://admin.soad.co.in/api/specializations?populate=*",
         {
           headers: {
             Authorization: `Bearer ${token}`,

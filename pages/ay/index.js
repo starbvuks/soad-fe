@@ -24,7 +24,7 @@ export default function AcademicYearPage() {
 
       try {
         const res = await axios.get(
-          `https://soad.alephinnovation.live/api/academic-years?populate=specialization&filters[specialization][id][$eq]=${specId}`,
+          `https://admin.soad.co.in/api/academic-years?populate=specialization&filters[specialization][id][$eq]=${specId}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
